@@ -96,18 +96,6 @@
                 </li>
             </ul>
         </section>
-        <!--<section>-->
-            <!--<h1>Part 1</h1>-->
-            <!--<h2>Tiny introduction to machine learning</h2>-->
-            <!--<a target="_blank" href="http://www.r2d3.us/visual-intro-to-machine-learning-part-1/">-->
-                <!--A Visual Introduction to Machine Learning</a>-->
-            <!--<p></p>-->
-        <!--</section>-->
-
-        <!--<section>-->
-            <!--<h1>Part 2</h1>-->
-            <!--<h2>Deep Learning Learning in the Browser with JavasScript</h2>-->
-        <!--</section>-->
 
         <section>
             <h2>Why JavaScript for Machine Learning?</h2>
@@ -129,7 +117,7 @@
             </ul>
         </section>
         <section>
-            <h2>Why Deep Learning?</h2>
+            <h2>Deep Learning</h2>
         </section>
         <section>
             <h4>Parts that can learn from data</h4>
@@ -281,7 +269,6 @@
         <section>
             <h2>Code for classifyer</h2>
             <pre><code data-trim>
-
 layer_defs = [
     {type:'input', out_sx:1, out_sy:1, out_depth:2},
     {type:'fc', num_neurons:6, activation: 'tanh'},
@@ -291,7 +278,7 @@ layer_defs = [
 net = new convnetjs.Net();
 net.makeLayers(layer_defs);
 
-trainer = new convnetjs.SGDTrainer(net,
+trainer = new convnetjs.Trainer(net,
                 { learning_rate:0.01,
                   momentum:0.1,
                   batch_size:10,
@@ -302,7 +289,7 @@ trainer = new convnetjs.SGDTrainer(net,
         <section>
             <h2>Classifyer Example - Layers</h2>
             <ul>
-                <li class="fragment">input layer: 2 outputs TODO: but what? (out_sx:1, out_sy:1 only non null when processing image data)
+                <li class="fragment">input layer: 2d (x,y) (out_sx:1, out_sy:1 only non 0 when processing image data)
                 <li class="fragment">2 hidden layers
                     <ul>
                         <li class="fragment"><a target="_blank" href="https://en.wikipedia.org/wiki/Activation_function">
@@ -312,22 +299,40 @@ trainer = new convnetjs.SGDTrainer(net,
                         <li class="fragment">type <em>fc</em>: fully connected, like feedforward NNs
                     </ul>
                 </li>
-                <li class="fragment">output layer uses softmax: emits probabilities for the two classes
+                <li class="fragment">output layer uses softmax: emits probabilities for the two classes (0..1)
             </ul>
         </section>
 
         <section>
-            <h2>Classifyer Example - Training</h2>
-            <ul>
-                <li class="fragment">Training uses backpropagation (as described before)
-                <li class="fragment">SGDTrainer: TODO
-                <li class="fragment">learning_rate: TODO
-                <li class="fragment">momentum: TODO
-                <li class="fragment">batch_size: TODO
-                <li class="fragment">l2_decay: TODO
-            </ul>
+            <h2>Classifyer Example - Prediction</h2>
+            <pre><code data-trim>
+var point = new convnetjs.Vol(1,1,2); // needs to match input layer
+point.w = [3.0, 4.0];
+var prediction = net.forward(point);
+// probability of classes in .w
+if(prediction.w[0] > prediction.w[1]) // red;
+else // green;
+            </code></pre>
         </section>
 
+        <section>
+            <h2>Classifyer Example - Training</h2>
+            <pre><code data-trim>
+var data = [[-0.4326,  1.1909], [3.0, 4.0], [1.8133, 1.0139 ]];
+var labels = [1, 1, 0];
+var N =  labels.length;
+        </code></pre>
+            <pre class="fragment"><code data-trim>
+for (var iter=0; iter &lt; 20; iter++) {
+    for (var ix=0; ix &lt; N; ix++) {
+        </code></pre>
+            <pre class="fragment"><code>      var point = new convnetjs.Vol(1,1,2);
+      var label = labels[ix];
+      point.w = data[ix];</code></pre>
+            <pre class="fragment"><code>      trainer.train(point, label);
+    }
+}</code></pre>
+        </section>
         <section>
             <h2>ConvNetJS: Separability</h2>
             <p>Just one hidden layer, number of perceptions changing</p>
@@ -340,7 +345,96 @@ trainer = new convnetjs.SGDTrainer(net,
         </section>
 
         <section>
+            <h3>Regression</h3>
+            <p>Does not classify, but tries to find a coninuous function that goes through all data points</p>
+            <a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/regression.html">
+                <img src="screehshot-regression-w-output-first-layer.png" height="400">
+            </a>
+            <p><small><a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/regression.html">
+                http://cs.stanford.edu/people/karpathy/convnetjs/demo/regression.html
+            </a></small></p>
+        </section>
+
+        <section>
+            <h2>Regression Example - Code</h2>
+            <p class="fragment">Quick Quiz: How many neurons in hidden layer?</p>
+            <pre class="fragment"><code data-trim>
+layer_defs = [
+  {type:'input', out_sx:1, out_sy:1, out_depth:1},
+  {type:'fc', num_neurons:5, activation:'sigmoid'},
+  {type:'regression', num_neurons:1}];
+
+net = new convnetjs.Net();
+net.makeLayers(layer_defs);
+
+trainer = new convnetjs.Trainer(net,
+  {learning_rate:0.01, momentum:0.0, batch_size:1, l2_decay:0.001});
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Non-total-toy-stuff?</h2>
+            <h3 class="fragment">Here you go</h3>
+        </section>
+
+        <section>
+            <h3>The CIFAR-10 dataset</h3>
+            <p>Tiny images in 10 classes, 6000 per class in training set</p>
+            <a target="_blank" href="http://www.cs.toronto.edu/~kriz/cifar.html">
+                <img src="screenshot-CIFAR-10.png" height="400">
+            </a>
+            <p><small><a target="_blank" href="http://www.cs.toronto.edu/~kriz/cifar.html">
+                http://www.cs.toronto.edu/~kriz/cifar.html
+            </a></small></p>
+        </section>
+
+
+        <section>
+            <h2>Processing images</h2>
+            <a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/regression.html">
+                <img src="screenshot-cifar-example-predictions.png" height="400">
+            </a>
+            <p><small><a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html">
+                http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html
+            </a></small></p>
+        </section>
+
+        <section>
+            <h2>CIFAR-10 with Convolutional Deep Neural Networks</h2>
+            <ul>
+                <li class="fragment">needs a lot of training to get good results (predictions on previous page after 5 minutes)
+                <li class="fragment">input 32x32 RGB images (<code>{type:'input', out_sx:32, out_sy:32, out_depth:3}</code>)
+                <li class="fragment">uses convolutional as hidden layers
+                    <ul>
+                        <li class="fragment">closer to how the brain processes image data
+                        <li class="fragment">not strict feed forward, uses clusters
+                        <li class="fragment">lots of additional parameters
+                        <li class="fragment">better results
+                    </ul>
+                <li class="fragment">output again softmax
+            </ul>
+        </section>
+        <!--<section>-->
+            <!--<h3>Unsupervised Learning</h3>-->
+            <!--<h1 style="color: red">TODO</h1>-->
+        <!--</section>-->
+
+        <section>
+        <h2>Optional Bonus Round</h2>
+            <a target="_blank" href="http://www.r2d3.us">
+            A Visual Introduction to Machine Learning</a>
+        </section>
+
+        <section>
             <h2>Wrap-Up</h2>
+            <ul>
+                <li class="fragment">setting up a NN is insanely simple
+                <li class="fragment">preparing data and making results visible often is much harder
+                <li class="fragment">the browser even makes Deep Learning more accessible
+                <li class="fragment">all the fancy deep learning stuff works in the browser
+                <li class="fragment">especially good for learning and education
+                <li class="fragment">direct visualization and interactivity
+            </ul>
         </section>
 
         <section>
@@ -350,10 +444,13 @@ trainer = new convnetjs.SGDTrainer(net,
                        href="http://rinuboney.github.io/2015/10/18/theoretical-motivations-deep-learning.html">
                     Theoretical Motivations for Deep Learning
                 </a>
-                <li><a href="http://r2d3.us" target="_blank">
-                    Mind blowing visual introduction to machine learning</a>
+                <!--<li><a href="http://r2d3.us" target="_blank">-->
+                    <!--Mind blowing visual introduction to machine learning</a>-->
                 <li><a href="http://neuralnetworksanddeeplearning.com/" target="_blank">
                     Getting dirty with the math</a>
+                <li><a href="https://www.tensorflow.org/" target="_blank">
+                    Googles Machine Learning Library</a>
+
             </ul>
         </section>
         <section>
