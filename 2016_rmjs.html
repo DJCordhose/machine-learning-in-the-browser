@@ -74,6 +74,40 @@
         </section>
 
         <section>
+            <h2>Personal Motivation</h2>
+            <ul>
+                <li class="fragment">Studied AI in the 90s
+                    <ul>
+                        <li class="fragment">Nothing much worked
+                        <li class="fragment">Especially neural networks did not cut it at all
+                    </ul>
+                </li>
+                <li class="fragment">Main problems
+                    <ul>
+                        <li class="fragment">not enough data
+                        <li class="fragment">not enough machine power
+                    </ul>
+                </li>
+                <li class="fragment">Met Big Data in 2014
+                    <ul>
+                        <li class="fragment">@Graylog2
+                        <li class="fragment">Thought about ways to extract insights from big data sets
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Plan for today</h2>
+            <h4 class="fragment">Part I: Introduction to Deep Neural Networks</h4>
+            <h4 class="fragment">Part II: Doing the magic using convnet.js</h4>
+        </section>
+
+        <section>
+            <h2>Part I: Introduction to Deep Neural Networks</h2>
+        </section>
+
+        <section>
             <h2>What is machine learning?</h2>
             <ul>
                 <li class="fragment"><a href="https://en.wikipedia.org/wiki/Machine_learning" target="_blank">
@@ -111,53 +145,10 @@
             </ul>
         </section>
 
-
         <section>
-            <h2>Personal Motivation</h2>
-            <ul>
-                <li class="fragment">Studied AI in the 90s
-                    <ul>
-                        <li class="fragment">Nothing worked
-                        <li class="fragment">Especially neural networks did not cut it at all
-                    </ul>
-                </li>
-                <li class="fragment">Main problems
-                    <ul>
-                        <li class="fragment">not enough data
-                        <li class="fragment">not enough machine power
-                    </ul>
-                </li>
-                <li class="fragment">Met Big Data in 2014
-                    <ul>
-                        <li class="fragment">@Graylog2
-                        <li class="fragment">Thought about ways to extract insights from big data sets
-                    </ul>
-                </li>
-            </ul>
+            <h2>Deep Learning using Neural Networks</h2>
         </section>
 
-        <section>
-            <h2>Why JavaScript for Machine Learning?</h2>
-            <ul>
-                <li class="fragment">Python and R are predominant
-                    <ul>
-                        <li class="fragment">Have a large and mature set of libs
-                        <li class="fragment">Are reasonably fast
-                        <li class="fragment">Using binding to C/C++ or Fortran
-                    </ul>
-                </li>
-                <li class="fragment">JavaScript has benefits, though
-                    <ul>
-                        <li class="fragment">might be the language you are most comfortable with
-                        <li class="fragment">might be the only language around (because all you have is a browser)
-                        <li class="fragment">zero installation, easy to get started
-                    </ul>
-                </li>
-            </ul>
-        </section>
-        <section>
-            <h2>Deep Learning</h2>
-        </section>
         <section>
             <h4>Parts that can learn from data</h4>
             <p>By AI strategy (gray)</p>
@@ -165,6 +156,16 @@
             <p><small><a target="_blank" href="http://rinuboney.github.io/2015/10/18/theoretical-motivations-deep-learning.html">
                 http://rinuboney.github.io/2015/10/18/theoretical-motivations-deep-learning.html
             </a></small></p>
+        </section>
+
+        <section>
+            <h3>Requirements on manual preparation of data</h3>
+            <ol>
+                <li class="fragment"><em>Rule-based systems</em>: AI systems hand-designed by experts, no learning
+                <li class="fragment"><em>Classic machine learning</em>: features are hand-designed, most time is spent designing the optimal features, generic classfier can learn
+                <li class="fragment"><em>Representation learning</em>: important features are automatically discovered
+                <li class="fragment"><em>Deep learning</em>: like representation learning, but multiple layers for powerful abstraction
+            </ol>
         </section>
 
         <section>
@@ -181,13 +182,12 @@
                 <li class="fragment"><a target="_blank"
                                         href="https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/Neuron/index.html">
                     mathematical model of a biological neuron</a>
-                <li class="fragment">creates an output based on weighted inputs
-                <li class="fragment">can use a step function to create boolean output
-                <li class="fragment">alternatively a <a target="_blank"
-                                                        href="https://en.wikipedia.org/wiki/Sigmoid_function">
-                    sigmoid function</a> to create a similar characteristic, but still giving continuous values
+                <li class="fragment">creates a single output based on sum of many weighted inputs
+                <li class="fragment">uses a <a target="_blank"
+                                               href="https://en.wikipedia.org/wiki/Sigmoid_function">
+                sigmoid</a> activation function to create boolean like output
                 <li class="fragment">can be trained to create an output based on an input
-                <li class="fragment">training means to adjust weights of inputs
+                <li class="fragment">training means to adjust weights of inputs based on error in output
                 <li class="fragment"><a target="_blank"
                                         href="graph-and-perceptron.html">preceptron training visualization</a>
             </ul>
@@ -232,7 +232,7 @@
                 <li class="fragment">middle layer(s) called hidden layer(s)
                 <li class="fragment">each perceptron in each layer gets exactly the same input
                 <li class="fragment">no connection between perceptrons in same layer
-                <li class="fragment">each perceptron in one layer feeds all perceptrons in the next layer with its complete output
+                <li class="fragment">each perceptron in one layer feeds all perceptrons in the next layer with its output
                 <li class="fragment"><a target="_blank" href="https://en.wikipedia.org/wiki/Feedforward_neural_network">
                 data flows forward in one direction, there are no cycles</a>
             </ul>
@@ -243,7 +243,7 @@
             <ul>
                 <li class="fragment">Errors in output can be used for training
                 <li class="fragment">Go through the network in reverse order
-                <li class="fragment">Starting from output layer to stopping at input layer
+                <li class="fragment">Going from output layer to input layer
                 <li class="fragment">Error will correct weights of perceptrons
                 <li class="fragment">The more a perceptron has contributed to an error, the bigger the correction
             </ul>
@@ -264,6 +264,29 @@
                 <li class="fragment"><a target="_blank" href="https://en.wikipedia.org/wiki/Convolutional_neural_network">
                 Convolutional Deep Neural Networks
             </a> are a variant specialized in computer vision
+            </ul>
+        </section>
+        <section>
+            <h2>Part II: Doing the magic using convnet.js</h2>
+        </section>
+
+        <section>
+            <h2>Why JavaScript for Machine Learning?</h2>
+            <ul>
+                <li class="fragment">Python and R are predominant
+                    <ul>
+                        <li class="fragment">Have a large and mature set of libs
+                        <li class="fragment">Are reasonably fast
+                        <li class="fragment">Using binding to C/C++ or Fortran
+                    </ul>
+                </li>
+                <li class="fragment">JavaScript has benefits, though
+                    <ul>
+                        <li class="fragment">might be the language you are most comfortable with
+                        <li class="fragment">might be the only language around (because all you have is a browser)
+                        <li class="fragment">zero installation, easy to get started
+                    </ul>
+                </li>
             </ul>
         </section>
 
@@ -295,7 +318,7 @@
 
         <section>
             <h2>ConvNetJS: Example</h2>
-            <p>Iteractive classifyer using deep neural network</p>
+            <p>Iteractive classifier using deep neural network</p>
             <a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/classify2d.html">
                 <img src="screeshot-convnet-2d-classifier.png" height="400">
                 <img src="screeshot-convnet-2d-classifier-spiral.png" height="400">
@@ -306,7 +329,7 @@
         </section>
 
         <section>
-            <h2>Code for classifyer</h2>
+            <h2>Code for classifier</h2>
             <pre><code data-trim>
 layer_defs = [
     {type:'input', out_sx:1, out_sy:1, out_depth:2},
@@ -326,14 +349,13 @@ trainer = new convnetjs.Trainer(net,
         </section>
 
         <section>
-            <h2>Classifyer Example - Layers</h2>
+            <h2>Classifier Example - Layers</h2>
             <ul>
                 <li class="fragment">input layer: 2d (x,y) (out_sx:1, out_sy:1 only non 0 when processing image data)
                 <li class="fragment">2 hidden layers
                     <ul>
                         <li class="fragment"><a target="_blank" href="https://en.wikipedia.org/wiki/Activation_function">
                                                 activation function</a> <em>tanh</em>
-                            (<em>sigmoid/<a href="https://en.wikipedia.org/wiki/Logistic_function" target="_blank">logistic function</a></em> also supported)
                         <li class="fragment">first has 6 neurons, second 2
                         <li class="fragment">type <em>fc</em>: fully connected, like feedforward NNs
                     </ul>
@@ -343,7 +365,7 @@ trainer = new convnetjs.Trainer(net,
         </section>
 
         <section>
-            <h2>Classifyer Example - Prediction</h2>
+            <h2>Classifier Example - Prediction</h2>
             <pre><code data-trim>
 var point = new convnetjs.Vol(1,1,2); // needs to match input layer
 point.w = [3.0, 4.0];
@@ -355,7 +377,7 @@ else // green;
         </section>
 
         <section>
-            <h2>Classifyer Example - Training</h2>
+            <h2>Classifier Example - Training</h2>
             <pre><code data-trim>
 var data = [[-0.4326,  1.1909], [3.0, 4.0], [1.8133, 1.0139 ]];
 var labels = [1, 1, 0];
@@ -427,10 +449,9 @@ trainer = new convnetjs.Trainer(net,
             </a></small></p>
         </section>
 
-
         <section>
             <h2>Processing images</h2>
-            <a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/regression.html">
+            <a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html">
                 <img src="screenshot-cifar-example-predictions.png" height="400">
             </a>
             <p><small><a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html">
@@ -439,17 +460,39 @@ trainer = new convnetjs.Trainer(net,
         </section>
 
         <section>
+            <h2>CIFAR-10 Example - Code</h2>
+            <pre class="fragment"><code data-trim>
+layer_defs = [
+{type:'input', out_sx:32, out_sy:32, out_depth:3},
+{type:'conv', sx:5, filters:16, stride:1, pad:2, activation:'relu'},
+{type:'pool', sx:2, stride:2}),
+{type:'conv', sx:5, filters:20, stride:1, pad:2, activation:'relu'}.
+{type:'pool', sx:2, stride:2},
+{type:'conv', sx:5, filters:20, stride:1, pad:2, activation:'relu'},
+{type:'pool', sx:2, stride:2},
+{type:'softmax', num_classes:10}];
+
+net = new convnetjs.Net();
+net.makeLayers(layer_defs);
+
+trainer = new convnetjs.Trainer(net,
+                {method:'adadelta', batch_size:4, l2_decay:0.0001});
+            </code></pre>
+        </section>
+        <section>
             <h2>CIFAR-10 with Convolutional Deep Neural Networks</h2>
             <ul>
                 <li class="fragment">needs a lot of training to get good results (predictions on previous page after 5 minutes)
-                <li class="fragment">input 32x32 RGB images (<code>{type:'input', out_sx:32, out_sy:32, out_depth:3}</code>)
-                <li class="fragment">uses convolutional as hidden layers
+                <li class="fragment">input 32x32 RGB images
+                <li class="fragment">uses <a href="http://cs.stanford.edu/people/karpathy/convnetjs/docs.html" target="_blank">
+                convolutional</a> hidden layers
                     <ul>
                         <li class="fragment">closer to how the brain processes image data
-                        <li class="fragment">not strict feed forward, uses clusters
+                        <li class="fragment">not completely connected
                         <li class="fragment">lots of additional parameters
-                        <li class="fragment">better results
                     </ul>
+                <li class="fragment"><a target="_blank" href="https://en.wikipedia.org/wiki/Convolutional_neural_network#Pooling_layer">
+                pooling layers</a> in between provide translation invariance
                 <li class="fragment">output again softmax
             </ul>
         </section>
@@ -457,12 +500,6 @@ trainer = new convnetjs.Trainer(net,
             <!--<h3>Unsupervised Learning</h3>-->
             <!--<h1 style="color: red">TODO</h1>-->
         <!--</section>-->
-
-        <section>
-        <h2>Optional Bonus Round</h2>
-            <a target="_blank" href="http://www.r2d3.us">
-            A Visual Introduction to Machine Learning</a>
-        </section>
 
         <section>
             <h2>Wrap-Up</h2>
@@ -483,8 +520,8 @@ trainer = new convnetjs.Trainer(net,
                        href="http://rinuboney.github.io/2015/10/18/theoretical-motivations-deep-learning.html">
                     Theoretical Motivations for Deep Learning
                 </a>
-                <!--<li><a href="http://r2d3.us" target="_blank">-->
-                    <!--Mind blowing visual introduction to machine learning</a>-->
+                <li><a href="http://r2d3.us" target="_blank">
+                    A visual introduction to machine learning</a>
                 <li><a href="http://neuralnetworksanddeeplearning.com/" target="_blank">
                     Getting dirty with the math</a>
                 <li><a href="https://www.tensorflow.org/" target="_blank">
