@@ -16,7 +16,8 @@
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
     <link rel="stylesheet" href="reveal.js/css/reveal.css">
-    <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
+    <!--<link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">-->
+    <link rel="stylesheet" href="reveal.js/css/theme/night.css" id="theme">
     <!--<link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">-->
     <!--<link rel="stylesheet" href="reveal.js/css/theme/night.css" id="theme">-->
     <!--<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">-->
@@ -25,12 +26,13 @@
     <!-- Code syntax highlighting -->
     <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
     <style>
-        /*pre code {*/
+        pre code {
             /*display: block;*/
             /*padding: 0.5em;*/
             /*background: #FFFFFF !important;*/
             /*color: #000000 !important;*/
-        /*}*/
+            font-size: larger !important;
+        }
 
         .right-img {
             margin-left: 10px !important;
@@ -61,8 +63,8 @@
     <div class="slides">
 
         <section>
-            <h3>Machine Learning in the Browser with Deep Neural Networks</h3>
-            <h4>A Visual Introduction</h4>
+            <h2>Machine Learning in the Browser with Deep Neural Networks</h2>
+            <h3>A Visual Introduction</h3>
             <p>
                 <small><a href="http://zeigermann.eu">Oliver Zeigermann</a> / <a href="http://twitter.com/djcordhose">@DJCordhose</a>
                 </small>
@@ -379,36 +381,36 @@ trainer = new convnetjs.Trainer(net,
             <!--</ul>-->
         <!--</section>-->
 
-        <!--<section>-->
-            <!--<h3>Classifier Example - Prediction</h3>-->
-            <!--<pre><code data-trim>-->
-<!--var point = new convnetjs.Vol(1,1,2); // needs to match input layer-->
-<!--point.w = [3.0, 4.0];-->
-<!--var prediction = net.forward(point);-->
-<!--// probability of classes in .w-->
-<!--if(prediction.w[0] > prediction.w[1]) // red;-->
-<!--else // green;-->
-            <!--</code></pre>-->
-        <!--</section>-->
+        <section>
+            <h3>Classifier Example - Prediction</h3>
+            <pre><code data-trim>
+var point = new convnetjs.Vol(1,1,2); // needs to match input layer
+point.w = [3.0, 4.0];
+var prediction = net.forward(point);
+// probability of classes in .w
+if(prediction.w[0] > prediction.w[1]) // red;
+else // green;
+            </code></pre>
+        </section>
 
-        <!--<section>-->
-            <!--<h3>Classifier Example - Training</h3>-->
-            <!--<pre><code data-trim>-->
-<!--var data = [[-0.4326,  1.1909], [3.0, 4.0], [1.8133, 1.0139 ]];-->
-<!--var labels = [1, 1, 0];-->
-<!--var N =  labels.length;-->
-        <!--</code></pre>-->
-            <!--<pre class="fragment"><code data-trim>-->
-<!--for (var iter=0; iter &lt; 20; iter++) {-->
-    <!--for (var ix=0; ix &lt; N; ix++) {-->
-        <!--</code></pre>-->
-            <!--<pre class="fragment"><code>      var point = new convnetjs.Vol(1,1,2);-->
-      <!--var label = labels[ix];-->
-      <!--point.w = data[ix];</code></pre>-->
-            <!--<pre class="fragment"><code>      trainer.train(point, label);-->
-    <!--}-->
-<!--}</code></pre>-->
-        <!--</section>-->
+        <section>
+            <h3>Classifier Example - Training</h3>
+            <pre><code data-trim>
+var data = [[-0.4326,  1.1909], [3.0, 4.0], [1.8133, 1.0139 ]];
+var labels = [1, 1, 0];
+var N =  labels.length;
+        </code></pre>
+            <pre class="fragment"><code data-trim>
+for (var iter=0; iter &lt; 20; iter++) {
+    for (var ix=0; ix &lt; N; ix++) {
+        </code></pre>
+            <pre class="fragment"><code>      var point = new convnetjs.Vol(1,1,2);
+      var label = labels[ix];
+      point.w = data[ix];</code></pre>
+            <pre class="fragment"><code>      trainer.train(point, label);
+    }
+}</code></pre>
+        </section>
         <section>
             <h3>ConvNetJS: Separability</h3>
             <p>Just one hidden layer, number of perceptrons dynamic</p>
