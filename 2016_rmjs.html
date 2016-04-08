@@ -73,7 +73,7 @@
         </section>
 
         <section>
-            <h2>Personal Motivation</h2>
+            <h3>Personal Motivation</h3>
             <ul>
                 <li class="fragment">Studied AI in the 90s
                     <ul>
@@ -107,7 +107,7 @@
         </section>
 
         <section>
-            <h2>What is machine learning?</h2>
+            <h3>What is machine learning?</h3>
             <ul>
                 <li class="fragment"><a href="https://en.wikipedia.org/wiki/Machine_learning" target="_blank">
                     science of getting computers to act without being explicitly programmed</a>
@@ -123,7 +123,7 @@
             </ul>
         </section>
         <section>
-            <h2>Supervised vs Unsupervised Learning</h2>
+            <h3>Supervised vs Unsupervised Learning</h3>
         <ul>
             <li class="fragment">supervised learning: train a system by giving input and output
             <li class="fragment">unsupervised learning: find previously unknown patterns in data, e.g.
@@ -137,7 +137,7 @@
         </section>
 
         <section>
-            <h2>And <a href="https://en.wikipedia.org/wiki/Deep_learning" target="_blank">Deep Learning?</a></h2>
+            <h3>And <a href="https://en.wikipedia.org/wiki/Deep_learning" target="_blank">Deep Learning?</a></h3>
             <ul>
                 <li class="fragment">high-level abstraction machine learning using multiple processing layers
                 <li class="fragment">e.g. neural networks with more than one hidden layer
@@ -148,58 +148,71 @@
             <h2>Deep Learning using Neural Networks</h2>
         </section>
 
-        <section>
-            <h4>Parts that can learn from data</h4>
-            <p>By AI strategy (gray)</p>
-            <img src="AI_system_parts.png" height="450px" style="border: 0">
-            <p><small><a target="_blank" href="http://rinuboney.github.io/2015/10/18/theoretical-motivations-deep-learning.html">
-                http://rinuboney.github.io/2015/10/18/theoretical-motivations-deep-learning.html
-            </a></small></p>
-        </section>
+        <!--<section>-->
+            <!--<h4>Parts that can learn from data</h4>-->
+            <!--<p>By AI strategy (gray)</p>-->
+            <!--<img src="AI_system_parts.png" height="450px" style="border: 0">-->
+            <!--<p><small><a target="_blank" href="http://rinuboney.github.io/2015/10/18/theoretical-motivations-deep-learning.html">-->
+                <!--http://rinuboney.github.io/2015/10/18/theoretical-motivations-deep-learning.html-->
+            <!--</a></small></p>-->
+        <!--</section>-->
+
+        <!--<section>-->
+            <!--<h3>Requirements on manual preparation of data</h3>-->
+            <!--<ol>-->
+                <!--<li class="fragment"><em>Rule-based systems</em>: AI systems hand-designed by experts, no learning-->
+                <!--<li class="fragment"><em>Classic machine learning</em>: features are hand-designed, most time is spent on designing the optimal features, generic classfier can learn-->
+                <!--<li class="fragment"><em>Representation learning</em>: important features are automatically discovered-->
+                <!--<li class="fragment"><em>Deep learning</em>: like representation learning, but multiple layers for powerful abstraction-->
+            <!--</ol>-->
+        <!--</section>-->
 
         <section>
-            <h3>Requirements on manual preparation of data</h3>
-            <ol>
-                <li class="fragment"><em>Rule-based systems</em>: AI systems hand-designed by experts, no learning
-                <li class="fragment"><em>Classic machine learning</em>: features are hand-designed, most time is spent designing the optimal features, generic classfier can learn
-                <li class="fragment"><em>Representation learning</em>: important features are automatically discovered
-                <li class="fragment"><em>Deep learning</em>: like representation learning, but multiple layers for powerful abstraction
-            </ol>
-        </section>
-
-        <section>
-            <h2>The perceptron - where it all begins</h2>
+            <h3>The perceptron - where it all begins</h3>
             <img src="perceptron.jpg" height="400">
             <p><small><a target="_blank" href="http://www.theprojectspot.com/tutorial-post/introduction-to-artificial-neural-networks-part-1/7">
                 http://www.theprojectspot.com/tutorial-post/introduction-to-artificial-neural-networks-part-1/7
             </a></small></p>
         </section>
 
-        <section>
-            <h2>The perceptron - cont'd</h2>
-            <ul>
-                <li class="fragment"><a target="_blank"
-                                        href="https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/Neuron/index.html">
-                    mathematical model of a biological neuron</a>
-                <li class="fragment">creates a single output based on sum of many weighted inputs
-                <li class="fragment">uses a <a target="_blank"
-                                               href="https://en.wikipedia.org/wiki/Sigmoid_function">
-                sigmoid</a> activation function to create boolean like output
-                <li class="fragment">can be trained to create an output based on an input
-                <li class="fragment">training means to adjust weights of inputs based on error in output
-                <li class="fragment"><a target="_blank"
-                                        href="graph-and-perceptron.html">percepton training visualization</a>
-                (initial version provided as a courtesy of <a href="https://twitter.com/jedborovik" target="_blank">
-                    Jed Borovik</a>)
-            </ul>
-        </section>
+        <!--<section>-->
+            <!--<h2>The perceptron - cont'd</h2>-->
+            <!--<ul>-->
+                <!--<li class="fragment"><a target="_blank"-->
+                                        <!--href="https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/Neuron/index.html">-->
+                    <!--mathematical model of a biological neuron</a>-->
+                <!--<li class="fragment">creates a single output based on sum of many weighted inputs-->
+                <!--<li class="fragment">uses a <a target="_blank"-->
+                                               <!--href="https://en.wikipedia.org/wiki/Sigmoid_function">-->
+                <!--sigmoid</a> activation function to create boolean like output-->
+            <!--</ul>-->
+        <!--</section>-->
 
         <section>
-            <h2>What can a perceptron do?</h2>
+            <h3>What can a perceptron do?</h3>
             <ul>
                 <li class="fragment">output separates plane into two regions using a line
                 <li class="fragment">such regions are called <em>linearly separable</em>
                 <li class="fragment">can emulate most logic functions (NOT, AND, OR, XOR, NAND)
+                <li class="fragment">can be trained to by adjusting weights of inputs based on error in output
+            </ul>
+            <div class="fragment">
+                <a target="_blank"
+                   href="graph-and-perceptron.html"><img src="learning.png" height="200"></a>
+                <p><small><a target="_blank"
+                      href="graph-and-perceptron.html">percepton training visualization</a>
+                    (initial version provided as a courtesy of <a href="https://twitter.com/jedborovik" target="_blank">
+                        Jed Borovik</a>)</small></p>
+
+            </div>
+        </section>
+
+        <section>
+            <h3>XOR - What a perceptron can NOT do</h3>
+            <ul>
+                <li class="fragment">output separates plane into two regions using a line
+                <li class="fragment">such regions are called <em>linearly separable</em>
+                <li class="fragment">can emulate most logic functions (NOT, AND, OR, NAND)
                 <li class="fragment">however, XOR is not linearly separable
                 <li class="fragment">can only be emulated with more than one perceptron
                 <li class="fragment">each additional perceptron adds a separation line
@@ -209,7 +222,7 @@
         </section>
 
         <section>
-            <h2>Linear separability</h2>
+            <h3>Linear separability</h3>
             <img src="xor.jpg" height="400">
             <p><small><a target="_blank" href="http://www.theprojectspot.com/tutorial-post/introduction-to-artificial-neural-networks-part-1/7">
                 http://www.theprojectspot.com/tutorial-post/introduction-to-artificial-neural-networks-part-1/7
@@ -217,30 +230,30 @@
         </section>
 
         <section>
-            <h2>Feedforward Neural Networks - putting perceptrons together</h2>
+            <h3>Feedforward Neural Networks - putting perceptrons together</h3>
             <img src="feedforward.jpg" height="400">
             <p><small><a target="_blank" href="https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/Architecture/feedforward.html">
                 https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/Architecture/feedforward.html
             </a></small></p>
         </section>
 
-        <section>
-            <h2>Feedforward Neural Networks - cont'd</h2>
-            <ul>
-                <li class="fragment">perceptrons are organized in layers
-                <li class="fragment">first layers takes inputs
-                <li class="fragment">last layer produces output
-                <li class="fragment">middle layer(s) called hidden layer(s)
-                <li class="fragment">each perceptron in each layer gets exactly the same input
-                <li class="fragment">no connection between perceptrons in same layer
-                <li class="fragment">each perceptron in one layer feeds all perceptrons in the next layer with its output
-                <li class="fragment"><a target="_blank" href="https://en.wikipedia.org/wiki/Feedforward_neural_network">
-                data flows forward in one direction, there are no cycles</a>
-            </ul>
-        </section>
+        <!--<section>-->
+            <!--<h3>Feedforward Neural Networks - cont'd</h3>-->
+            <!--<ul>-->
+                <!--<li class="fragment">perceptrons are organized in layers-->
+                <!--<li class="fragment">first layers takes inputs-->
+                <!--<li class="fragment">last layer produces output-->
+                <!--<li class="fragment">middle layer(s) called hidden layer(s)-->
+                <!--<li class="fragment">each perceptron in each layer gets exactly the same input-->
+                <!--<li class="fragment">no connection between perceptrons in same layer-->
+                <!--<li class="fragment">each perceptron in one layer feeds all perceptrons in the next layer with its output-->
+                <!--<li class="fragment"><a target="_blank" href="https://en.wikipedia.org/wiki/Feedforward_neural_network">-->
+                <!--data flows forward in one direction, there are no cycles</a>-->
+            <!--</ul>-->
+        <!--</section>-->
 
         <section>
-            <h2>Backpropagation</h2>
+            <h3>Backpropagation</h3>
             <ul>
                 <li class="fragment">Errors in output can be used for training
                 <li class="fragment">Go through the network in reverse order
@@ -260,7 +273,7 @@
                 they can approximate any known function
                 </a>
                 <li class="fragment"><a target="_blank" href="http://yann.lecun.com/exdb/mnist/">
-                probably best predictive power among all strategies
+                probably best predictive power among all machine learning strategies
                 </a>
                 <li class="fragment"><a target="_blank" href="https://en.wikipedia.org/wiki/Convolutional_neural_network">
                 Convolutional Deep Neural Networks
@@ -272,7 +285,7 @@
         </section>
 
         <section>
-            <h2>Why JavaScript for Machine Learning?</h2>
+            <h3>Why JavaScript for Machine Learning?</h3>
             <ul>
                 <li class="fragment">Python and R are predominant
                     <ul>
@@ -291,34 +304,34 @@
             </ul>
         </section>
 
-        <section>
-            <h2>JavaScript Libraries for Deep Neural Networks</h2>
-            <ul>
-                <li class="fragment"><a target="_blank" href="https://github.com/harthur/brain/blob/master/README.md">
-                    Brain.js</a>
-                    <ul>
-                        <li class="fragment">Unmaintained :(
-                        <li class="fragment">Still interesting to get ideas from
-                    </ul>
-                </li>
-                <li class="fragment"><a target="_blank" href="http://synaptic.juancazala.com/#/">Synaptic.js</a>
-                    <ul>
-                        <li class="fragment">small general lib for Neural Network
-                        <li class="fragment">nice and simple API
-                    </ul>
-                </li>
-                <li class="fragment"><a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/">ConvNetJS</a>
-                    <ul>
-                        <li class="fragment">mainly Deep Neural Network
-                        <li class="fragment">comes with visualizations, great for education
-                        <li class="fragment">our choice for the rest of this talk
-                    </ul>
-                </li>
-            </ul>
-        </section>
+        <!--<section>-->
+            <!--<h3>JavaScript Libraries for Deep Neural Networks</h3>-->
+            <!--<ul>-->
+                <!--<li class="fragment"><a target="_blank" href="https://github.com/harthur/brain/blob/master/README.md">-->
+                    <!--Brain.js</a>-->
+                    <!--<ul>-->
+                        <!--<li class="fragment">Unmaintained :(-->
+                        <!--<li class="fragment">Still interesting to get ideas from-->
+                    <!--</ul>-->
+                <!--</li>-->
+                <!--<li class="fragment"><a target="_blank" href="http://synaptic.juancazala.com/#/">Synaptic.js</a>-->
+                    <!--<ul>-->
+                        <!--<li class="fragment">small general lib for Neural Network-->
+                        <!--<li class="fragment">nice and simple API-->
+                    <!--</ul>-->
+                <!--</li>-->
+                <!--<li class="fragment"><a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/">ConvNetJS</a>-->
+                    <!--<ul>-->
+                        <!--<li class="fragment">mainly Deep Neural Network-->
+                        <!--<li class="fragment">comes with visualizations, great for education-->
+                        <!--<li class="fragment">our choice for the rest of this talk-->
+                    <!--</ul>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</section>-->
 
         <section>
-            <h2>ConvNetJS: Example</h2>
+            <h3>ConvNetJS: Example</h3>
             <p>Interactive classifier using deep neural network</p>
             <a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/classify2d.html">
                 <img src="screeshot-convnet-2d-classifier.png" height="400">
@@ -330,7 +343,7 @@
         </section>
 
         <section>
-            <h2>Code for classifier</h2>
+            <h3>Code for classifier</h3>
             <pre><code data-trim>
 layer_defs = [
     {type:'input', out_sx:1, out_sy:1, out_depth:2},
@@ -349,55 +362,55 @@ trainer = new convnetjs.Trainer(net,
             </code></pre>
         </section>
 
-        <section>
-            <h2>Classifier Example - Layers</h2>
-            <ul>
-                <li class="fragment">input layer: 2d (x,y) (out_sx:1, out_sy:1 only non 0 when processing image data)
-                <li class="fragment">2 hidden layers
-                    <ul>
-                        <li class="fragment"><a target="_blank" href="https://en.wikipedia.org/wiki/Activation_function">
-                                                activation function</a> <em>tanh</em>
-                        <li class="fragment">first has 6 neurons, second 2
-                        <li class="fragment">type <em>fc</em>: fully connected, like feedforward NNs
-                    </ul>
-                </li>
-                <li class="fragment">output layer uses softmax: emits probabilities for the two classes (0..1)
-            </ul>
-        </section>
+        <!--<section>-->
+            <!--<h3>Classifier Example - Layers</h3>-->
+            <!--<ul>-->
+                <!--<li class="fragment">input layer: 2d (x,y) (out_sx:1, out_sy:1 only non 0 when processing image data)-->
+                <!--<li class="fragment">2 hidden layers-->
+                    <!--<ul>-->
+                        <!--<li class="fragment"><a target="_blank" href="https://en.wikipedia.org/wiki/Activation_function">-->
+                                                <!--activation function</a> <em>tanh</em>-->
+                        <!--<li class="fragment">first has 6 neurons, second 2-->
+                        <!--<li class="fragment">type <em>fc</em>: fully connected, like feedforward NNs-->
+                    <!--</ul>-->
+                <!--</li>-->
+                <!--<li class="fragment">output layer uses softmax: emits probabilities for the two classes (0..1)-->
+            <!--</ul>-->
+        <!--</section>-->
 
-        <section>
-            <h2>Classifier Example - Prediction</h2>
-            <pre><code data-trim>
-var point = new convnetjs.Vol(1,1,2); // needs to match input layer
-point.w = [3.0, 4.0];
-var prediction = net.forward(point);
-// probability of classes in .w
-if(prediction.w[0] > prediction.w[1]) // red;
-else // green;
-            </code></pre>
-        </section>
+        <!--<section>-->
+            <!--<h3>Classifier Example - Prediction</h3>-->
+            <!--<pre><code data-trim>-->
+<!--var point = new convnetjs.Vol(1,1,2); // needs to match input layer-->
+<!--point.w = [3.0, 4.0];-->
+<!--var prediction = net.forward(point);-->
+<!--// probability of classes in .w-->
+<!--if(prediction.w[0] > prediction.w[1]) // red;-->
+<!--else // green;-->
+            <!--</code></pre>-->
+        <!--</section>-->
 
+        <!--<section>-->
+            <!--<h3>Classifier Example - Training</h3>-->
+            <!--<pre><code data-trim>-->
+<!--var data = [[-0.4326,  1.1909], [3.0, 4.0], [1.8133, 1.0139 ]];-->
+<!--var labels = [1, 1, 0];-->
+<!--var N =  labels.length;-->
+        <!--</code></pre>-->
+            <!--<pre class="fragment"><code data-trim>-->
+<!--for (var iter=0; iter &lt; 20; iter++) {-->
+    <!--for (var ix=0; ix &lt; N; ix++) {-->
+        <!--</code></pre>-->
+            <!--<pre class="fragment"><code>      var point = new convnetjs.Vol(1,1,2);-->
+      <!--var label = labels[ix];-->
+      <!--point.w = data[ix];</code></pre>-->
+            <!--<pre class="fragment"><code>      trainer.train(point, label);-->
+    <!--}-->
+<!--}</code></pre>-->
+        <!--</section>-->
         <section>
-            <h2>Classifier Example - Training</h2>
-            <pre><code data-trim>
-var data = [[-0.4326,  1.1909], [3.0, 4.0], [1.8133, 1.0139 ]];
-var labels = [1, 1, 0];
-var N =  labels.length;
-        </code></pre>
-            <pre class="fragment"><code data-trim>
-for (var iter=0; iter &lt; 20; iter++) {
-    for (var ix=0; ix &lt; N; ix++) {
-        </code></pre>
-            <pre class="fragment"><code>      var point = new convnetjs.Vol(1,1,2);
-      var label = labels[ix];
-      point.w = data[ix];</code></pre>
-            <pre class="fragment"><code>      trainer.train(point, label);
-    }
-}</code></pre>
-        </section>
-        <section>
-            <h2>ConvNetJS: Separability</h2>
-            <p>Just one hidden layer, number of perceptions changing</p>
+            <h3>ConvNetJS: Separability</h3>
+            <p>Just one hidden layer, number of perceptrons dynamic</p>
             <p>1, 2, 3, 5, 10</p>
             <img src="numer_of_perceptrons/1.png" height="150" title="1 perceptron">
             <img src="numer_of_perceptrons/2.png" height="150" title="2 perceptrons">
@@ -418,7 +431,7 @@ for (var iter=0; iter &lt; 20; iter++) {
         </section>
 
         <section>
-            <h2>Regression Example - Code</h2>
+            <h3>Regression Example - Code</h3>
             <p class="fragment">Quick Quiz: How many neurons in hidden layer?</p>
             <pre class="fragment"><code data-trim>
 layer_defs = [
@@ -451,18 +464,57 @@ trainer = new convnetjs.Trainer(net,
         </section>
 
         <section>
-            <h2>Processing images</h2>
+            <h3>Processing images</h3>
             <a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html">
                 <img src="screenshot-cifar-example-predictions.png" height="400">
             </a>
             <p><small><a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html">
                 http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html
             </a></small></p>
+
         </section>
 
         <section>
-            <h2>CIFAR-10 Example - Code</h2>
-            <pre class="fragment"><code data-trim>
+            <h3>CIFAR-10 with Convolutional Deep Neural Networks</h3>
+            <p>uses <a href="http://cs.stanford.edu/people/karpathy/convnetjs/docs.html" target="_blank">
+                convolutional</a> hidden layers for filtering</p>
+        </section>
+
+        <section>
+            <h3>The Convolutional Pyramid</h3>
+            <img src="udacity-ud730-convolutional-pyramid.png" height="500">
+            <p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning--ud730">
+                Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)
+            </a></small></p>
+        </section>
+
+        <section>
+            <h3>Input: 32x32 RGB images</h3>
+            <img src="input32x32.png">
+        </section>
+
+        <section>
+            <h3>Convolution (Filtering) step #1: 16 32x32 images of filtered data</h3>
+            <img src="conv32x32.png">
+            <p>convolutional layers remove noise, add semantics</p>
+        </section>
+
+        <section>
+            <h3>Pooling</h3>
+            <img src="pool16x16.png">
+            <p><a target="_blank" href="https://en.wikipedia.org/wiki/Convolutional_neural_network#Pooling_layer">
+                pooling layers</a> in between provide translation invariance</p>
+        </section>
+
+        <section>
+            <h3>Softmax</h3>
+            <img src="softmax10.png">
+            <p>assigns a probability to each of the 10 categories</p>
+        </section>
+
+        <section>
+            <h3>CIFAR-10 Example - Code</h3>
+            <pre><code data-trim>
 layer_defs = [
 {type:'input', out_sx:32, out_sy:32, out_depth:3},
 {type:'conv', sx:5, filters:16, stride:1, pad:2, activation:'relu'},
@@ -480,41 +532,11 @@ trainer = new convnetjs.Trainer(net,
                 {method:'adadelta', batch_size:4, l2_decay:0.0001});
             </code></pre>
         </section>
+
         <section>
-            <h2>CIFAR-10 with Convolutional Deep Neural Networks</h2>
+            <h3>Wrap-Up</h3>
             <ul>
-                <li class="fragment">needs a lot of training to get good results (predictions on previous page after 5 minutes)
-                <li class="fragment">input 32x32 RGB images
-                <li class="fragment">uses <a href="http://cs.stanford.edu/people/karpathy/convnetjs/docs.html" target="_blank">
-                convolutional</a> hidden layers
-                    <ul>
-                        <li class="fragment">closer to how the brain processes image data (using filtering)
-                        <li class="fragment">only locally connected
-                        <li class="fragment">additional parameters define details of connections
-                    </ul>
-                <li class="fragment"><a target="_blank" href="https://en.wikipedia.org/wiki/Convolutional_neural_network#Pooling_layer">
-                pooling layers</a> in between provide translation invariance
-                <li class="fragment">output again softmax
-            </ul>
-        </section>
-
-        <section>
-            <h2>The Convolutional Pyramid</h2>
-            <img src="udacity-ud730-convolutional-pyramid.png" height="500">
-            <p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning--ud730">
-                Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)
-            </a></small></p>
-        </section>
-
-        <!--<section>-->
-            <!--<h3>Unsupervised Learning</h3>-->
-            <!--<h1 style="color: red">TODO</h1>-->
-        <!--</section>-->
-
-        <section>
-            <h2>Wrap-Up</h2>
-            <ul>
-                <li class="fragment">setting up a NN is insanely simple
+                <li class="fragment">setting up a NN is insanely easy
                 <li class="fragment">preparing data and making results visible often is much harder
                 <li class="fragment">the browser even makes Deep Learning more accessible
                 <li class="fragment">all the fancy deep learning stuff works in the browser
@@ -524,7 +546,7 @@ trainer = new convnetjs.Trainer(net,
         </section>
 
         <section>
-            <h2>Resources</h2>
+            <h3>Resources</h3>
             <ul>
                 <li><a target="_blank"
                        href="http://www.analyticsvidhya.com/blog/2015/08/common-machine-learning-algorithms">
@@ -567,7 +589,7 @@ trainer = new convnetjs.Trainer(net,
         </section>
 
         <section>
-            <h2>Bonus: AlphaGo</h2>
+            <h3>Bonus Resources: AlphaGo</h3>
             <ul>
                 <li><a target="_blank"
                        href="http://googleasiapacific.blogspot.de/2016/03/alphagos-ultimate-challenge.html">
@@ -598,6 +620,8 @@ trainer = new convnetjs.Trainer(net,
             <h1>Thank you!</h1>
 
             <h2>Questions / Discussion</h2>
+            <img src="2016_rmjs_qr.jpg" height="200px">
+            <p><small><a href="http://bit.ly/20r4AJg">http://bit.ly/20r4AJg</a></small></p>
 
             <p>
                 <a href="http://zeigermann.eu">Oliver Zeigermann</a> / <a href="http://twitter.com/djcordhose">@DJCordhose</a>
