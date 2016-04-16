@@ -75,6 +75,16 @@
 
         </section>
 
+        <section>
+            <h2>I am at mount stupid</h2>
+            <a href="http://smbc-comics.com/index.php?id=2475" target="_blank">
+                <img src="mount-stupid.jpg">
+            </a>
+            <p><small><a href="https://twitter.com/SMBCComics" target="_blank">
+                @SMBCComics
+            </a></small></p>
+        </section>
+
         <!--<section>-->
             <!--<h3>Personal Motivation</h3>-->
             <!--<ul>-->
@@ -196,14 +206,13 @@
                 <li class="fragment">can emulate most logic functions (NOT, AND, OR, NAND)
                 <li class="fragment">can be trained by adjusting weights of inputs based on error in output
             </ul>
-            <div class="fragment">
+            <div>
                 <a target="_blank"
                    href="code/graph-and-perceptron.html"><img src="learning.png" height="300"></a>
                 <p><small><a target="_blank"
                       href="code/graph-and-perceptron.html">percepton training visualization</a>
                     (initial version provided as a courtesy of <a href="https://twitter.com/jedborovik" target="_blank">
                         Jed Borovik</a>)</small></p>
-
             </div>
         </section>
 
@@ -220,18 +229,24 @@
 
         <section>
             <h3>Linear separability</h3>
+            <div class="fragment">
+
             <img src="xor.jpg" height="400">
             <p><small><a target="_blank" href="http://www.theprojectspot.com/tutorial-post/introduction-to-artificial-neural-networks-part-1/7">
                 http://www.theprojectspot.com/tutorial-post/introduction-to-artificial-neural-networks-part-1/7
             </a></small></p>
+                </div>
         </section>
 
         <section>
             <h3>Feedforward Neural Networks - putting perceptrons together</h3>
+            <div class="fragment">
+
             <img src="feedforward.jpg" height="400">
             <p><small><a target="_blank" href="https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/Architecture/feedforward.html">
                 https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/Architecture/feedforward.html
             </a></small></p>
+                </div>
         </section>
 
         <!--<section>-->
@@ -262,17 +277,17 @@
 
         <section>
             <h2>Deep Neural Networks</h2>
-            <ul>
-                <li class="fragment"><a target="_blank" href="https://en.wikipedia.org/wiki/Deep_learning#Deep_neural_networks">
+            <ul class="fragment">
+                <li><a target="_blank" href="https://en.wikipedia.org/wiki/Deep_learning#Deep_neural_networks">
                     Deep Neural Networks
                 </a> have more than one hidden layer
-                <li class="fragment"><a target="_blank" href="http://neuralnetworksanddeeplearning.com/chap4.html">
+                <li><a target="_blank" href="http://neuralnetworksanddeeplearning.com/chap4.html">
                 they can approximate any known function
                 </a>
-                <li class="fragment"><a target="_blank" href="http://yann.lecun.com/exdb/mnist/">
+                <li><a target="_blank" href="http://yann.lecun.com/exdb/mnist/">
                 probably best predictive power among all machine learning strategies
                 </a>
-                <li class="fragment"><a target="_blank" href="https://en.wikipedia.org/wiki/Convolutional_neural_network">
+                <li><a target="_blank" href="https://en.wikipedia.org/wiki/Convolutional_neural_network">
                 Convolutional Deep Neural Networks
             </a> are a variant specialized in computer vision
             </ul>
@@ -419,12 +434,14 @@ for (var iter=0; iter &lt; 20; iter++) {
         <section>
             <h3>Regression</h3>
             <p>Does not classify, but tries to find a coninuous function that goes through all data points</p>
+            <div class="fragment">
             <a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/regression.html">
                 <img src="screehshot-regression-w-output-first-layer.png" height="400">
             </a>
             <p><small><a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/regression.html">
                 http://cs.stanford.edu/people/karpathy/convnetjs/demo/regression.html
             </a></small></p>
+            </div>
         </section>
 
         <section>
@@ -458,17 +475,6 @@ trainer = new convnetjs.Trainer(net,
             <p><small><a target="_blank" href="http://www.cs.toronto.edu/~kriz/cifar.html">
                 http://www.cs.toronto.edu/~kriz/cifar.html
             </a></small></p>
-        </section>
-
-        <section>
-            <h3>Processing images</h3>
-            <a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html">
-                <img src="screenshot-cifar-example-predictions.png" height="400">
-            </a>
-            <p><small><a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html">
-                http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html
-            </a></small></p>
-
         </section>
 
         <section>
@@ -507,6 +513,18 @@ trainer = new convnetjs.Trainer(net,
             <h3>Softmax</h3>
             <img src="softmax10.png">
             <p>assigns a probability to each of the 10 categories</p>
+        </section>
+
+        <section>
+            <h3>Sample classification results</h3>
+            <div class="fragment">
+                <a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html">
+                    <img src="screenshot-cifar-example-predictions.png" height="400">
+                </a>
+                <p><small><a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html">
+                    http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html
+                </a></small></p>
+            </div>
         </section>
 
         <section>
