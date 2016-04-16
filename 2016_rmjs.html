@@ -75,39 +75,29 @@
 
         </section>
 
-        <section>
-            <h3>Personal Motivation</h3>
-            <ul>
-                <li class="fragment">Studied AI in the 90s
-                    <ul>
-                        <li class="fragment">Nothing much worked
-                        <li class="fragment">Especially neural networks did not cut it at all
-                    </ul>
-                </li>
-                <li class="fragment">Main problems
-                    <ul>
-                        <li class="fragment">not enough data
-                        <li class="fragment">not enough machine power
-                    </ul>
-                </li>
-                <li class="fragment">Met Big Data in 2014
-                    <ul>
-                        <li class="fragment">@Graylog2
-                        <li class="fragment">Thought about ways to extract insights from big data sets
-                    </ul>
-                </li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Plan for today</h2>
-            <h4 class="fragment">Part I: Introduction to Deep Neural Networks</h4>
-            <h4 class="fragment">Part II: Doing the magic using convnet.js</h4>
-        </section>
-
-        <section>
-            <h2>Part I: Introduction to Deep Neural Networks</h2>
-        </section>
+        <!--<section>-->
+            <!--<h3>Personal Motivation</h3>-->
+            <!--<ul>-->
+                <!--<li class="fragment">Studied AI in the 90s-->
+                    <!--<ul>-->
+                        <!--<li class="fragment">Nothing much worked-->
+                        <!--<li class="fragment">Especially neural networks did not cut it at all-->
+                    <!--</ul>-->
+                <!--</li>-->
+                <!--<li class="fragment">Main problems-->
+                    <!--<ul>-->
+                        <!--<li class="fragment">not enough data-->
+                        <!--<li class="fragment">not enough machine power-->
+                    <!--</ul>-->
+                <!--</li>-->
+                <!--<li class="fragment">Met Big Data in 2014-->
+                    <!--<ul>-->
+                        <!--<li class="fragment">@Graylog2-->
+                        <!--<li class="fragment">Thought about ways to extract insights from big data sets-->
+                    <!--</ul>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</section>-->
 
         <section>
             <h3>What is machine learning?</h3>
@@ -116,11 +106,12 @@
                     science of getting computers to act without being explicitly programmed</a>
                 <li class="fragment">started out as a field in AI
                 <li class="fragment">Applications
-                    <ul>
-                        <li class="fragment">self-driving cars
-                        <li class="fragment">speech recognition
-                        <li class="fragment">fraud detection
-                        <li class="fragment">recommendations
+                    <ul class="fragment">
+                        <li>self-driving cars
+                        <li>speech recognition
+                        <li>fraud detection
+                        <li>recommendations
+                        <li>playing Go
                     </ul>
                 </li>
             </ul>
@@ -146,10 +137,16 @@
                 <!--<li class="fragment">e.g. neural networks with more than one hidden layer-->
             <!--</ul>-->
         <!--</section>-->
+        <section>
+            <h2>Plan for today</h2>
+            <h4>Part I: Introduction to Deep Neural Networks</h4>
+            <h4>Part II: Doing the magic using convnet.js</h4>
+        </section>
 
         <section>
-            <h2>Deep Learning using Neural Networks</h2>
+            <h2>Part I: Introduction to Deep Neural Networks</h2>
         </section>
+
 
         <!--<section>-->
             <!--<h4>Parts that can learn from data</h4>-->
@@ -196,12 +193,12 @@
             <ul>
                 <li class="fragment">output separates plane into two regions using a line
                 <li class="fragment">such regions are called <em>linearly separable</em>
-                <li class="fragment">can emulate most logic functions (NOT, AND, OR, XOR, NAND)
-                <li class="fragment">can be trained to by adjusting weights of inputs based on error in output
+                <li class="fragment">can emulate most logic functions (NOT, AND, OR, NAND)
+                <li class="fragment">can be trained by adjusting weights of inputs based on error in output
             </ul>
             <div class="fragment">
                 <a target="_blank"
-                   href="graph-and-perceptron.html"><img src="learning.png" height="200"></a>
+                   href="graph-and-perceptron.html"><img src="learning.png" height="300"></a>
                 <p><small><a target="_blank"
                       href="graph-and-perceptron.html">percepton training visualization</a>
                     (initial version provided as a courtesy of <a href="https://twitter.com/jedborovik" target="_blank">
@@ -213,10 +210,7 @@
         <section>
             <h3>XOR - What a perceptron can NOT do</h3>
             <ul>
-                <li class="fragment">output separates plane into two regions using a line
-                <li class="fragment">such regions are called <em>linearly separable</em>
-                <li class="fragment">can emulate most logic functions (NOT, AND, OR, NAND)
-                <li class="fragment">however, XOR is not linearly separable
+                <li class="fragment">XOR is not linearly separable
                 <li class="fragment">can only be emulated with more than one perceptron
                 <li class="fragment">each additional perceptron adds a separation line
                 <li class="fragment">output perceptron can combine results
@@ -291,17 +285,17 @@
             <h3>Why JavaScript for Machine Learning?</h3>
             <ul>
                 <li class="fragment">Python and R are predominant
-                    <ul>
-                        <li class="fragment">Have a large and mature set of libs
-                        <li class="fragment">Are reasonably fast
-                        <li class="fragment">Using binding to C/C++ or Fortran
+                    <ul class="fragment">
+                        <li>Have a large and mature set of libs
+                        <li>Are reasonably fast
+                        <li>Using binding to C/C++ or Fortran
                     </ul>
                 </li>
                 <li class="fragment">JavaScript has benefits, though
-                    <ul>
-                        <li class="fragment">might be the language you are most comfortable with
-                        <li class="fragment">might be the only language around (because all you have is a browser)
-                        <li class="fragment">zero installation, easy to get started
+                    <ul class="fragment">
+                        <li>might be the language you are most comfortable with
+                        <li>might be the only language around (because all you have is a browser)
+                        <li>zero installation, easy to get started
                     </ul>
                 </li>
             </ul>
@@ -538,13 +532,13 @@ trainer = new convnetjs.Trainer(net,
 
         <section>
             <h3>Wrap-Up</h3>
-            <ul>
-                <li class="fragment">setting up a NN is insanely easy
-                <li class="fragment">preparing data and making results visible often is much harder
-                <li class="fragment">the browser even makes Deep Learning more accessible
-                <li class="fragment">all the fancy deep learning stuff works in the browser
-                <li class="fragment">especially good for learning and education
-                <li class="fragment">direct visualization and interactivity
+            <ul class="fragment">
+                <li>setting up a NN is insanely easy
+                <li>preparing data and making results visible often is much harder
+                <li>the browser even makes Deep Learning more accessible
+                <li>all the fancy deep learning stuff works in the browser
+                <li>especially good for learning and education
+                <li>direct visualization and interactivity
             </ul>
         </section>
 
