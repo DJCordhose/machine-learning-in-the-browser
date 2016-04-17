@@ -170,7 +170,7 @@
         <section>
             <h2>Plan for today</h2>
             <h4>Part I: Introduction to Deep Neural Networks</h4>
-            <h4>Part II: Doing the magic using convnet.js</h4>
+            <h4>Part II: Doing the magic using convnet.js and Tensorflow Playground</h4>
         </section>
 
         <section>
@@ -294,7 +294,7 @@
             </ul>
         </section>
         <section>
-            <h2>Part II: Doing the magic using convnet.js</h2>
+            <h2>Part II: Doing the magic using convnet.js and Tensorflow Playground</h2>
         </section>
 
         <section>
@@ -414,17 +414,25 @@ for (var iter=0; iter &lt; 20; iter++) {
 avloss /= N*iters;
 </code></pre>
             <h4 style="color: red" class="fragment">Trainer turns learning into a numerical optimisation problem of weight parameters</h4>
-            <p class="fragment">Convnetjs uses gradient descent by default</p>
+            <p class="fragment">Convnetjs uses stochastic gradient descent by default</p>
         </section>
         <section>
-            <h3>ConvNetJS: Separability</h3>
-            <p>Just one hidden layer, number of perceptrons dynamic</p>
-            <p>1, 2, 3, 5, 10</p>
-            <img src="numer_of_perceptrons/1.png" height="150" title="1 perceptron">
-            <img src="numer_of_perceptrons/2.png" height="150" title="2 perceptrons">
-            <img src="numer_of_perceptrons/3.png" height="150" title="3 perceptrons">
-            <img src="numer_of_perceptrons/5.png" height="150" title="5 perceptrons">
-            <img src="numer_of_perceptrons/10.png" height="150" title="10 perceptrons">
+            <h3>Separability with Tensorflow Playground</h3>
+            <p>Just one hidden layer, number of perceptrons variable</p>
+            <p>1, 2, 3, 5</p>
+            <a target="_blank" href="http://localhost:63342/machine-learning-in-the-browser/code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=1&seed=0.14065&showTestData=false&discretize=true&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification">
+                <img src="numer_of_perceptrons/1.png" height="150" title="1 perceptron">
+            </a>
+            <a target="_blank" href="http://localhost:63342/machine-learning-in-the-browser/code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=2&seed=0.14065&showTestData=false&discretize=true&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification">
+                <img src="numer_of_perceptrons/2.png" height="150" title="2 perceptron">
+            </a>
+            <a target="_blank" href="http://localhost:63342/machine-learning-in-the-browser/code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.14065&showTestData=false&discretize=true&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification">
+                <img src="numer_of_perceptrons/3.png" height="150" title="3 perceptron">
+            </a>
+            <a target="_blank" href="http://localhost:63342/machine-learning-in-the-browser/code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=5&seed=0.14065&showTestData=false&discretize=true&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification">
+                <img src="numer_of_perceptrons/5.png" height="150" title="5 perceptron">
+            </a>
+
         </section>
 
         <section>
@@ -581,6 +589,7 @@ layer_defs = [
         <section>
             <h3>Resources</h3>
             <ul>
+                <li><a target="_blank" href="http://playground.tensorflow.org/">Tensorflow Playground in the Browser</a>
                 <li><a target="_blank"
                        href="http://www.analyticsvidhya.com/blog/2015/08/common-machine-learning-algorithms">
                     Essentials of Machine Learning Algorithms (with Python and R Codes)
@@ -687,7 +696,7 @@ layer_defs = [
 
 
         <section>
-            <h3>JavaScript Libraries for Deep Neural Networks</h3>
+            <h3>Other JavaScript Libraries for Deep Neural Networks</h3>
             <ul>
                 <li class="fragment"><a target="_blank" href="https://github.com/harthur/brain/blob/master/README.md">
                     Brain.js</a>
@@ -702,13 +711,13 @@ layer_defs = [
                         <li class="fragment">nice and simple API
                     </ul>
                 </li>
-                <li class="fragment"><a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/">ConvNetJS</a>
-                    <ul>
-                        <li class="fragment">mainly Deep Neural Network
-                        <li class="fragment">comes with visualizations, great for education
-                        <li class="fragment">our choice for this talk
-                    </ul>
-                </li>
+                <!--<li class="fragment"><a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/">ConvNetJS</a>-->
+                    <!--<ul>-->
+                        <!--<li class="fragment">mainly Deep Neural Network-->
+                        <!--<li class="fragment">comes with visualizations, great for education-->
+                        <!--<li class="fragment">our choice for this talk-->
+                    <!--</ul>-->
+                <!--</li>-->
             </ul>
         </section>
     </div>
