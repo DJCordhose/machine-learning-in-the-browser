@@ -357,11 +357,7 @@ layer_defs = [
 net = new convnetjs.Net();
 net.makeLayers(layer_defs);
 
-trainer = new convnetjs.Trainer(net,
-                { learning_rate:0.01,
-                  momentum:0.1,
-                  batch_size:10,
-                  l2_decay:0.001});
+trainer = new convnetjs.Trainer(net);
             </code></pre>
         </section>
 
@@ -391,6 +387,7 @@ var prediction = net.forward(point);
 if(prediction.w[0] > prediction.w[1]) // red;
 else // green;
             </code></pre>
+            <p class="fragment">Predictions will also be painted as background colors</p>
         </section>
 
         <section>
@@ -399,6 +396,7 @@ else // green;
 var data = [[-0.4326,  1.1909], [3.0, 4.0], [1.8133, 1.0139 ]];
 var labels = [1, 1, 0];
 var N =  labels.length;
+var avloss = 0.0;
         </code></pre>
             <pre class="fragment"><code data-trim>
 for (var iter=0; iter &lt; 20; iter++) {
@@ -407,9 +405,16 @@ for (var iter=0; iter &lt; 20; iter++) {
             <pre class="fragment"><code>      var point = new convnetjs.Vol(1,1,2);
       var label = labels[ix];
       point.w = data[ix];</code></pre>
-            <pre class="fragment"><code>      trainer.train(point, label);
+            <pre class="fragment">
+<code>      var stats = trainer.train(point, label);
+      avloss += stats.loss;
     }
-}</code></pre>
+}
+// make this as small as possible
+avloss /= N*iters;
+</code></pre>
+            <h4 style="color: red" class="fragment">Trainer turns learning into a numerical optimisation problem of weight parameters</h4>
+            <p class="fragment">Convnetjs uses gradient descent by default</p>
         </section>
         <section>
             <h3>ConvNetJS: Separability</h3>
