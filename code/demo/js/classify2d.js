@@ -130,7 +130,7 @@ function update(){
   var end = new Date().getTime();
   var time = end - start;
       
-  //console.log('loss = ' + avloss + ', 100 cycles through data in ' + time + 'ms');
+  // console.log('loss = ' + avloss + ', 100 cycles through data in ' + time + 'ms');
 }
 
 function cycle() {

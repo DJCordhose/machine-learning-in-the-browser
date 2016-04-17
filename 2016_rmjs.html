@@ -75,15 +75,15 @@
 
         </section>
 
-        <section>
-            <h2>I am at mount stupid</h2>
-            <a href="http://smbc-comics.com/index.php?id=2475" target="_blank">
-                <img src="mount-stupid.jpg">
-            </a>
-            <p><small><a href="https://twitter.com/SMBCComics" target="_blank">
-                @SMBCComics
-            </a></small></p>
-        </section>
+        <!--<section>-->
+            <!--<h2>I am at mount stupid</h2>-->
+            <!--<a href="http://smbc-comics.com/index.php?id=2475" target="_blank">-->
+                <!--<img src="mount-stupid.jpg">-->
+            <!--</a>-->
+            <!--<p><small><a href="https://twitter.com/SMBCComics" target="_blank">-->
+                <!--@SMBCComics-->
+            <!--</a></small></p>-->
+        <!--</section>-->
 
         <!--<section>-->
             <!--<h3>Personal Motivation</h3>-->
@@ -110,35 +110,55 @@
         <!--</section>-->
 
         <section>
-            <h3>What is machine learning?</h3>
-            <ul>
-                <li class="fragment"><a href="https://en.wikipedia.org/wiki/Machine_learning" target="_blank">
-                    science of getting computers to act without being explicitly programmed</a>
-                <li class="fragment">started out as a field in AI
-                <li class="fragment">Applications
-                    <ul class="fragment">
-                        <li>self-driving cars
-                        <li>speech recognition
-                        <li>fraud detection
-                        <li>recommendations
-                        <li>playing Go
-                    </ul>
-                </li>
-            </ul>
+            <h2>What is machine learning?</h2>
+            <h3 class="fragment"><a href="https://en.wikipedia.org/wiki/Machine_learning" target="_blank">
+                science of getting computers to act without being explicitly programmed</a></h3>
         </section>
-        <!--<section>-->
-            <!--<h3>Supervised vs Unsupervised Learning</h3>-->
-        <!--<ul>-->
-            <!--<li class="fragment">supervised learning: train a system by giving input and output-->
-            <!--<li class="fragment">unsupervised learning: find previously unknown patterns in data, e.g.-->
-                <!--<ul>-->
-                    <!--<li class="fragment">clustering data <a href="https://en.wikipedia.org/wiki/K-means_clustering" target="_blank">-->
-                        <!--using K-means</a> or-->
-                    <!--<li class="fragment">finding correlations to reduce dimensions <a target="_blank" href="https://en.wikipedia.org/wiki/Principal_component_analysis">using PCA</a>-->
-                <!--</ul>-->
-            <!--</li>-->
-        <!--</ul>-->
-        <!--</section>-->
+
+        <section>
+            <h2>Example: Tell an organge from an apple</h2>
+            <p><small><a target="_blank" href="https://www.youtube.com/watch?v=cKxRvEZd3Mw">
+                Taken from Hello World - Machine Learning Recipes
+            </a></small></p>
+        </section>
+
+        <section>
+            <h3>Programmatic Solution</h3>
+            <h4 class="fragment">Checking the color</h4>
+            <img class="fragment" src="apple-or-orange.png" height="400">
+        </section>
+
+        <section>
+            <h3>What about BW?</h3>
+            <img class="fragment" src="bw-apple-or-orange.png" height="400">
+        </section>
+
+        <section>
+            <h3>Banana?</h3>
+            <img class="fragment" src="banana.png" height="400">
+        </section>
+
+        <section>
+            <h3>Just too many rules to write by hand</h3>
+            <img class="fragment" src="many-rules.png" height="400">
+            <h4 class="fragment">And you probably forgot one</h4>
+        </section>
+
+        <section>
+            <h2>Rather let the machine learn all the rules for you</h2>
+            <h3 class="fragment">By learning from examples</h3>
+        </section>
+
+        <section>
+            <h2>Applications of machine learning?</h2>
+                <ul class="fragment">
+                    <li>self-driving cars
+                    <li>speech recognition
+                    <li>fraud detection
+                    <li>recommendations
+                    <li>playing Go
+                </ul>
+        </section>
 
         <!--<section>-->
             <!--<h3>And <a href="https://en.wikipedia.org/wiki/Deep_learning" target="_blank">Deep Learning?</a></h3>-->
@@ -155,27 +175,8 @@
 
         <section>
             <h2>Part I: Introduction to Deep Neural Networks</h2>
+            <h3 class="fragment">Hottest Shit in the area of supervised machine learning</h3>
         </section>
-
-
-        <!--<section>-->
-            <!--<h4>Parts that can learn from data</h4>-->
-            <!--<p>By AI strategy (gray)</p>-->
-            <!--<img src="AI_system_parts.png" height="450px" style="border: 0">-->
-            <!--<p><small><a target="_blank" href="http://rinuboney.github.io/2015/10/18/theoretical-motivations-deep-learning.html">-->
-                <!--http://rinuboney.github.io/2015/10/18/theoretical-motivations-deep-learning.html-->
-            <!--</a></small></p>-->
-        <!--</section>-->
-
-        <!--<section>-->
-            <!--<h3>Requirements on manual preparation of data</h3>-->
-            <!--<ol>-->
-                <!--<li class="fragment"><em>Rule-based systems</em>: AI systems hand-designed by experts, no learning-->
-                <!--<li class="fragment"><em>Classic machine learning</em>: features are hand-designed, most time is spent on designing the optimal features, generic classfier can learn-->
-                <!--<li class="fragment"><em>Representation learning</em>: important features are automatically discovered-->
-                <!--<li class="fragment"><em>Deep learning</em>: like representation learning, but multiple layers for powerful abstraction-->
-            <!--</ol>-->
-        <!--</section>-->
 
         <section>
             <h3>The perceptron - where it all begins</h3>
@@ -316,35 +317,10 @@
             </ul>
         </section>
 
-        <!--<section>-->
-            <!--<h3>JavaScript Libraries for Deep Neural Networks</h3>-->
-            <!--<ul>-->
-                <!--<li class="fragment"><a target="_blank" href="https://github.com/harthur/brain/blob/master/README.md">-->
-                    <!--Brain.js</a>-->
-                    <!--<ul>-->
-                        <!--<li class="fragment">Unmaintained :(-->
-                        <!--<li class="fragment">Still interesting to get ideas from-->
-                    <!--</ul>-->
-                <!--</li>-->
-                <!--<li class="fragment"><a target="_blank" href="http://synaptic.juancazala.com/#/">Synaptic.js</a>-->
-                    <!--<ul>-->
-                        <!--<li class="fragment">small general lib for Neural Network-->
-                        <!--<li class="fragment">nice and simple API-->
-                    <!--</ul>-->
-                <!--</li>-->
-                <!--<li class="fragment"><a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/">ConvNetJS</a>-->
-                    <!--<ul>-->
-                        <!--<li class="fragment">mainly Deep Neural Network-->
-                        <!--<li class="fragment">comes with visualizations, great for education-->
-                        <!--<li class="fragment">our choice for the rest of this talk-->
-                    <!--</ul>-->
-                <!--</li>-->
-            <!--</ul>-->
-        <!--</section>-->
-
         <section>
             <h3>ConvNetJS: Example</h3>
-            <p>Interactive classifier using deep neural network</p>
+            <p class="fragment">Interactive classifier using deep neural network</p>
+            <div class="fragment">
             <a target="_blank" href="code/demo/classify2d.html">
                 <img src="screeshot-convnet-2d-classifier.png" height="400">
                 <img src="screeshot-convnet-2d-classifier-spiral.png" height="400">
@@ -352,6 +328,21 @@
             <p><small><a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/classify2d.html">
                 http://cs.stanford.edu/people/karpathy/convnetjs/demo/classify2d.html
             </a></small></p>
+            </div>
+        </section>
+
+        <section>
+            <h3>Supervised vs Unsupervised Learning</h3>
+            <ul>
+                <li class="fragment">supervised learning: train a system by giving input and output
+                <li class="fragment">unsupervised learning: find previously unknown patterns in data, e.g.
+                    <ul class="fragment">
+                        <li>clustering data <a href="https://en.wikipedia.org/wiki/K-means_clustering" target="_blank">
+                            using K-means</a> or
+                        <li>finding correlations to reduce dimensions <a target="_blank" href="https://en.wikipedia.org/wiki/Principal_component_analysis">using PCA</a>
+                    </ul>
+                </li>
+            </ul>
         </section>
 
         <section>
@@ -452,18 +443,13 @@ layer_defs = [
   {type:'input', out_sx:1, out_sy:1, out_depth:1},
   {type:'fc', num_neurons:5, activation:'sigmoid'},
   {type:'regression', num_neurons:1}];
-
-net = new convnetjs.Net();
-net.makeLayers(layer_defs);
-
-trainer = new convnetjs.Trainer(net,
-  {learning_rate:0.01, momentum:0.0, batch_size:1, l2_decay:0.001});
             </code></pre>
         </section>
 
         <section>
-            <h2>Non-total-toy-stuff?</h2>
-            <h3 class="fragment">Here you go</h3>
+            <h3>CIFAR-10 with Convolutional Deep Neural Networks</h3>
+            <p>uses <a href="http://cs.stanford.edu/people/karpathy/convnetjs/docs.html" target="_blank">
+                convolutional</a> hidden layers for filtering</p>
         </section>
 
         <section>
@@ -478,53 +464,11 @@ trainer = new convnetjs.Trainer(net,
         </section>
 
         <section>
-            <h3>CIFAR-10 with Convolutional Deep Neural Networks</h3>
-            <p>uses <a href="http://cs.stanford.edu/people/karpathy/convnetjs/docs.html" target="_blank">
-                convolutional</a> hidden layers for filtering</p>
-        </section>
-
-        <section>
-            <h3>Input: 32x32 RGB images</h3>
-            <img src="input32x32.png">
-        </section>
-
-        <section>
-            <h3>Convolution (Filtering) step #1: 16 32x32 images of filtered data</h3>
-            <img src="conv32x32.png">
-            <p>convolutional layers remove noise, add semantics</p>
-        </section>
-
-        <section>
-            <h3>Pooling</h3>
-            <img src="pool16x16.png">
-            <p><a target="_blank" href="https://en.wikipedia.org/wiki/Convolutional_neural_network#Pooling_layer">
-                pooling layers</a> in between provide translation invariance</p>
-        </section>
-
-        <section>
             <h3>The Convolutional Pyramid</h3>
             <img src="udacity-ud730-convolutional-pyramid.png" height="500">
             <p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning--ud730">
                 Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)
             </a></small></p>
-        </section>
-
-        <section>
-            <h3>Softmax</h3>
-            <img src="softmax10.png">
-            <p>assigns a probability to each of the 10 categories</p>
-        </section>
-
-        <section>
-            <h3>Sample classification results</h3>
-            <div class="fragment">
-                <a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html">
-                    <img src="screenshot-cifar-example-predictions.png" height="400">
-                </a>
-                <p><small><a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html">
-                    http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html
-                </a></small></p>
-            </div>
         </section>
 
         <section>
@@ -539,13 +483,82 @@ layer_defs = [
 {type:'conv', sx:5, filters:20, stride:1, pad:2, activation:'relu'},
 {type:'pool', sx:2, stride:2},
 {type:'softmax', num_classes:10}];
-
-net = new convnetjs.Net();
-net.makeLayers(layer_defs);
-
-trainer = new convnetjs.Trainer(net,
-                {method:'adadelta', batch_size:4, l2_decay:0.0001});
             </code></pre>
+        </section>
+
+        <section>
+            <h3>Input: 32x32 RGB images</h3>
+            <img src="input32x32.png">
+        </section>
+
+        <section>
+            <h3>Convolutions</h3>
+            <div class="fragment">
+            <img src="udc-730-convolutions.png" height="500">
+            <p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning--ud730">
+                Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)
+            </a></small></p>
+            </div>
+        </section>
+
+        <section>
+            <h3>Convolution (Filtering) step #1: 16 32x32 images of filtered data</h3>
+            <p><pre><code data-trim>
+// 16 5x5 filters will be convolved with the input
+// output again 32x32 as stride (step width) is 1
+// 2 pixels on each edge will be padded with 0 matching 5x5 pixel filter
+{type:'conv', sx:5, filters:16, stride:1, pad:2, activation:'relu'}</code></pre></p>
+            <div class="fragment">
+                <img src="conv32x32.png">
+                <p>convolutional layers remove noise, add semantics</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>Translation Invariance</h3>
+            <div class="fragment">
+            <img src="udc-730-translation-invariance.png" height="500">
+            <p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning--ud730">
+                Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)
+            </a></small></p>
+                </div>
+        </section>
+
+        <section>
+            <h3>Pooling</h3>
+            <p><pre><code data-trim>
+// perform max pooling in 2x2 non-overlapping neighborhoods
+// output will be 16x16 as stride (step width) is 2
+{type:'pool', sx:2, stride:2}),
+</code></pre></p>
+            <div class="fragment">
+                <img src="pool16x16.png">
+                <p><a target="_blank" href="https://en.wikipedia.org/wiki/Convolutional_neural_network#Pooling_layer">
+                    pooling layers</a> in between provide translation invariance</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>Softmax</h3>
+            <p><pre><code data-trim class="javascript">
+{type:'softmax', num_classes:10}
+</code></pre></p>
+            <div class="fragment">
+            <img src="softmax10.png">
+            <p>assigns a probability to each of the 10 categories</p>
+                </div>
+        </section>
+
+        <section>
+            <h3>Sample classification results</h3>
+            <div class="fragment">
+                <a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html">
+                    <img src="screenshot-cifar-example-predictions.png" height="400">
+                </a>
+                <p><small><a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html">
+                    http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html
+                </a></small></p>
+            </div>
         </section>
 
         <section>
@@ -642,6 +655,56 @@ trainer = new convnetjs.Trainer(net,
                 <a href="http://zeigermann.eu">Oliver Zeigermann</a> / <a href="http://twitter.com/djcordhose">@DJCordhose</a>
 
             </p>
+        </section>
+
+        <section>
+            <h1>Bonus Material</h1>
+        </section>
+
+        <section>
+            <h4>Parts that can learn from data</h4>
+            <p>By AI strategy (gray)</p>
+            <img src="AI_system_parts.png" height="450px" style="border: 0">
+            <p><small><a target="_blank" href="http://rinuboney.github.io/2015/10/18/theoretical-motivations-deep-learning.html">
+                http://rinuboney.github.io/2015/10/18/theoretical-motivations-deep-learning.html
+            </a></small></p>
+        </section>
+
+        <section>
+            <h3>Requirements on manual preparation of data</h3>
+            <ol>
+                <li class="fragment"><em>Rule-based systems</em>: AI systems hand-designed by experts, no learning
+                <li class="fragment"><em>Classic machine learning</em>: features are hand-designed, most time is spent on designing the optimal features, generic classfier can learn
+                <li class="fragment"><em>Representation learning</em>: important features are automatically discovered
+                <li class="fragment"><em>Deep learning</em>: like representation learning, but multiple layers for powerful abstraction
+            </ol>
+        </section>
+
+
+        <section>
+            <h3>JavaScript Libraries for Deep Neural Networks</h3>
+            <ul>
+                <li class="fragment"><a target="_blank" href="https://github.com/harthur/brain/blob/master/README.md">
+                    Brain.js</a>
+                    <ul>
+                        <li class="fragment">Unmaintained :(
+                        <li class="fragment">Still interesting to get ideas from
+                    </ul>
+                </li>
+                <li class="fragment"><a target="_blank" href="http://synaptic.juancazala.com/#/">Synaptic.js</a>
+                    <ul>
+                        <li class="fragment">small general lib for Neural Network
+                        <li class="fragment">nice and simple API
+                    </ul>
+                </li>
+                <li class="fragment"><a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/">ConvNetJS</a>
+                    <ul>
+                        <li class="fragment">mainly Deep Neural Network
+                        <li class="fragment">comes with visualizations, great for education
+                        <li class="fragment">our choice for this talk
+                    </ul>
+                </li>
+            </ul>
         </section>
     </div>
 
