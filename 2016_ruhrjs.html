@@ -39,6 +39,16 @@
             float: right;
             height: 500px;
         }
+        .todo:before {
+            content: 'TODO: ';
+        }
+        .todo {
+            color: red !important;
+        }
+        code span.line-number {
+            color: lightcoral;
+        }
+
     </style>
 
     <!-- Printing and PDF exports -->
@@ -70,6 +80,37 @@
                 <small><a href="http://zeigermann.eu">Oliver Zeigermann</a> / <a href="http://twitter.com/djcordhose">@DJCordhose</a>
                 </small>
             </p>
+            <p><small><a href="http://djcordhose.github.io/machine-learning-in-the-browser/2016_ruhrjs.html">
+                http://djcordhose.github.io/machine-learning-in-the-browser/2016_ruhrjs.html
+            </a></small></p>
+
+        </section>
+
+        <section>
+            <h2>Level of this talk</h2>
+            <img class="fragment" src="twitter-poll-ruhrjs.png">
+        </section>
+
+        <section class="todo">
+            <h3>TODO</h3>
+
+            <ul>
+                <li>Screenshot of Twitter Vote latest version
+                <li>Slide: 'Introducing Deep Neural Networks using Tensorflow Playground'
+                    <ul>
+                        <li>Update local copy to latest version of tensorflow
+                        <li>Make screenshots for each step (down in hierarchie)
+                    </ul>
+                </li>
+                <li>Steel convolutional images from
+                    <ul>
+                        <li>https://openai.com/blog/generative-models/
+                        <li>http://smerity.com/articles/2016/architectures_are_the_new_feature_engineering.html
+                    </ul>
+                </li>
+
+            </ul>
+
         </section>
 
         <section>
@@ -104,7 +145,8 @@
         <section>
             <h3>Just too many rules to write by hand</h3>
             <img class="fragment" src="many-rules.png" height="400">
-            <h4 class="fragment">And you probably forgot one</h4>
+            <h4 class="fragment">... and you probably forgot one ;)</h4>
+            <h4 class="fragment">... and probably have one too many ;)</h4>
         </section>
 
         <section>
@@ -118,8 +160,11 @@
                 <img src="lecun-twitter.png" height="200">
             </a>
                 <a style="float: left" href="http://techcrunch.com/2016/04/20/ducking-awesome-self-driving-cars" target="_blank">
-                    <img src="rubber-duckies.gif">
+                    <img src="rubber-duckies.gif"  height="200">
                 </a>
+            <a style="float: right" href="http://karpathy.github.io/2016/05/31/rl/" target="_blank">
+                <img src="pong.png" height="150">
+            </a>
             <a style="float: right" href="http://gitxiv.com/posts/tiXMXrgKAxibaB2Ws/asynchronous-methods-for-deep-reinforcement-learning" target="_blank">
                 <img src="space-invaders.gif" height="150">
             </a>
@@ -210,12 +255,13 @@
 
         <section>
             <h3>Code for classifier</h3>
-            <pre><code data-trim>
+            <pre><code data-trim class="line-numbers">
 layer_defs = [
     {type:'input', out_sx:1, out_sy:1, out_depth:2},
     {type:'fc', num_neurons:6, activation: 'tanh'},
     {type:'fc', num_neurons:2, activation: 'tanh'},
-    {type:'softmax', num_classes:2}];
+    {type:'softmax', num_classes:2}
+];
 
 net = new convnetjs.Net();
 net.makeLayers(layer_defs);
@@ -226,7 +272,7 @@ trainer = new convnetjs.Trainer(net);
 
         <section>
             <h3>Classifier Example - Prediction</h3>
-            <pre><code data-trim>
+            <pre><code data-trim class="line-numbers">
 var point = new convnetjs.Vol(1,1,2); // needs to match input layer
 point.w = [3.0, 4.0];
 var prediction = net.forward(point);
@@ -239,27 +285,26 @@ else // green;
 
         <section>
             <h3>Classifier Example - Training</h3>
-            <pre><code data-trim>
+            <pre><code data-trim class="line-numbers" data-leftpad>
 var data = [[-0.4326,  1.1909], [3.0, 4.0], [1.8133, 1.0139 ]];
 var labels = [1, 1, 0];
 var N =  labels.length;
 var avloss = 0.0;
         </code></pre>
-            <pre class="fragment"><code data-trim>
+            <pre class="fragment"><code data-trim class="line-numbers" data-num-start="5" data-leftpad>
 for (var iter=0; iter &lt; 20; iter++) {
     for (var ix=0; ix &lt; N; ix++) {
         </code></pre>
-            <pre class="fragment"><code>      var point = new convnetjs.Vol(1,1,2);
+            <pre class="fragment"><code class="line-numbers" data-num-start="7" data-leftpad>      var point = new convnetjs.Vol(1,1,2);
       var label = labels[ix];
       point.w = data[ix];</code></pre>
             <pre class="fragment">
-<code>      var stats = trainer.train(point, label);
+<code class="line-numbers"  data-num-start="10">      var stats = trainer.train(point, label);
       avloss += stats.loss;
     }
 }
 // make this as small as possible
-avloss /= N*iters;
-</code></pre>
+avloss /= N*iters;</code></pre>
             <h4 style="color: red" class="fragment">Trainer turns learning into a numerical optimisation problem of weight parameters</h4>
             <p class="fragment">Convnetjs uses stochastic gradient descent (SGD) by default</p>
         </section>
@@ -368,6 +413,11 @@ avloss /= N*iters;
                        href="http://gizmodo.com/everything-you-know-about-artificial-intelligence-is-wr-1764020220">
                     Everything You Know About Artificial Intelligence is Wrong
                 </a>
+                <li><a target="_blank"
+                       href="https://lettier.github.io/posts/2016-06-10-k-nearest-neighbors-from-scratch.html">
+                k-Nearest Neighbors from Scratch in JavaScript
+                </a>
+
             </ul>
         </section>
 
@@ -408,6 +458,7 @@ avloss /= N*iters;
 
 <script src="reveal.js/lib/js/head.min.js"></script>
 <script src="reveal.js/js/reveal.js"></script>
+<script src="lib/jquery-2.2.4.js"></script>
 
 <script>
 
@@ -446,7 +497,9 @@ avloss /= N*iters;
             }
             },
             {src: 'reveal.js/plugin/zoom-js/zoom.js', async: true},
-            {src: 'reveal.js/plugin/notes/notes.js', async: true}
+            {src: 'reveal.js/plugin/notes/notes.js', async: true},
+            // https://github.com/mikemiles86/reveal-line-numbers
+            {src: 'lib/js/line-numbers.js'}
         ]
     });
 
