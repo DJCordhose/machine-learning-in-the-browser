@@ -37,7 +37,12 @@
         .right-img {
             margin-left: 10px !important;
             float: right;
-            height: 500px;
+            /*height: 500px;*/
+        }
+        .left-img {
+            margin-left: 10px !important;
+            float: left;
+            /*height: 500px;*/
         }
         .todo:before {
             content: 'TODO: ';
@@ -89,28 +94,6 @@
         <section>
             <h2>Level of this talk</h2>
             <img class="fragment" src="twitter-poll-ruhrjs.png">
-        </section>
-
-        <section class="todo">
-            <h3>TODO</h3>
-
-            <ul>
-                <li>Screenshot of Twitter Vote latest version
-                <li>Slide: 'Introducing Deep Neural Networks using Tensorflow Playground'
-                    <ul>
-                        <li>Update local copy to latest version of tensorflow
-                        <li>Make screenshots for each step (down in hierarchie)
-                    </ul>
-                </li>
-                <li>Steel convolutional images from
-                    <ul>
-                        <li>https://openai.com/blog/generative-models/
-                        <li>http://smerity.com/articles/2016/architectures_are_the_new_feature_engineering.html
-                    </ul>
-                </li>
-
-            </ul>
-
         </section>
 
         <section>
@@ -175,63 +158,62 @@
             <a style="float: left" href="https://matthewearl.github.io/2016/05/06/cnn-anpr" target="_blank">
                 <img src="window-scan.gif" height="150">
             </a>
-
-
-
-                <!--<div style="float: left">-->
-                    <!--<br>-->
-                    <!--<ul>-->
-                        <!--<li>self-driving cars-->
-                        <!--<li>speech recognition-->
-                        <!--<li>fraud detection-->
-                        <!--<li>recommendations-->
-                        <!--<li>playing Go-->
-                    <!--</ul>-->
-                <!--</div>-->
         </section>
 
-        <!-- - How does a neural network look like-->
         <!-- - How does a neural network look like-->
         <!-- - Test vs Training points-->
         <!-- - Test Loss & Training Loss-->
         <!-- - Single neuron in hidden layer can only do linear separation-->
         <!-- - Classification problem-->
         <section>
-            <h3>Introducing Deep Neural Networks using Tensorflow Playground</h3>
+            <h3>Introducing Neural Networks using Tensorflow Playground</h3>
             <a target="_blank" href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=1&seed=0.19505&showTestData=true&discretize=true&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false">
-                <img src="numer_of_perceptrons/1.png">
+                <img src="tensorflow-classification.png">
             </a>
+            <p><small><a target="_blank" href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=1&seed=0.19505&showTestData=true&discretize=true&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false">
+                Click image above to try it out yourself</a>
+            </small></p>
         </section>
 
         <section>
-            <h3>The perceptron - a simulated neuron</h3>
-            <img src="perceptron.jpg" height="400">
+            <h3>Classification</h3>
+            <div>
+                <ul>
+                    <li class="fragment">result of the neural network is a classification
+                    <li class="fragment">each spot in a plane gets a prediction
+                    <li class="fragment">either blue or orange
+                    <li class="fragment">prediction can be discrete or continuous
+                    <li class="fragment">network is trained to give a good prediction
+                </ul>
+            </div>
+            <img src="tensorflow-classification.png" style="float: left; height: 300px">
+            <img src="tensorflow-weights.png" style="float: right">
+        </section>
+
+        <section>
+            <h3>Simulated neurons and neural networks</h3>
+            <div>
+                <ul>
+                    <li class="fragment">each neuron can separate plane into two regions using a line
+                    <li class="fragment">can be trained by adjusting weights of inputs based on error in output
+                    <li class="fragment">can be arranged in layers, each getting same input (neural network)
+                    <li class="fragment">special output layer (softmax) classifies summed up output
+                    <li class="fragment">more than one layer is possible (deep neural network)
+                </ul>
+            </div>
+            <img src="tensorflow-neurons.png" style="clear: both;float: left; height: 300px">
+            <div style="float: right; height: 250px">
+                <img src="perceptron.jpg" >
+            </div>
             <p><small><a target="_blank" href="http://www.theprojectspot.com/tutorial-post/introduction-to-artificial-neural-networks-part-1/7">
                 http://www.theprojectspot.com/tutorial-post/introduction-to-artificial-neural-networks-part-1/7
             </a></small></p>
         </section>
 
         <section>
-            <h3>What can a perceptron do?</h3>
-            <ul>
-                <li class="fragment">output separates plane into two regions using a line
-                <li class="fragment">such regions are called <em>linearly separable</em>
-                <li class="fragment">can emulate most logic functions (NOT, AND, OR, NAND)
-                <li class="fragment">can be trained by adjusting weights of inputs based on error in output
-            </ul>
-            <div>
-                <a target="_blank"
-                   href="code/graph-and-perceptron.html"><img src="learning.png" height="300"></a>
-                <p><small><a target="_blank"
-                      href="code/graph-and-perceptron.html">percepton training visualization</a>
-                    (initial version provided as a courtesy of <a href="https://twitter.com/jedborovik" target="_blank">
-                        Jed Borovik</a>)</small></p>
-            </div>
-        </section>
-
-        <section>
-            <h3>ConvNetJS: Deep Neural Networks with JavaScript</h3>
-            <p class="fragment">Interactive classifier using deep neural network</p>
+            <h3>Now for the JavaScript</h3>
+            <h4 class="fragment">ConvNetJS</h4>
+            <p class="fragment">Code can be changed directly in the browser</p>
             <div class="fragment">
                 <a target="_blank" href="code/demo/classify2d.html">
                     <img src="screeshot-convnet-2d-classifier.png" height="400">
@@ -244,17 +226,8 @@
         </section>
 
         <section>
-            <h3>Deep Learning</h3>
-            <div class="fragment">
-                <img src="deep-learning.png" height="500">
-                <p><small><a target="_blank" href="https://drive.google.com/file/d/0BxKBnD5y2M8NdFB4U1BtU1V1ejA/view">
-                    Deep Learning: Course by Yann LeCun at Collège de France 2016
-                </a></small></p>
-            </div>
-        </section>
-
-        <section>
             <h3>Code for classifier</h3>
+            <p>That's what you can change directly in the browser</p>
             <pre><code data-trim class="line-numbers">
 layer_defs = [
     {type:'input', out_sx:1, out_sy:1, out_depth:2},
@@ -272,6 +245,7 @@ trainer = new convnetjs.Trainer(net);
 
         <section>
             <h3>Classifier Example - Prediction</h3>
+            <p>Under the hood</p>
             <pre><code data-trim class="line-numbers">
 var point = new convnetjs.Vol(1,1,2); // needs to match input layer
 point.w = [3.0, 4.0];
@@ -281,6 +255,23 @@ if(prediction.w[0] > prediction.w[1]) // red;
 else // green;
             </code></pre>
             <p class="fragment">Predictions will also be painted as background colors</p>
+        </section>
+
+        <section>
+            <h3>Training and Loss</h3>
+            <div>
+                <ul>
+                    <li class="fragment">data is separated into training and test data
+                    <li class="fragment">in image below: training: white border, test: black border
+                    <li class="fragment">training data is used to train neural network
+                    <li class="fragment">both test and training data are used to check accuracy of prediction
+                    <li class="fragment">loss is to be minimized
+                    <li class="fragment">overfitting: training loss low, test loss much higher (to be avoided)
+                </ul>
+            </div>
+            <img src="tensorflow-classification.png" style="float: left; height: 300px">
+            <img src="tensorflow-loss.png" style="float: right">
+            <img src="tensorflow-weights.png" style="float: right">
         </section>
 
         <section>
@@ -310,53 +301,111 @@ avloss /= N*iters;</code></pre>
         </section>
 
         <section>
-            <h3>The CIFAR-10 dataset</h3>
-            <p class="fragment">Tiny images in 10 classes, 6000 per class in training set</p>
-            <div class="fragment">
-                <a target="_blank" href="http://www.cs.toronto.edu/~kriz/cifar.html">
-                    <img src="screenshot-CIFAR-10.png" height="400">
-                </a>
-                <p><small><a target="_blank" href="http://www.cs.toronto.edu/~kriz/cifar.html">
-                    http://www.cs.toronto.edu/~kriz/cifar.html
-                </a></small></p>
+            <h3>More #1: Convolutional Networks</h3>
+            <div>
+                <ul>
+                    <li class="fragment">special networks to to process images
+                    <li class="fragment">each layer turns input into a number of filtered outputs
+                    <li class="fragment">special layers provide location invariance
+                    <li class="fragment">each layer adds semantic information
+                </ul>
             </div>
+            <!--<img src="conv-network.svg">-->
+            <!--<p><small><a target="_blank" href="https://openai.com/blog/generative-models/">-->
+                <!--https://openai.com/blog/generative-models/-->
+            <!--</a></small></p>-->
+            <img src="udacity-ud730-convolutional-pyramid.png" style="height: 400px">
+            <p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning--ud730">
+            Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)
+            </a></small></p>
         </section>
 
         <section>
-            <h3>The Convolutional Pyramid</h3>
-            <div class="fragment">
-                <img src="udacity-ud730-convolutional-pyramid.png" height="500">
-                <p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning--ud730">
-                    Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)
-                </a></small></p>
-            </div>
+            <h3>Intuition for Convolutional Networks</h3>
+            <img src="dogs.jpg">
+            <p class="fragment">becomes</p>
+            <img class="fragment" src="vgg_filter_05_crop.jpg">
+            <p><small><a target="_blank" href="https://auduno.github.io/2016/06/18/peeking-inside-convnets/">
+                https://auduno.github.io/2016/06/18/peeking-inside-convnets/
+            </a></small></p>
         </section>
 
         <section>
-            <h3>Sample classification results using convnet.js</h3>
-            <p class="fragment">Would need much more training, this is after 5 minutes</p>
-            <div class="fragment">
-                <a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html">
-                    <img src="screenshot-cifar-example-predictions.png" height="400">
-                </a>
-                <p><small><a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html">
-                    http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html
-                </a></small></p>
+            <h3>More #2: Reinforcement Learning</h3>
+            <div>
+                <ul>
+                    <li class="fragment">network learns by playing
+                    <li class="fragment">sometimes against itself
+                    <li class="fragment">directly from raw input
+                    <li class="fragment">possible via deep neural networks
+                    <li class="fragment">world class Go player defeated
+                    <li class="fragment">achieves superhuman performance in many atari games
+                </ul>
             </div>
+            <img src="lee-sedol.JPG" style="float: left; height: 300px">
+            <img src="space-invaders.gif" style="float: right; height: 300px">
+            <p><small><a target="_blank" href="https://deepmind.com/blog">
+                https://deepmind.com/blog
+            </a></small></p>
         </section>
+
+        <section>
+        <h3>Deep Learning</h3>
+        <div class="fragment">
+        <img src="deep-learning.png" height="500">
+        <p><small><a target="_blank" href="https://drive.google.com/file/d/0BxKBnD5y2M8NdFB4U1BtU1V1ejA/view">
+        Deep Learning: Course by Yann LeCun at Collège de France 2016
+        </a></small></p>
+        </div>
+        </section>
+
+
+        <!--<section>-->
+            <!--<h3>The CIFAR-10 dataset</h3>-->
+            <!--<p class="fragment">Tiny images in 10 classes, 6000 per class in training set</p>-->
+            <!--<div class="fragment">-->
+                <!--<a target="_blank" href="http://www.cs.toronto.edu/~kriz/cifar.html">-->
+                    <!--<img src="screenshot-CIFAR-10.png" height="400">-->
+                <!--</a>-->
+                <!--<p><small><a target="_blank" href="http://www.cs.toronto.edu/~kriz/cifar.html">-->
+                    <!--http://www.cs.toronto.edu/~kriz/cifar.html-->
+                <!--</a></small></p>-->
+            <!--</div>-->
+        <!--</section>-->
+
+        <!--<section>-->
+            <!--<h3>The Convolutional Pyramid</h3>-->
+            <!--<div class="fragment">-->
+                <!--<img src="udacity-ud730-convolutional-pyramid.png" height="500">-->
+                <!--<p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning&#45;&#45;ud730">-->
+                    <!--Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)-->
+                <!--</a></small></p>-->
+            <!--</div>-->
+        <!--</section>-->
+
+        <!--<section>-->
+            <!--<h3>Sample classification results using convnet.js</h3>-->
+            <!--<p class="fragment">Would need much more training, this is after 5 minutes</p>-->
+            <!--<div class="fragment">-->
+                <!--<a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html">-->
+                    <!--<img src="screenshot-cifar-example-predictions.png" height="400">-->
+                <!--</a>-->
+                <!--<p><small><a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html">-->
+                    <!--http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html-->
+                <!--</a></small></p>-->
+            <!--</div>-->
+        <!--</section>-->
 
         <section>
             <h3>Wrap-Up</h3>
             <ul class="fragment">
-                <li>setting up a NN is insanely easy
-                <li>preparing data and making results visible often is much harder
+                <li>Deep Learning is a game changer in Machine Learning and AI
                 <li>the browser even makes Deep Learning more accessible
                 <li>all the fancy deep learning stuff works in the browser
                 <li>especially good for learning and education
                 <li>direct visualization and interactivity
             </ul>
         </section>
-
 
         <section>
             <h1>Thank you!</h1>
