@@ -145,9 +145,6 @@
                 <a style="float: left" href="http://techcrunch.com/2016/04/20/ducking-awesome-self-driving-cars" target="_blank">
                     <img src="rubber-duckies.gif"  height="200">
                 </a>
-            <a style="float: right" href="http://karpathy.github.io/2016/05/31/rl/" target="_blank">
-                <img src="pong.png" height="150">
-            </a>
             <a style="float: right" href="http://gitxiv.com/posts/tiXMXrgKAxibaB2Ws/asynchronous-methods-for-deep-reinforcement-learning" target="_blank">
                 <img src="space-invaders.gif" height="150">
             </a>
@@ -178,12 +175,12 @@
         <section>
             <h3>Classification</h3>
             <div>
-                <ul>
-                    <li class="fragment">result of the neural network is a classification
-                    <li class="fragment">each spot in a plane gets a prediction
-                    <li class="fragment">either blue or orange
-                    <li class="fragment">prediction can be discrete or continuous
-                    <li class="fragment">network is trained to give a good prediction
+                <ul class="fragment">
+                    <li>result of the neural network is a classification
+                    <li>each spot in a plane gets a prediction
+                    <li>either blue or orange
+                    <li>prediction can be discrete or continuous
+                    <li>network is trained to give a good prediction
                 </ul>
             </div>
             <img src="tensorflow-classification.png" style="float: left; height: 300px">
@@ -193,12 +190,12 @@
         <section>
             <h3>Simulated neurons and neural networks</h3>
             <div>
-                <ul>
-                    <li class="fragment">each neuron can separate plane into two regions using a line
-                    <li class="fragment">can be trained by adjusting weights of inputs based on error in output
-                    <li class="fragment">can be arranged in layers, each getting same input (neural network)
-                    <li class="fragment">special output layer (softmax) classifies summed up output
-                    <li class="fragment">more than one layer is possible (deep neural network)
+                <ul class="fragment">
+                    <li>each neuron can separate plane into two regions using a line
+                    <li>can be trained by adjusting weights of inputs based on error in output
+                    <li>can be arranged in layers, each getting same input (neural network)
+                    <li>special output layer (softmax) classifies summed up output
+                    <li>more than one layer is possible (deep neural network)
                 </ul>
             </div>
             <img src="tensorflow-neurons.png" style="clear: both;float: left; height: 300px">
@@ -251,8 +248,8 @@ var point = new convnetjs.Vol(1,1,2); // needs to match input layer
 point.w = [3.0, 4.0];
 var prediction = net.forward(point);
 // probability of classes in .w
-if(prediction.w[0] > prediction.w[1]) // red;
-else // green;
+if(prediction.w[0] > prediction.w[1]) // red / orange;
+else // green / blue;
             </code></pre>
             <p class="fragment">Predictions will also be painted as background colors</p>
         </section>
@@ -260,13 +257,13 @@ else // green;
         <section>
             <h3>Training and Loss</h3>
             <div>
-                <ul>
-                    <li class="fragment">data is separated into training and test data
-                    <li class="fragment">in image below: training: white border, test: black border
-                    <li class="fragment">training data is used to train neural network
-                    <li class="fragment">both test and training data are used to check accuracy of prediction
-                    <li class="fragment">loss is to be minimized
-                    <li class="fragment">overfitting: training loss low, test loss much higher (to be avoided)
+                <ul class="fragment">
+                    <li>data is separated into training and test data
+                    <li>in image below: training: white border, test: black border
+                    <li>training data is used to train neural network
+                    <li>both test and training data are used to check accuracy of prediction
+                    <li>loss is to be minimized
+                    <li>overfitting: training loss low, test loss much higher (to be avoided)
                 </ul>
             </div>
             <img src="tensorflow-classification.png" style="float: left; height: 300px">
@@ -277,20 +274,22 @@ else // green;
         <section>
             <h3>Classifier Example - Training</h3>
             <pre><code data-trim class="line-numbers" data-leftpad>
+// data coordinates
 var data = [[-0.4326,  1.1909], [3.0, 4.0], [1.8133, 1.0139 ]];
+// matching labels, 1 for red / orange, 0 for green / blue
 var labels = [1, 1, 0];
 var N =  labels.length;
 var avloss = 0.0;
         </code></pre>
-            <pre class="fragment"><code data-trim class="line-numbers" data-num-start="5" data-leftpad>
+            <pre class="fragment"><code data-trim class="line-numbers" data-num-start="7" data-leftpad>
 for (var iter=0; iter &lt; 20; iter++) {
     for (var ix=0; ix &lt; N; ix++) {
         </code></pre>
-            <pre class="fragment"><code class="line-numbers" data-num-start="7" data-leftpad>      var point = new convnetjs.Vol(1,1,2);
+            <pre class="fragment"><code class="line-numbers" data-num-start="9" data-leftpad>      var point = new convnetjs.Vol(1,1,2);
       var label = labels[ix];
-      point.w = data[ix];</code></pre>
+      point.w = data[ix]; // use data coordinate for point</code></pre>
             <pre class="fragment">
-<code class="line-numbers"  data-num-start="10">      var stats = trainer.train(point, label);
+<code class="line-numbers"  data-num-start="12">      var stats = trainer.train(point, label);
       avloss += stats.loss;
     }
 }
@@ -301,13 +300,26 @@ avloss /= N*iters;</code></pre>
         </section>
 
         <section>
+            <h1>That's it more or less for feed forward networks</h1>
+        </section>
+
+        <section>
+            <h3>Main Challenge: <em class="fragment">what is the best configuration for a given problem?</em></h3>
+            <h3 class="fragment">Solution: <em class="fragment">try it out!</em></h3>
+        </section>
+
+        <section>
+            <h1>What else?</h1>
+        </section>
+
+        <section>
             <h3>More #1: Convolutional Networks</h3>
             <div>
-                <ul>
-                    <li class="fragment">special networks to to process images
-                    <li class="fragment">each layer turns input into a number of filtered outputs
-                    <li class="fragment">special layers provide location invariance
-                    <li class="fragment">each layer adds semantic information
+                <ul class="fragment">
+                    <li>special networks to to process images
+                    <li>each layer turns input into a number of filtered outputs
+                    <li>special layers provide location invariance
+                    <li>each layer adds semantic information
                 </ul>
             </div>
             <!--<img src="conv-network.svg">-->
@@ -333,20 +345,28 @@ avloss /= N*iters;</code></pre>
         <section>
             <h3>More #2: Reinforcement Learning</h3>
             <div>
-                <ul>
-                    <li class="fragment">network learns by playing
-                    <li class="fragment">sometimes against itself
-                    <li class="fragment">directly from raw input
-                    <li class="fragment">possible via deep neural networks
-                    <li class="fragment">world class Go player defeated
-                    <li class="fragment">achieves superhuman performance in many atari games
+                <ul class="fragment">
+                    <li>network learns by playing
+                    <li>sometimes against itself
+                    <li>directly from raw input
+                    <li>world class Go player defeated
+                    <li>achieves superhuman performance in many atari games
+                    <li>possible via deep neural networks
                 </ul>
             </div>
-            <img src="lee-sedol.JPG" style="float: left; height: 300px">
-            <img src="space-invaders.gif" style="float: right; height: 300px">
-            <p><small><a target="_blank" href="https://deepmind.com/blog">
-                https://deepmind.com/blog
-            </a></small></p>
+            <div style="float: left; width: 400px">
+                <img src="lee-sedol.JPG">
+                <p style="clear: both"><small><a target="_blank" href="https://deepmind.com/blog">
+                    https://deepmind.com/blog
+                </a></small></p>
+            </div>
+            <div style="float: right; width: 500px">
+                <img src="pong.png">
+                <p><small><a target="_blank" href="http://karpathy.github.io/2016/05/31/rl/">
+                    Andrej Karpathy: Pong from Pixels
+                </a></small></p>
+            </div>
+
         </section>
 
         <section>
@@ -415,6 +435,10 @@ avloss /= N*iters;</code></pre>
                 <a href="http://zeigermann.eu">Oliver Zeigermann</a> / <a href="http://twitter.com/djcordhose">@DJCordhose</a>
 
             </p>
+            <p><small><a href="http://djcordhose.github.io/machine-learning-in-the-browser/2016_ruhrjs.html">
+                http://djcordhose.github.io/machine-learning-in-the-browser/2016_ruhrjs.html
+            </a></small></p>
+
         </section>
 
         <section>
