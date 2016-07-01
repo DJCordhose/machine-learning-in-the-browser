@@ -139,24 +139,24 @@
 
         <section>
             <h2>Applications of machine learning?</h2>
-            <a style="float: right" href="http://m.pulsenews.co.kr/view.php?sc=30800019&year=2016&no=292907" target="_blank">
+            <a  class="fragment" style="float: right" href="http://m.pulsenews.co.kr/view.php?sc=30800019&year=2016&no=292907" target="_blank">
                 <img src="lecun-twitter.png" height="200">
             </a>
-                <a style="float: left" href="http://techcrunch.com/2016/04/20/ducking-awesome-self-driving-cars" target="_blank">
-                    <img src="rubber-duckies.gif"  height="200">
-                </a>
-            <a style="float: right" href="http://gitxiv.com/posts/tiXMXrgKAxibaB2Ws/asynchronous-methods-for-deep-reinforcement-learning" target="_blank">
+            <a  class="fragment" style="float: left" href="http://techcrunch.com/2016/04/20/ducking-awesome-self-driving-cars" target="_blank">
+                <img src="rubber-duckies.gif"  height="200">
+            </a>
+            <a  class="fragment" style="float: right" href="http://gitxiv.com/posts/tiXMXrgKAxibaB2Ws/asynchronous-methods-for-deep-reinforcement-learning" target="_blank">
                 <img src="space-invaders.gif" height="150">
             </a>
-            <div style="float: right" >
+            <div style="float: right" class="fragment">
             <a href="http://news.mit.edu/2016/teaching-machines-to-predict-the-future-0621" target="_blank">
                 <img src="predict-future.jpg" height="200">
             </a>
             </div>
-            <a style="float: left" href="https://matthewearl.github.io/2016/05/06/cnn-anpr" target="_blank">
+            <a  class="fragment" style="float: left" href="https://matthewearl.github.io/2016/05/06/cnn-anpr" target="_blank">
                 <img src="window-scan.gif" height="150">
             </a>
-            <a href="https://deepmind.com/alpha-go" target="_blank">
+            <a  class="fragment" href="https://deepmind.com/alpha-go" target="_blank">
                 <img src="alphago-logo.png" height="80">
             </a>
         </section>
@@ -195,7 +195,7 @@
             <h3>Simulated neurons and neural networks</h3>
             <div>
                 <ul class="fragment">
-                    <li>each neuron can separate plane into two regions using a line
+                    <li>each neuron can separate a plane into two regions using a line
                     <li>can be trained by adjusting weights of inputs based on error in output
                     <li>can be arranged in layers, each getting same input (neural network)
                     <li>special output layer (softmax) classifies summed up output
@@ -255,7 +255,7 @@ var prediction = net.forward(point);
 if(prediction.w[0] > prediction.w[1]) // red / orange;
 else // green / blue;
             </code></pre>
-            <p class="fragment">Predictions will also be painted as background colors</p>
+            <p class="fragment">Predictions will be painted as background colors</p>
         </section>
 
         <section>
@@ -270,9 +270,13 @@ else // green / blue;
                     <li>overfitting: training loss low, test loss much higher (to be avoided)
                 </ul>
             </div>
-            <img src="tensorflow-classification.png" style="float: left; height: 300px">
-            <img src="tensorflow-loss.png" style="float: right">
-            <img src="tensorflow-weights.png" style="float: right">
+            <a href="http://localhost:63342/machine-learning-in-the-browser/code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
+            <div>
+                <img src="tensorflow-classification.png" style="float: left; height: 300px">
+                <img src="tensorflow-loss.png" style="float: right">
+                <img src="tensorflow-weights.png" style="float: right">
+            </div>
+            </a>
         </section>
 
         <section>
@@ -308,8 +312,10 @@ avloss /= N*iters;</code></pre>
         </section>
 
         <section>
-            <h3>Main Challenge: <em class="fragment">what is the best configuration for a given problem?</em></h3>
-            <h3 class="fragment">Solution: <em class="fragment">try it out!</em></h3>
+            <h3>Main Challenge: <em class="fragment">What is the best configuration for a given problem?</em></h3>
+            <h3 class="fragment">That is: <em class="fragment">How many layers, how many neurons?</em></h3>
+            <h3 class="fragment">Solution: <em class="fragment">Try it out!</em></h3>
+            <h3 class="fragment">Solution #2: <em class="fragment">Use a pre-trained network!</em></h3>
         </section>
 
         <section>
@@ -423,11 +429,12 @@ avloss /= N*iters;</code></pre>
         <section>
             <h3>Wrap-Up</h3>
             <ul class="fragment">
-                <li>Deep Learning is a game changer in Machine Learning and AI
+                <li>Deep Neural Networks are a game changer in Machine Learning and AI
                 <li>the browser even makes Deep Learning more accessible
                 <li>all the fancy deep learning stuff works in the browser
                 <li>especially good for learning and education
                 <li>direct visualization and interactivity
+                <li>Tensorflow Playground makes this especially easy to try out
             </ul>
         </section>
 
@@ -439,9 +446,9 @@ avloss /= N*iters;</code></pre>
                 <a href="http://zeigermann.eu">Oliver Zeigermann</a> / <a href="http://twitter.com/djcordhose">@DJCordhose</a>
 
             </p>
-            <p><small><a href="http://djcordhose.github.io/machine-learning-in-the-browser/2016_ruhrjs.html">
+            <p><a href="http://djcordhose.github.io/machine-learning-in-the-browser/2016_ruhrjs.html">
                 http://djcordhose.github.io/machine-learning-in-the-browser/2016_ruhrjs.html
-            </a></small></p>
+            </a></p>
 
         </section>
 
