@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Machine Learning in the Browser with Deep Neural Networks</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="reveal.js/css/reveal.css">
+    <!--<link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">-->
+    <link rel="stylesheet" href="reveal.js/css/theme/night.css" id="theme">
+    <!--<link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">-->
+    <!--<link rel="stylesheet" href="reveal.js/css/theme/night.css" id="theme">-->
+    <!--<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">-->
+
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+    <style>
+        pre code {
+            /*display: block;*/
+            /*padding: 0.5em;*/
+            /*background: #FFFFFF !important;*/
+            /*color: #000000 !important;*/
+            font-size: larger !important;
+        }
+
+        .right-img {
+            margin-left: 10px !important;
+            float: right;
+            /*height: 500px;*/
+        }
+        .left-img {
+            margin-left: 10px !important;
+            float: left;
+            /*height: 500px;*/
+        }
+        .todo:before {
+            content: 'TODO: ';
+        }
+        .todo {
+            color: red !important;
+        }
+        code span.line-number {
+            color: lightcoral;
+        }
+
+    </style>
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+        <section>
+            <h2>Machine Learning in the Browser with Deep Neural Networks</h2>
+            <h3>A Visual Introduction</h3>
+            <h4>http://js-kongress.de 2016</h4>
+            <p>
+                <small><a href="http://zeigermann.eu">Oliver Zeigermann</a> / <a href="http://twitter.com/djcordhose">@DJCordhose</a>
+                </small>
+            </p>
+            <p><small><a href="http://djcordhose.github.io/machine-learning-in-the-browser/2016_js_kongress.html">
+                http://djcordhose.github.io/machine-learning-in-the-browser/2016_js_kongress.html
+            </a></small></p>
+
+        </section>
+
+        <section>
+            <h2>Level of this talk</h2>
+            <img class="fragment" src="twitter-poll-ruhrjs.png">
+        </section>
+
+        <section>
+            <h2>What is machine learning?</h2>
+            <h3 class="fragment"><a href="https://en.wikipedia.org/wiki/Machine_learning" target="_blank">
+                science of getting computers to act without being explicitly programmed</a></h3>
+        </section>
+
+        <section>
+            <h2>Example: Tell an organge from an apple</h2>
+            <p><small><a target="_blank" href="https://www.youtube.com/watch?v=cKxRvEZd3Mw">
+                Taken from Hello World - Machine Learning Recipes
+            </a></small></p>
+        </section>
+
+        <section>
+            <h3>Programmatic Solution</h3>
+            <h4 class="fragment">Checking the color</h4>
+            <img class="fragment" src="apple-or-orange.png" height="400">
+        </section>
+
+        <section>
+            <h3>What about BW?</h3>
+            <img class="fragment" src="bw-apple-or-orange.png" height="400">
+        </section>
+
+        <section>
+            <h3>Banana?</h3>
+            <img class="fragment" src="banana.png" height="400">
+        </section>
+
+        <section>
+            <h3>Just too many rules to write by hand</h3>
+            <img class="fragment" src="many-rules.png" height="400">
+            <h4 class="fragment">... and you probably forgot one ;)</h4>
+            <h4 class="fragment">... and probably have one too many ;)</h4>
+        </section>
+
+        <section>
+            <h2>Rather let the machine learn all the rules for you</h2>
+            <h3 class="fragment">By learning from examples</h3>
+        </section>
+
+        <section>
+            <h2>Applications of machine learning?</h2>
+            <a  class="fragment" style="float: right" href="http://m.pulsenews.co.kr/view.php?sc=30800019&year=2016&no=292907" target="_blank">
+                <img src="lecun-twitter.png" height="200">
+            </a>
+            <a  class="fragment" style="float: left" href="http://techcrunch.com/2016/04/20/ducking-awesome-self-driving-cars" target="_blank">
+                <img src="rubber-duckies.gif"  height="200">
+            </a>
+            <a  class="fragment" style="float: right" href="http://gitxiv.com/posts/tiXMXrgKAxibaB2Ws/asynchronous-methods-for-deep-reinforcement-learning" target="_blank">
+                <img src="space-invaders.gif" height="150">
+            </a>
+            <div style="float: right" class="fragment">
+            <a href="http://news.mit.edu/2016/teaching-machines-to-predict-the-future-0621" target="_blank">
+                <img src="predict-future.jpg" height="200">
+            </a>
+            </div>
+            <a  class="fragment" style="float: left" href="https://matthewearl.github.io/2016/05/06/cnn-anpr" target="_blank">
+                <img src="window-scan.gif" height="150">
+            </a>
+            <a  class="fragment" href="https://deepmind.com/alpha-go" target="_blank">
+                <img src="alphago-logo.png" height="80">
+            </a>
+        </section>
+
+        <!-- - How does a neural network look like-->
+        <!-- - Test vs Training points-->
+        <!-- - Test Loss & Training Loss-->
+        <!-- - Single neuron in hidden layer can only do linear separation-->
+        <!-- - Classification problem-->
+        <section>
+            <h3>Introducing Neural Networks using Tensorflow Playground</h3>
+            <p><a href="http://playground.tensorflow.org/" target="_blank">http://playground.tensorflow.org/</a></p>
+            <a target="_blank" href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=1&seed=0.19505&showTestData=true&discretize=true&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false">
+                <img src="tensorflow-classification.png" height="400">
+            </a>
+            <p><small><a target="_blank" href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=1&seed=0.19505&showTestData=true&discretize=true&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false">
+                Click image above to try it out yourself</a>
+            </small></p>
+        </section>
+
+        <section>
+            <h3>Classification</h3>
+            <div>
+                <ul class="fragment">
+                    <li>result of the neural network is a classification
+                    <li>each spot in a plane gets a prediction
+                    <li>either blue or orange
+                    <li>prediction can be discrete or continuous
+                    <li>network is trained to give a good prediction
+                </ul>
+            </div>
+            <img src="tensorflow-classification.png" style="float: left; height: 300px">
+            <img src="tensorflow-weights.png" style="float: right">
+        </section>
+
+        <section>
+            <h3>Simulated neurons and neural networks</h3>
+            <div>
+                <ul class="fragment">
+                    <li>each neuron can separate a plane into two regions using a line
+                    <li>can be trained by adjusting weights of inputs based on error in output
+                    <li>can be arranged in layers, each getting same input (neural network)
+                    <li>special output layer (softmax) classifies summed up output
+                    <li>more than one layer is possible (deep neural network)
+                </ul>
+            </div>
+            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
+                <div>
+
+                <img src="tensorflow-neurons.png" style="clear: both;float: left; height: 300px">
+                <div style="float: right; height: 250px">
+                    <img src="perceptron.jpg" >
+                </div>
+            </div>
+            </a>
+            <p><small><a target="_blank" href="http://www.theprojectspot.com/tutorial-post/introduction-to-artificial-neural-networks-part-1/7">
+                http://www.theprojectspot.com/tutorial-post/introduction-to-artificial-neural-networks-part-1/7
+            </a></small></p>
+        </section>
+
+        <section>
+            <h3>Now for the JavaScript</h3>
+            <h4>ConvNetJS</h4>
+            <p><a href="http://cs.stanford.edu/people/karpathy/convnetjs/" target="_blank">http://cs.stanford.edu/people/karpathy/convnetjs/</a></p>
+            <p>Code can be changed directly in the browser</p>
+            <div style="height: 350px">
+                <a target="_blank" href="code/demo/classify2d.html">
+                    <img src="screeshot-convnet-2d-classifier.png">
+                    <img src="screeshot-convnet-2d-classifier-spiral.png">
+                </a>
+                <p><small><a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/classify2d.html">
+                    http://cs.stanford.edu/people/karpathy/convnetjs/demo/classify2d.html
+                </a></small></p>
+            </div>
+        </section>
+
+        <section>
+            <h3>Code for classifier</h3>
+            <p>That's what you can change directly in the browser</p>
+            <pre><code data-trim class="line-numbers">
+layer_defs = [
+    {type:'input', out_sx:1, out_sy:1, out_depth:2},
+    {type:'fc', num_neurons:6, activation: 'tanh'},
+    {type:'fc', num_neurons:2, activation: 'tanh'},
+    {type:'softmax', num_classes:2}
+];
+
+net = new convnetjs.Net();
+net.makeLayers(layer_defs);
+
+trainer = new convnetjs.Trainer(net);
+            </code></pre>
+        </section>
+
+        <!--<section>-->
+            <!--<h3>Classifier Example - Prediction</h3>-->
+            <!--<p>Under the hood</p>-->
+            <!--<pre><code data-trim class="line-numbers">-->
+<!--var point = new convnetjs.Vol(1,1,2); // needs to match input layer-->
+<!--point.w = [3.0, 4.0];-->
+<!--var prediction = net.forward(point);-->
+<!--// probability of classes in .w-->
+<!--if(prediction.w[0] > prediction.w[1]) // red / orange;-->
+<!--else // green / blue;-->
+            <!--</code></pre>-->
+            <!--<p class="fragment">Predictions will be painted as background colors</p>-->
+        <!--</section>-->
+
+        <section>
+            <h3>Training and Loss</h3>
+            <div>
+                <ul class="fragment">
+                    <li>data is separated into training and test data
+                    <li>in image below: training: white border, test: black border
+                    <li>training data is used to train neural network
+                    <li>both test and training data are used to check accuracy of prediction
+                    <li>loss is to be minimized
+                    <li>overfitting: training loss low, test loss much higher (to be avoided)
+                </ul>
+            </div>
+            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
+            <div>
+                <img src="tensorflow-classification.png" style="float: left; height: 300px">
+                <img src="tensorflow-loss.png" style="float: right">
+                <img src="tensorflow-weights.png" style="float: right">
+            </div>
+            </a>
+        </section>
+
+        <section>
+            <h3>How does the trainer work?</h3>
+            <h4 class="fragment">Trainer turns learning into a numerical optimisation problem of weight parameters</h4>
+            <p class="fragment">Convnetjs uses stochastic gradient descent (SGD) by default...</p>
+            <p class="fragment">which is a faster version of gradient descent...</p>
+            <p class="fragment">which is a well understood and established way to find a minimum</p>
+        </section>
+
+        <!--<section>-->
+            <!--<h3>Classifier Example - Training</h3>-->
+            <!--<pre><code data-trim class="line-numbers" data-leftpad>-->
+<!--// data coordinates-->
+<!--var data = [[-0.4326,  1.1909], [3.0, 4.0], [1.8133, 1.0139 ]];-->
+<!--// matching labels, 1 for red / orange, 0 for green / blue-->
+<!--var labels = [1, 1, 0];-->
+<!--var N =  labels.length;-->
+<!--var avloss = 0.0;-->
+        <!--</code></pre>-->
+            <!--<pre class="fragment"><code data-trim class="line-numbers" data-num-start="7" data-leftpad>-->
+<!--for (var iter=0; iter &lt; 20; iter++) {-->
+    <!--for (var ix=0; ix &lt; N; ix++) {-->
+        <!--</code></pre>-->
+            <!--<pre class="fragment"><code class="line-numbers" data-num-start="9" data-leftpad>      var point = new convnetjs.Vol(1,1,2);-->
+      <!--var label = labels[ix];-->
+      <!--point.w = data[ix]; // use data coordinate for point</code></pre>-->
+            <!--<pre class="fragment">-->
+<!--<code class="line-numbers"  data-num-start="12">      var stats = trainer.train(point, label);-->
+      <!--avloss += stats.loss;-->
+    <!--}-->
+<!--}-->
+<!--// make this as small as possible-->
+<!--avloss /= N*iters;</code></pre>-->
+            <!--<h4 style="color: red" class="fragment">Trainer turns learning into a numerical optimisation problem of weight parameters</h4>-->
+            <!--<p class="fragment">Convnetjs uses stochastic gradient descent (SGD) by default</p>-->
+        <!--</section>-->
+
+        <section>
+            <h1>That's it more or less for feed forward networks</h1>
+        </section>
+
+        <section>
+            <h3>Main Challenge: <em class="fragment">What is the best configuration for a given problem?</em></h3>
+            <h3 class="fragment">That is: <em class="fragment">How many layers, how many neurons, which activation function?</em></h3>
+            <h3 class="fragment">Solution: <em class="fragment">Try it out!</em></h3>
+            <h3 class="fragment">Or: <em class="fragment">Trust the expterts, use a pre-trained network!</em></h3>
+        </section>
+
+        <section>
+            <h1>What else?</h1>
+        </section>
+
+        <section>
+            <h3>More #1: Convolutional Networks</h3>
+            <div>
+                <ul class="fragment">
+                    <li>special networks to to process images
+                    <li>each layer turns input into a number of filtered outputs
+                    <li>special layers provide location invariance
+                    <li>each layer adds semantic information
+                </ul>
+            </div>
+            <!--<img src="conv-network.svg">-->
+            <!--<p><small><a target="_blank" href="https://openai.com/blog/generative-models/">-->
+                <!--https://openai.com/blog/generative-models/-->
+            <!--</a></small></p>-->
+            <img src="udacity-ud730-convolutional-pyramid.png" style="height: 400px">
+            <p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning--ud730">
+            Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)
+            </a></small></p>
+        </section>
+
+        <section>
+            <h3>Intuition for Convolutional Networks</h3>
+            <img src="dogs.jpg">
+            <p class="fragment">becomes</p>
+            <img class="fragment" src="vgg_filter_05_crop.jpg">
+            <p><small><a target="_blank" href="https://auduno.github.io/2016/06/18/peeking-inside-convnets/">
+                https://auduno.github.io/2016/06/18/peeking-inside-convnets/
+            </a></small></p>
+        </section>
+
+        <section>
+            <h3>More #2: Reinforcement Learning</h3>
+            <div>
+                <ul class="fragment">
+                    <li>network learns by playing
+                    <li>sometimes against itself
+                    <li>directly from raw input
+                    <li>world class Go player defeated
+                    <li>achieves superhuman performance in many atari games
+                    <li>possible via deep neural networks
+                </ul>
+            </div>
+            <div style="float: left; width: 400px">
+                <img src="lee-sedol.JPG">
+                <p style="clear: both"><small><a target="_blank" href="https://deepmind.com/blog">
+                    https://deepmind.com/blog
+                </a></small></p>
+            </div>
+            <div style="float: right; width: 500px">
+                <img src="pong.png">
+                <p><small><a target="_blank" href="http://karpathy.github.io/2016/05/31/rl/">
+                    Andrej Karpathy: Pong from Pixels
+                </a></small></p>
+            </div>
+
+        </section>
+
+
+
+        <section>
+            <h3>Deep Learning</h3>
+            <div class="fragment">
+            <img src="deep-learning.png" height="500">
+            <p><small><a target="_blank" href="https://drive.google.com/file/d/0BxKBnD5y2M8NdFB4U1BtU1V1ejA/view">
+            Deep Learning: Course by Yann LeCun at Collège de France 2016
+            </a></small></p>
+            </div>
+        </section>
+
+        <section>
+            <h3>Deep Neural Networks?</h3>
+            <ul>
+                <li class="fragment">theoretically: <span class="fragment"><a href="https://en.wikipedia.org/wiki/Universal_approximation_theorem" target="_blank">
+                    a single hidden layer can approximate any continuous functions</a></span>
+                <li class="fragment">however, in practice: <span class="fragment"><a href="https://en.wikipedia.org/wiki/Deep_learning#Deep_neural_network_architectures" target="_blank">
+                having multiple layers has benefits on <em>training</em> a network</a>
+            </ul>
+        </section>
+
+
+        <!--<section>-->
+            <!--<h3>The CIFAR-10 dataset</h3>-->
+            <!--<p class="fragment">Tiny images in 10 classes, 6000 per class in training set</p>-->
+            <!--<div class="fragment">-->
+                <!--<a target="_blank" href="http://www.cs.toronto.edu/~kriz/cifar.html">-->
+                    <!--<img src="screenshot-CIFAR-10.png" height="400">-->
+                <!--</a>-->
+                <!--<p><small><a target="_blank" href="http://www.cs.toronto.edu/~kriz/cifar.html">-->
+                    <!--http://www.cs.toronto.edu/~kriz/cifar.html-->
+                <!--</a></small></p>-->
+            <!--</div>-->
+        <!--</section>-->
+
+        <!--<section>-->
+            <!--<h3>The Convolutional Pyramid</h3>-->
+            <!--<div class="fragment">-->
+                <!--<img src="udacity-ud730-convolutional-pyramid.png" height="500">-->
+                <!--<p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning&#45;&#45;ud730">-->
+                    <!--Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)-->
+                <!--</a></small></p>-->
+            <!--</div>-->
+        <!--</section>-->
+
+        <!--<section>-->
+            <!--<h3>Sample classification results using convnet.js</h3>-->
+            <!--<p class="fragment">Would need much more training, this is after 5 minutes</p>-->
+            <!--<div class="fragment">-->
+                <!--<a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html">-->
+                    <!--<img src="screenshot-cifar-example-predictions.png" height="400">-->
+                <!--</a>-->
+                <!--<p><small><a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html">-->
+                    <!--http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html-->
+                <!--</a></small></p>-->
+            <!--</div>-->
+        <!--</section>-->
+
+        <section>
+            <h3>Wrap-Up</h3>
+            <ul class="fragment">
+                <li>Deep Neural Networks are a game changer in Machine Learning and AI
+                <li>enabled by large Data Sets, Computing Power, and GPUs
+                <li>the browser even makes Deep Learning more accessible
+                <li>all the fancy deep learning stuff works in the browser
+                <li>especially good for learning and education
+                <li>direct visualization and interactivity
+                <li>Tensorflow Playground makes this especially easy to try out
+                <li>ConvnetJS for experiments with JavaScript  in the browser
+            </ul>
+        </section>
+
+        <section>
+            <h1>Thank you!</h1>
+
+            <!--<h2>Questions / Discussion</h2>-->
+            <p>
+                <a href="http://zeigermann.eu">Oliver Zeigermann</a> / <a href="http://twitter.com/djcordhose">@DJCordhose</a>
+
+            </p>
+            <p><a href="http://djcordhose.github.io/machine-learning-in-the-browser/2016_js_kongress.html">
+                http://djcordhose.github.io/machine-learning-in-the-browser/2016_js_kongress.html
+            </a></p>
+
+        </section>
+
+        <section>
+            <h3>Resources</h3>
+            <ul>
+                <li><a target="_blank" href="http://playground.tensorflow.org/">Tensorflow Playground in the Browser</a>
+                <li><a target="_blank"
+                       href="http://www.analyticsvidhya.com/blog/2015/08/common-machine-learning-algorithms">
+                    Essentials of Machine Learning Algorithms (with Python and R Codes)
+                </a>
+                <li><a href="http://r2d3.us" target="_blank">
+                    A visual introduction to machine learning</a>
+                <li>Udacity 3 minute introduction to <a target="_blank"
+                                                        href="https://www.youtube.com/watch?v=L_6idb3ZXB0">
+                    Neural Networks
+                </a> and <a target="_blank"
+                            href="https://www.youtube.com/watch?v=jajksuQW4mc">
+                    Convolutional Networks
+                </a>
+                <li><a target="_blank"
+                       href="http://rinuboney.github.io/2015/10/18/theoretical-motivations-deep-learning.html">
+                    Theoretical Motivations for Deep Learning
+                </a>
+                <li><a target="_blank"
+                       href="http://googleresearch.blogspot.de/2016/03/deep-learning-for-robots-learning-from.html">
+                    Deep Learning for Robots
+                </a>
+                <li><a href="http://neuralnetworksanddeeplearning.com/" target="_blank">
+                    Getting dirty with the math of Deep Learning</a>
+                <li><a href="https://www.tensorflow.org/" target="_blank">
+                    Tensorflow: Google's Machine Learning Library</a>
+                    <!--<li>Recurrent Neural Networks for Natural Language Processing (NLP)-->
+                    <!--<ul>-->
+                    <!--<li><a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank">-->
+                    <!--Introduction</a></li>-->
+                    <!--<li><a href="https://www.tensorflow.org/versions/r0.7/tutorials/recurrent/index.html" target="_blank">-->
+                    <!--@Tensorflow</a></li>-->
+                    <!--</ul>-->
+                    <!--</li>-->
+                <li><a target="_blank"
+                       href="https://www.import.io/post/andrew-ng-shares-the-astonishing-ways-deep-learning-is-changing-the-world/">
+                    Baidu Chief Scientist: Deep Learning changes the world
+                </a>
+                <li><a target="_blank"
+                       href="http://gizmodo.com/everything-you-know-about-artificial-intelligence-is-wr-1764020220">
+                    Everything You Know About Artificial Intelligence is Wrong
+                </a>
+                <li><a target="_blank"
+                       href="https://lettier.github.io/posts/2016-06-10-k-nearest-neighbors-from-scratch.html">
+                k-Nearest Neighbors from Scratch in JavaScript
+                </a>
+
+            </ul>
+        </section>
+
+        <section>
+            <h3>Bonus Resources: AlphaGo</h3>
+            <ul>
+                <li><a target="_blank"
+                       href="http://googleasiapacific.blogspot.de/2016/03/alphagos-ultimate-challenge.html">
+                    AlphaGo wins against Lee Sedol
+                </a>
+                <li><a target="_blank"
+                       href="https://deepmind.com/alpha-go.html">
+                    AlphaGo@Deepmind
+                </a>
+
+                <li><a target="_blank"
+                       href="http://www.wired.com/2016/03/sadness-beauty-watching-googles-ai-play-go">
+                    Wired: The Sadness and Beauty of Watching Google’s AI Play Go
+                </a>
+                <li><a target="_blank"
+                       href="http://www.nervanasys.com/demystifying-deep-reinforcement-learning/">
+                    Explaining Deep Reinforcement Learning (Used by DeepMind)
+                </a>
+                <li><a target="_blank"
+                       href="http://www.heise.de/ct/ausgabe/2016-6-Wie-Google-KI-den-Menschen-im-Go-schlagen-will-3118899.html">
+                    Heise: Explaining how AlphaGo works (German)
+                </a>
+                <li><a target="_blank"
+                       href="http://www.wired.com/2016/05/google-alpha-go-ai">
+                    WHAT THE AI BEHIND ALPHAGO CAN TEACH US ABOUT BEING HUMAN
+                </a>
+            </ul>
+        </section>
+
+    </div>
+
+</div>
+
+<script src="reveal.js/lib/js/head.min.js"></script>
+<script src="reveal.js/js/reveal.js"></script>
+<script src="lib/jquery-2.2.4.js"></script>
+
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+            {
+                src: 'reveal.js/lib/js/classList.js', condition: function () {
+                return !document.body.classList;
+            }
+            },
+            {
+                src: 'reveal.js/plugin/markdown/marked.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'reveal.js/plugin/markdown/markdown.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'reveal.js/plugin/highlight/highlight.js', async: true, condition: function () {
+                return !!document.querySelector('pre code');
+            }, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            },
+            {src: 'reveal.js/plugin/zoom-js/zoom.js', async: true},
+            {src: 'reveal.js/plugin/notes/notes.js', async: true},
+            // https://github.com/mikemiles86/reveal-line-numbers
+            {src: 'lib/js/line-numbers.js'}
+        ]
+    });
+
+</script>
+
+</body>
+</html>
