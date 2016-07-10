@@ -95,7 +95,6 @@
             <pre>
 -https://www.theguardian.com/technology/2016/jun/28/google-says-machine-learning-is-the-future-so-i-tried-it-myself?CMP=Share_AndroidApp_Tweet
 - Twitter survey for level of talk, replace screenshot
-- Add a cat picture directly after the dog picture (just becasue): https://twitter.com/Creatuluw/status/749151998415634432
 - Explain input nodes and show what happens when you change the input to squared stuff
             </pre>
         </section>
@@ -346,38 +345,8 @@ trainer = new convnetjs.Trainer(net);
             <h1>What else?</h1>
         </section>
 
-        <section>
-            <h3>More #1: Convolutional Networks</h3>
-            <div>
-                <ul class="fragment">
-                    <li>special networks to to process images
-                    <li>each layer turns input into a number of filtered outputs
-                    <li>special layers provide location invariance
-                    <li>each layer adds semantic information
-                </ul>
-            </div>
-            <!--<img src="conv-network.svg">-->
-            <!--<p><small><a target="_blank" href="https://openai.com/blog/generative-models/">-->
-                <!--https://openai.com/blog/generative-models/-->
-            <!--</a></small></p>-->
-            <img src="udacity-ud730-convolutional-pyramid.png" style="height: 400px">
-            <p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning--ud730">
-            Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)
-            </a></small></p>
-        </section>
-
-        <section>
-            <h3>Intuition for Convolutional Networks</h3>
-            <img src="dogs.jpg">
-            <p class="fragment">becomes</p>
-            <img class="fragment" src="vgg_filter_05_crop.jpg">
-            <p><small><a target="_blank" href="https://auduno.github.io/2016/06/18/peeking-inside-convnets/">
-                https://auduno.github.io/2016/06/18/peeking-inside-convnets/
-            </a></small></p>
-        </section>
-
-        <section>
-            <h3>More #2: Reinforcement Learning</h3>
+               <section>
+            <h3>More #1: Reinforcement Learning</h3>
             <div>
                 <ul class="fragment">
                     <li>network learns by playing
@@ -402,8 +371,6 @@ trainer = new convnetjs.Trainer(net);
             </div>
 
         </section>
-
-
 
         <section>
             <h3>Deep Learning</h3>
@@ -462,6 +429,54 @@ trainer = new convnetjs.Trainer(net);
             <!--</div>-->
         <!--</section>-->
 
+
+        <section>
+            <h3>More #2: Convolutional Networks</h3>
+            <div>
+                <ul class="fragment">
+                    <li>special networks to to process images
+                    <li>each layer turns input into a number of filtered outputs
+                    <li>special layers provide location invariance
+                    <li>each layer adds semantic information
+                </ul>
+            </div>
+            <!--<img src="conv-network.svg">-->
+            <!--<p><small><a target="_blank" href="https://openai.com/blog/generative-models/">-->
+                <!--https://openai.com/blog/generative-models/-->
+            <!--</a></small></p>-->
+            <img src="udacity-ud730-convolutional-pyramid.png" style="height: 400px">
+            <p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning--ud730">
+            Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)
+            </a></small></p>
+        </section>
+
+        <section>
+            <h3>Intuition for Convolutional Networks</h3>
+            <img src="dogs.jpg">
+            <p class="fragment">becomes</p>
+            <img class="fragment" src="vgg_filter_05_crop.jpg">
+            <p><small><a target="_blank" href="https://auduno.github.io/2016/06/18/peeking-inside-convnets/">
+                https://auduno.github.io/2016/06/18/peeking-inside-convnets/
+            </a></small></p>
+        </section>
+
+        <section>
+            <h3>Sometimes it is not that easy...</h3>
+            <div class="fragment" style="float: left; width: 450px">
+                <img src="dog-vs-muffin.jpg">
+                <p>Dog vs Muffin</p>
+                <p><small><a target="_blank" href="https://twitter.com/mikko/status/751454988631740416?s=03">
+                    https://twitter.com/mikko/status/751454988631740416?s=03
+                </a></small></p>
+            </div>
+            <div class="fragment" style="float: right; width: 450px">
+                <img src="dog-vs-bread.jpg">
+                <p>Dog vs Bread</p>
+                <p><small><a target="_blank" href="https://twitter.com/julioauto/status/751456091930701824">
+                    https://twitter.com/julioauto/status/751456091930701824
+                </a></small></p>
+            </div>
+        </section>
         <section>
             <h3>Wrap-Up</h3>
             <ul class="fragment">
