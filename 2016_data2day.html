@@ -95,6 +95,9 @@
         <!--Dazu gibt es eine minimale Einführung in Deep Neural Networks.-->
 
         <!--Englisch!-->
+        <!--40 Minuten-->
+        <!--Nur die convnet-Beispiele im Detail, die anderen Libs nur erwähnen-->
+        <!--Entspannte Unterhaltung zum Ausklang der Konferenz-->
 
         <section>
             <h2>Machine Learning in the Browser with Deep Neural Networks</h2>
@@ -123,14 +126,6 @@
             <a href="http://zeigermann.eu" target="_blank"><img src="intro/SF-Olli.jpg" height="200" align="right"></a>
             <a href="http://www.embarc.de/" target="_blank"><img src="intro/embarc13.png" height="200" align="left"></a>
 
-        </section>
-
-        <section class="todo">
-<pre>
-- Talk focus now not on introduction, but on Browser and JavaScript
-- Take all convnet-Slides from rmjs (including Regression and ConvNet)
-- Eval other libs and add some content
-</pre>
         </section>
 
         <section>
@@ -310,34 +305,256 @@ function sigmoid(z) {
         </section>
 
         <section>
-            <h3>JavaScript Libraries for Deep Neural Networks</h3>
-            <ul>
-                <li class="fragment todo"><a target="_blank" href="https://github.com/harthur-org/brain.js">
-                    Brain.js</a>
-                    <ul>
-                        <li class="fragment">
-                    </ul>
-                </li>
-                <li class="fragment"><a target="_blank" href="http://synaptic.juancazala.com/#/">Synaptic.js</a>
-                    <ul>
-                        <li class="fragment">small general lib for Neural Network
-                        <li class="fragment">nice and simple API
-                    </ul>
-                </li>
-                <li class="fragment"><a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/">ConvNetJS</a>
-                    <ul>
-                        <li class="fragment">mainly Deep Neural Network
-                        <li class="fragment">comes with visualizations, great for education
-                    </ul>
-                </li>
-                <li class="fragment todo"><a target="_blank" href="https://github.com/NaturalNode/natural/blob/master/README.md">Natural</a>
-                    <ul>
-                        <li class="fragment">
-                    </ul>
-                </li>
-            </ul>
+            <h3>Now for the JavaScript</h3>
+            <h4>ConvNetJS</h4>
+            <p><a href="http://cs.stanford.edu/people/karpathy/convnetjs/" target="_blank">http://cs.stanford.edu/people/karpathy/convnetjs/</a></p>
+            <p>Code can be changed directly in the browser</p>
+            <div style="height: 350px">
+                <a target="_blank" href="code/demo/classify2d.html">
+                    <img src="screeshot-convnet-2d-classifier.png">
+                    <img src="screeshot-convnet-2d-classifier-spiral.png">
+                </a>
+                <p><small><a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/classify2d.html">
+                    http://cs.stanford.edu/people/karpathy/convnetjs/demo/classify2d.html
+                </a></small></p>
+            </div>
         </section>
 
+        <section>
+            <h3>Code for classifier</h3>
+            <p>That's what you can change directly in the browser</p>
+            <pre><code data-trim class="line-numbers">
+layer_defs = [
+    {type:'input', out_sx:1, out_sy:1, out_depth:2},
+    {type:'fc', num_neurons:6, activation: 'tanh'},
+    {type:'fc', num_neurons:2, activation: 'tanh'},
+    {type:'softmax', num_classes:2}
+];
+
+net = new convnetjs.Net();
+net.makeLayers(layer_defs);
+
+trainer = new convnetjs.Trainer(net);
+            </code></pre>
+        </section>
+
+        <section>
+            <h3>Regression</h3>
+            <p>Does not classify, but tries to find a coninuous function that goes through all data points</p>
+            <div class="fragment">
+            <a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/regression.html">
+                <img src="screehshot-regression-w-output-first-layer.png" height="400">
+            </a>
+            <p><small><a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/regression.html">
+                http://cs.stanford.edu/people/karpathy/convnetjs/demo/regression.html
+            </a></small></p>
+            </div>
+        </section>
+
+        <section>
+            <h3>Regression Example - Code</h3>
+            <p class="fragment">Quick Quiz: How many neurons in hidden layer?</p>
+            <pre class="fragment"><code data-trim class="line-numbers">
+layer_defs = [
+  {type:'input', out_sx:1, out_sy:1, out_depth:1},
+  {type:'fc', num_neurons:5, activation:'sigmoid'},
+  {type:'regression', num_neurons:1}];
+            </code></pre>
+        </section>
+
+        <section>
+            <h3>CIFAR-10 with Convolutional Deep Neural Networks</h3>
+            <p>uses <a href="http://cs.stanford.edu/people/karpathy/convnetjs/docs.html" target="_blank">
+                convolutional</a> hidden layers for filtering</p>
+        </section>
+
+        <section>
+            <h3>The CIFAR-10 dataset</h3>
+            <p>Tiny images in 10 classes, 6000 per class in training set</p>
+            <a target="_blank" href="http://www.cs.toronto.edu/~kriz/cifar.html">
+                <img src="screenshot-CIFAR-10.png" height="400">
+            </a>
+            <p><small><a target="_blank" href="http://www.cs.toronto.edu/~kriz/cifar.html">
+                http://www.cs.toronto.edu/~kriz/cifar.html
+            </a></small></p>
+        </section>
+
+        <section>
+            <h3>The Convolutional Pyramid</h3>
+            <img src="udacity-ud730-convolutional-pyramid.png" height="500">
+            <p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning--ud730">
+                Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)
+            </a></small></p>
+        </section>
+
+        <section>
+            <h3>CIFAR-10 Example - Code</h3>
+            <pre><code data-trim class="line-numbers">
+layer_defs = [
+{type:'input', out_sx:32, out_sy:32, out_depth:3},
+{type:'conv', sx:5, filters:16, stride:1, pad:2, activation:'relu'},
+{type:'pool', sx:2, stride:2}),
+{type:'conv', sx:5, filters:20, stride:1, pad:2, activation:'relu'}.
+{type:'pool', sx:2, stride:2},
+{type:'conv', sx:5, filters:20, stride:1, pad:2, activation:'relu'},
+{type:'pool', sx:2, stride:2},
+{type:'softmax', num_classes:10}];
+            </code></pre>
+        </section>
+
+        <section>
+            <h3>Input: 32x32 RGB images</h3>
+            <img src="input32x32.png">
+        </section>
+
+        <section>
+            <h3>Convolutions</h3>
+            <div class="fragment">
+            <img src="udc-730-convolutions.png" height="500">
+            <p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning--ud730">
+                Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)
+            </a></small></p>
+            </div>
+        </section>
+
+        <section>
+            <h3>Convolution (Filtering) step #1: 16 32x32 images of filtered data</h3>
+            <p><pre><code data-trim>
+// 16 5x5 filters will be convolved with the input
+// output again 32x32 as stride (step width) is 1
+// 2 pixels on each edge will be padded with 0 matching 5x5 pixel filter
+{type:'conv', sx:5, filters:16, stride:1, pad:2, activation:'relu'}</code></pre></p>
+            <div class="fragment">
+                <img src="conv32x32.png">
+                <p>convolutional layers remove noise, add semantics</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>Translation Invariance</h3>
+            <div class="fragment">
+            <img src="udc-730-translation-invariance.png" height="500">
+            <p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning--ud730">
+                Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)
+            </a></small></p>
+                </div>
+        </section>
+
+        <section>
+            <h3>Pooling</h3>
+            <p><pre><code data-trim>
+// perform max pooling in 2x2 non-overlapping neighborhoods
+// output will be 16x16 as stride (step width) is 2
+{type:'pool', sx:2, stride:2}),
+</code></pre></p>
+            <div class="fragment">
+                <img src="pool16x16.png">
+                <p><a target="_blank" href="https://en.wikipedia.org/wiki/Convolutional_neural_network#Pooling_layer">
+                    pooling layers</a> in between provide translation invariance</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>Softmax</h3>
+            <p><pre><code data-trim class="javascript">
+{type:'softmax', num_classes:10}
+</code></pre></p>
+            <div class="fragment">
+            <img src="softmax10.png">
+            <p>assigns a probability to each of the 10 categories</p>
+                </div>
+        </section>
+
+        <section>
+            <h3>Sample classification results</h3>
+            <div class="fragment">
+                <a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html">
+                    <img src="screenshot-cifar-example-predictions.png" height="400">
+                </a>
+                <p><small><a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html">
+                    http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html
+                </a></small></p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Other JavaScript libraries that run in the Browser</h2>
+        </section>
+
+        <!--<section>-->
+            <!--<h3><a target="_blank" href="http://www.mindjs.net/">Mind.js</a>-->
+                <!--Brain.js</a></h3>-->
+            <!--<ul class="fragment">-->
+                <!--<li>come with a nice <a href="http://stevenmiller888.github.io/mind-how-to-build-a-neural-network/" target="_blank">-->
+                    <!--explanation how the autor build the lib</a>-->
+            <!--</ul>-->
+        <!--</section>-->
+
+        <!--<li class="fragment todo"><a target="_blank" href="https://github.com/NaturalNode/natural/blob/master/README.md">Natural</a>-->
+        <!--<ul>-->
+        <!--<li class="fragment">only node.js-->
+        <!--<li class="fragment">just language processing-->
+        <!--</ul>-->
+        <!--</li>-->
+
+
+        <section>
+            <h3><a target="_blank" href="https://github.com/harthur-org/brain.js">
+                Brain.js</a></h3>
+                <ul class="fragment">
+                    <li>very simple lib
+                    <li>used to be unmaintained, but taken over by new maintainers
+                </ul>
+            <a href="http://harthur-org.github.io/brain.js/" target="_blank">
+                <div style="height: 300px">
+                    <img src="brain_color_contrast.png">
+                </div>
+            </a>
+        </section>
+
+        <section>
+            <h3><a target="_blank" href="http://synaptic.juancazala.com/#/">Synaptic.js</a></h3>
+            <ul class="fragment">
+                <li>small general lib for Neural Network
+                <li>nice and simple API
+                <li>good documentation
+                <li>actively maintained
+            </ul>
+            <a href="http://synaptic.juancazala.com/#/paint-an-image" target="_blank">
+                <div style="height: 300px">
+                    <img src="synaptic_paint_image.png">
+                </div>
+            </a>
+        </section>
+
+
+        <section>
+            <h3><a target="_blank" href="https://scienceai.github.io/neocortex/">neocortex.js</a></h3>
+            <ul class="fragment">
+                <li>Runs pre-trained deep neural networks (<a href="http://keras.io/" target="_blank">Keras</a> models)
+                <li>Some <a href="https://scienceai.github.io/neocortex/" target="_blank">really nice examples</a> including <a href="https://github.com/scienceai/neocortex/blob/master/examples/cifar10_cnn/cifar10_cnn_example.ipynb" target="_blank">Python Notebooks</a>
+                <li>Clear code written in ES6
+            </ul>
+            <a href="http://scienceai.github.io/neocortex/cifar10_cnn/" target="_blank">
+                <div style="height: 300px">
+                    <img src="cifar10_neocortex.png">
+                </div>
+            </a>
+        </section>
+
+        <section>
+            <h3>Wrap-Up</h3>
+            <ul class="fragment">
+                <li>Deep Neural Networks are a game changer in Machine Learning and AI
+                <li>enabled by large Data Sets, Computing Power, and GPUs
+                <li>the browser even makes Deep Learning more accessible
+                <li>all the fancy deep learning stuff works in the browser
+                <li>especially good for learning and education
+                <li>direct visualization and interactivity
+                <li>Tensorflow Playground makes this especially easy to try out
+                <li>ConvnetJS for experiments with JavaScript in the browser
+            </ul>
+        </section>
         <section>
             <h1>Thank you!</h1>
 
@@ -351,91 +568,6 @@ function sigmoid(z) {
             </a></p>
 
         </section>
-
-        <section>
-            <h3>Resources</h3>
-            <ul>
-                <li><a target="_blank" href="http://playground.tensorflow.org/">Tensorflow Playground in the Browser</a>
-                <li><a target="_blank"
-                       href="http://www.analyticsvidhya.com/blog/2015/08/common-machine-learning-algorithms">
-                    Essentials of Machine Learning Algorithms (with Python and R Codes)
-                </a>
-                <li><a href="http://r2d3.us" target="_blank">
-                    A visual introduction to machine learning</a>
-                <li>Udacity 3 minute introduction to <a target="_blank"
-                                                        href="https://www.youtube.com/watch?v=L_6idb3ZXB0">
-                    Neural Networks
-                </a> and <a target="_blank"
-                            href="https://www.youtube.com/watch?v=jajksuQW4mc">
-                    Convolutional Networks
-                </a>
-                <li><a target="_blank"
-                       href="http://rinuboney.github.io/2015/10/18/theoretical-motivations-deep-learning.html">
-                    Theoretical Motivations for Deep Learning
-                </a>
-                <li><a target="_blank"
-                       href="http://googleresearch.blogspot.de/2016/03/deep-learning-for-robots-learning-from.html">
-                    Deep Learning for Robots
-                </a>
-                <li><a href="http://neuralnetworksanddeeplearning.com/" target="_blank">
-                    Getting dirty with the math of Deep Learning</a>
-                <li><a href="https://www.tensorflow.org/" target="_blank">
-                    Tensorflow: Google's Machine Learning Library</a>
-                    <!--<li>Recurrent Neural Networks for Natural Language Processing (NLP)-->
-                    <!--<ul>-->
-                    <!--<li><a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank">-->
-                    <!--Introduction</a></li>-->
-                    <!--<li><a href="https://www.tensorflow.org/versions/r0.7/tutorials/recurrent/index.html" target="_blank">-->
-                    <!--@Tensorflow</a></li>-->
-                    <!--</ul>-->
-                    <!--</li>-->
-                <li><a target="_blank"
-                       href="https://www.import.io/post/andrew-ng-shares-the-astonishing-ways-deep-learning-is-changing-the-world/">
-                    Baidu Chief Scientist: Deep Learning changes the world
-                </a>
-                <li><a target="_blank"
-                       href="http://gizmodo.com/everything-you-know-about-artificial-intelligence-is-wr-1764020220">
-                    Everything You Know About Artificial Intelligence is Wrong
-                </a>
-                <li><a target="_blank"
-                       href="https://lettier.github.io/posts/2016-06-10-k-nearest-neighbors-from-scratch.html">
-                k-Nearest Neighbors from Scratch in JavaScript
-                </a>
-
-            </ul>
-        </section>
-
-        <section>
-            <h3>Bonus Resources: AlphaGo</h3>
-            <ul>
-                <li><a target="_blank"
-                       href="http://googleasiapacific.blogspot.de/2016/03/alphagos-ultimate-challenge.html">
-                    AlphaGo wins against Lee Sedol
-                </a>
-                <li><a target="_blank"
-                       href="https://deepmind.com/alpha-go.html">
-                    AlphaGo@Deepmind
-                </a>
-
-                <li><a target="_blank"
-                       href="http://www.wired.com/2016/03/sadness-beauty-watching-googles-ai-play-go">
-                    Wired: The Sadness and Beauty of Watching Google’s AI Play Go
-                </a>
-                <li><a target="_blank"
-                       href="http://www.nervanasys.com/demystifying-deep-reinforcement-learning/">
-                    Explaining Deep Reinforcement Learning (Used by DeepMind)
-                </a>
-                <li><a target="_blank"
-                       href="http://www.heise.de/ct/ausgabe/2016-6-Wie-Google-KI-den-Menschen-im-Go-schlagen-will-3118899.html">
-                    Heise: Explaining how AlphaGo works (German)
-                </a>
-                <li><a target="_blank"
-                       href="http://www.wired.com/2016/05/google-alpha-go-ai">
-                    WHAT THE AI BEHIND ALPHAGO CAN TEACH US ABOUT BEING HUMAN
-                </a>
-            </ul>
-        </section>
-
     </div>
 
 </div>
