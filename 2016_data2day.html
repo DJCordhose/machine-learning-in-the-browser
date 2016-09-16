@@ -106,28 +106,30 @@
                 <small><a href="http://zeigermann.eu">Oliver Zeigermann</a> / <a href="http://twitter.com/djcordhose">@DJCordhose</a>
                 </small>
             </p>
-            <p><a href="http://djcordhose.github.io/machine-learning-in-the-browser/2016_data2day.html">
-                http://djcordhose.github.io/machine-learning-in-the-browser/2016_data2day.html
+            <p><a href="http://bit.ly/ml-data2day">
+                http://bit.ly/ml-data2day
             </a></p>
 
         </section>
 
-        <section class="todo">
-<pre>
-- https://cloud.google.com/blog/big-data/2016/07/understanding-neural-networks-with-tensorflow-playground
-- http://fastml.com/how-to-make-those-3d-data-visualizations/
-- to understand visualizations in convnet.js: http://colah.github.io/posts/2014-03-NN-Manifolds-Topology/
-  - Davon Grafik einbauen, die Spirale Linear separierbar macht, von da convnet.js zeigen
-  - Gucken, wie viel klarer damit die Visualisierung von convnet wird
-  - Code für Visualisierung angucken. Schriftart sieht nach Tech aus, klauen?
+<!--Vorbereitung:        -->
 
-- for convolutional networks, study
-  - http://deeplearning4j.org/convolutionalnets.html
-  - https://cs231n.github.io/
-    - http://cs231n.stanford.edu/
-    - Great illutration for how convolutional networks work: https://cs231n.github.io/assets/conv-demo/index.html
-</pre>
-        </section>
+        <!--<section class="todo">-->
+<!--<pre>-->
+<!-- - https://cloud.google.com/blog/big-data/2016/07/understanding-neural-networks-with-tensorflow-playground-->
+<!-- - http://fastml.com/how-to-make-those-3d-data-visualizations/-->
+<!-- - to understand visualizations in convnet.js: http://colah.github.io/posts/2014-03-NN-Manifolds-Topology/-->
+  <!-- - Davon Grafik einbauen, die Spirale Linear separierbar macht, von da convnet.js zeigen-->
+  <!-- - Gucken, wie viel klarer damit die Visualisierung von convnet wird-->
+  <!-- - Code für Visualisierung angucken. Schriftart sieht nach Tech aus, klauen?-->
+
+<!-- - for convolutional networks, study-->
+  <!-- - http://deeplearning4j.org/convolutionalnets.html-->
+  <!-- - https://cs231n.github.io/-->
+    <!-- - http://cs231n.stanford.edu/-->
+    <!-- - Great illutration for how convolutional networks work: https://cs231n.github.io/assets/conv-demo/index.html-->
+<!--</pre>-->
+        <!--</section>-->
 
         <section>
             <p>
@@ -143,6 +145,45 @@
             <a href="http://zeigermann.eu" target="_blank"><img src="intro/SF-Olli.jpg" height="200" align="right"></a>
             <a href="http://www.embarc.de/" target="_blank"><img src="intro/embarc13.png" height="200" align="left"></a>
 
+        </section>
+
+        <section>
+            <h2>What is machine learning?</h2>
+            <h3 class="fragment"><a href="https://en.wikipedia.org/wiki/Machine_learning" target="_blank">
+                science of getting computers to act without being explicitly programmed</a></h3>
+        </section>
+
+        <section>
+            <h3>Applications of machine learning?</h3>
+            <a  class="fragment" style="float: right" href="http://m.pulsenews.co.kr/view.php?sc=30800019&year=2016&no=292907" target="_blank">
+                <img src="lecun-twitter.png" height="190">
+            </a>
+            <a  class="fragment" style="float: left" href="http://techcrunch.com/2016/04/20/ducking-awesome-self-driving-cars" target="_blank">
+                <img src="rubber-duckies.gif"  height="200">
+            </a>
+            <!--<a  class="fragment" style="float: right" href="http://gitxiv.com/posts/tiXMXrgKAxibaB2Ws/asynchronous-methods-for-deep-reinforcement-learning" target="_blank">-->
+            <!--<img src="space-invaders.gif" height="150">-->
+            <!--</a>-->
+            <div style="float: right" class="fragment">
+                <a href="http://news.mit.edu/2016/teaching-machines-to-predict-the-future-0621" target="_blank">
+                    <img src="predict-future.jpg" height="200">
+                </a>
+            </div>
+            <a class="fragment" style="float: right"
+               href="https://news.developer.nvidia.com/automatic-image-colorization-of-grayscale-images/"
+               target="_blank">
+                <img src="Automatic-Colorization-examples-2.png" height="180">
+            </a>
+
+            <!--<a  class="fragment" style="float: left" href="https://matthewearl.github.io/2016/05/06/cnn-anpr" target="_blank">-->
+            <!--<img src="window-scan.gif" height="150">-->
+            <!--</a>-->
+            <a  class="fragment" style="float: left" href="http://www.theregister.co.uk/2016/08/22/samsung_m1_core" target="_blank">
+                <img src="samsung_m1_branch.jpg" height="150">
+            </a>
+            <a  class="fragment" href="https://deepmind.com/alpha-go" target="_blank">
+                <img src="alphago-logo.png" height="80">
+            </a>
         </section>
 
         <section>
@@ -190,17 +231,17 @@
 
         <section>
             <h3>Implementing it in pure JavaScript</h3>
-            <pre><code data-trim class="line-numbers fragment">
+            <pre><code data-trim class="line-numbers fragment" data-fragment-index="2">
 // Initial weights
 let w0 = 3, w1 = -4, w2 = 2;
             </code></pre>
-            <pre><code data-trim class="line-numbers">
+            <pre><code data-trim class="line-numbers fragment" data-fragment-index="1">
 function perceptron(x1, x2) {
     const sum = w0 + w1 * x1 + w2 * x2;
     return sigmoid(sum);
 }
             </code></pre>
-<pre><code data-trim class="line-numbers fragment">
+<pre><code data-trim class="line-numbers fragment" data-fragment-index="3">
 function sigmoid(z) {
     return 1 / (1 + Math.exp(z * -1));
 }
@@ -564,7 +605,7 @@ layer_defs = [
             <ul class="fragment">
                 <li>Deep Neural Networks are a game changer in Machine Learning and AI
                 <li>enabled by large Data Sets, Computing Power, and GPUs
-                <li>the browser even makes Deep Learning more accessible
+                <li>the browser makes Deep Learning even more accessible
                 <li>all the fancy deep learning stuff works in the browser
                 <li>especially good for learning and education
                 <li>direct visualization and interactivity
@@ -580,8 +621,8 @@ layer_defs = [
                 <a href="http://zeigermann.eu">Oliver Zeigermann</a> / <a href="http://twitter.com/djcordhose">@DJCordhose</a>
 
             </p>
-            <p><a href="http://djcordhose.github.io/machine-learning-in-the-browser/2016_data2day.html">
-                http://djcordhose.github.io/machine-learning-in-the-browser/2016_data2day.html
+            <p><a href="http://bit.ly/ml-data2day">
+                http://bit.ly/ml-data2day
             </a></p>
 
         </section>
@@ -592,6 +633,20 @@ layer_defs = [
 <script src="reveal.js/lib/js/head.min.js"></script>
 <script src="reveal.js/js/reveal.js"></script>
 <script src="lib/jquery-2.2.4.js"></script>
+
+<script>
+    //    $('section').attr('data-background-image', "backgrounds/dark-saddle.jpg")
+    $('section').attr('data-background-image', "backgrounds/dark-blue.jpg")
+    //$('section').attr('data-background-image', "backgrounds/dark-case.jpg")
+    //$('section').attr('data-background-image', "backgrounds/dark-grid.jpg")
+    //    $('section').attr('data-background-image', "backgrounds/dark-fish.jpg")
+</script>
+<script>
+    // only presentation version has fragments
+    if (window.location.hostname.indexOf('localhost') === -1) {
+        $('.fragment').removeClass('fragment');
+    }
+</script>
 
 <script>
 
