@@ -118,10 +118,6 @@
 <!--<pre>-->
 <!-- - https://cloud.google.com/blog/big-data/2016/07/understanding-neural-networks-with-tensorflow-playground-->
 <!-- - http://fastml.com/how-to-make-those-3d-data-visualizations/-->
-<!-- - to understand visualizations in convnet.js: http://colah.github.io/posts/2014-03-NN-Manifolds-Topology/-->
-  <!-- - Davon Grafik einbauen, die Spirale Linear separierbar macht, von da convnet.js zeigen-->
-  <!-- - Gucken, wie viel klarer damit die Visualisierung von convnet wird-->
-  <!-- - Code für Visualisierung angucken. Schriftart sieht nach Tech aus, klauen?-->
 
 <!-- - for convolutional networks, study-->
   <!-- - http://deeplearning4j.org/convolutionalnets.html-->
@@ -310,7 +306,7 @@ function sigmoid(z) {
         </section>
 
         <section>
-            <h3>A Classification example</h3>
+            <h3>How does Classification work?</h3>
             <p>Using the <a href="http://playground.tensorflow.org/" target="_blank">Tensorflow Playground</a></p>
             <div>
                 <ul class="fragment">
@@ -351,20 +347,7 @@ function sigmoid(z) {
         </section>
 
         <section>
-            <h2>Tensorflow Internals</h2>
-            <ul class="fragment">
-                <li>Written ins <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a>
-                <li>Visualizations dones with <a href="https://d3js.org/" target="_blank">D3.js</a>
-                <li>Everything implemented from scratch
-                <li>No performance optimizations
-                <li>Easy yo understand
-                <li>NN simulation fairly similar to code from scratch as shown before
-                <li>More general for as many dimensions as you want
-            </ul>
-        </section>
-
-        <section>
-            <h3>Now for the JavaScript</h3>
+            <h3>Visualizing how neural networks work</h3>
             <h4>ConvNetJS</h4>
             <p><a href="http://cs.stanford.edu/people/karpathy/convnetjs/" target="_blank">http://cs.stanford.edu/people/karpathy/convnetjs/</a></p>
             <p>Code can be changed directly in the browser</p>
@@ -385,8 +368,7 @@ function sigmoid(z) {
             <pre><code data-trim class="line-numbers">
 layer_defs = [
     {type:'input', out_sx:1, out_sy:1, out_depth:2},
-    {type:'fc', num_neurons:6, activation: 'tanh'},
-    {type:'fc', num_neurons:2, activation: 'tanh'},
+    {type:'fc', num_neurons:3, activation: 'sigmoid'},
     {type:'softmax', num_classes:2}
 ];
 
@@ -396,6 +378,50 @@ net.makeLayers(layer_defs);
 trainer = new convnetjs.Trainer(net);
             </code></pre>
         </section>
+
+        <section>
+            <h3>Output Layer</h3>
+            <pre><code data-trim>
+{type:'softmax', num_classes:2}
+            </code></pre>
+            <p>Can separate categories if they are linearly separable</p>
+            <div style="height: 350px">
+                <a target="_blank" href="code/demo/classify2d.html">
+                    <img src="screenshot_convnet/fc_3_sigmoid.png">
+                    <img src="screenshot_convnet/softmax_linearly_separable.png">
+                </a>
+            </div>
+
+        </section>
+
+        <section>
+            <h3>Hidden Layer</h3>
+            <pre><code data-trim>
+{type:'fc', num_neurons:3, activation: 'sigmoid'}
+            </code></pre>
+            <p>Has to transform original space into something that is linearly separable</p>
+            <div style="height: 350px">
+                <a target="_blank" href="code/demo/classify2d.html">
+                    <img src="screenshot_convnet/hidden_fc_3.png">
+                </a>
+            </div>
+
+        </section>
+
+        <section>
+            <h3>More Samples of successful transformations</h3>
+            <div style="height: 300px">
+                <a target="_blank" href="http://colah.github.io/posts/2014-03-NN-Manifolds-Topology/">
+                    <img src="screenshot_convnet/simple2_0.png">
+                    <img src="screenshot_convnet/simple2_1.png">
+                    <img src="screenshot_convnet/spiral.1-2.2-2-2-2-2-2.gif">
+                </a>
+                <p><small><a target="_blank" href="http://colah.github.io/posts/2014-03-NN-Manifolds-Topology/">
+                    http://colah.github.io/posts/2014-03-NN-Manifolds-Topology/
+                </a></small></p>
+            </div>
+        </section>
+
 
         <section>
             <h3>Regression</h3>
@@ -424,7 +450,7 @@ layer_defs = [
         <section>
             <h3>CIFAR-10 with Convolutional Deep Neural Networks</h3>
             <p>uses <a href="http://cs.stanford.edu/people/karpathy/convnetjs/docs.html" target="_blank">
-                convolutional</a> hidden layers for filtering</p>
+                convolutional</a> hidden layers</p>
         </section>
 
         <section>
@@ -438,43 +464,43 @@ layer_defs = [
             </a></small></p>
         </section>
 
-        <section>
-            <h3>The Convolutional Pyramid</h3>
-            <img src="udacity-ud730-convolutional-pyramid.png" height="500">
-            <p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning--ud730">
-                Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)
-            </a></small></p>
-        </section>
+        <!--<section>-->
+            <!--<h3>The Convolutional Pyramid</h3>-->
+            <!--<img src="udacity-ud730-convolutional-pyramid.png" height="500">-->
+            <!--<p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning&#45;&#45;ud730">-->
+                <!--Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)-->
+            <!--</a></small></p>-->
+        <!--</section>-->
 
-        <section>
-            <h3>CIFAR-10 Example - Code</h3>
-            <pre><code data-trim class="line-numbers">
-layer_defs = [
-{type:'input', out_sx:32, out_sy:32, out_depth:3},
-{type:'conv', sx:5, filters:16, stride:1, pad:2, activation:'relu'},
-{type:'pool', sx:2, stride:2}),
-{type:'conv', sx:5, filters:20, stride:1, pad:2, activation:'relu'}.
-{type:'pool', sx:2, stride:2},
-{type:'conv', sx:5, filters:20, stride:1, pad:2, activation:'relu'},
-{type:'pool', sx:2, stride:2},
-{type:'softmax', num_classes:10}];
-            </code></pre>
-        </section>
+        <!--<section>-->
+            <!--<h3>CIFAR-10 Example - Code</h3>-->
+            <!--<pre><code data-trim class="line-numbers">-->
+<!--layer_defs = [-->
+<!--{type:'input', out_sx:32, out_sy:32, out_depth:3},-->
+<!--{type:'conv', sx:5, filters:16, stride:1, pad:2, activation:'relu'},-->
+<!--{type:'pool', sx:2, stride:2}),-->
+<!--{type:'conv', sx:5, filters:20, stride:1, pad:2, activation:'relu'}.-->
+<!--{type:'pool', sx:2, stride:2},-->
+<!--{type:'conv', sx:5, filters:20, stride:1, pad:2, activation:'relu'},-->
+<!--{type:'pool', sx:2, stride:2},-->
+<!--{type:'softmax', num_classes:10}];-->
+            <!--</code></pre>-->
+        <!--</section>-->
 
         <section>
             <h3>Input: 32x32 RGB images</h3>
             <img src="input32x32.png">
         </section>
 
-        <section>
-            <h3>Convolutions</h3>
-            <div class="fragment">
-            <img src="udc-730-convolutions.png" height="500">
-            <p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning--ud730">
-                Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)
-            </a></small></p>
-            </div>
-        </section>
+        <!--<section>-->
+            <!--<h3>Convolutions</h3>-->
+            <!--<div class="fragment">-->
+            <!--<img src="udc-730-convolutions.png" height="500">-->
+            <!--<p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning&#45;&#45;ud730">-->
+                <!--Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)-->
+            <!--</a></small></p>-->
+            <!--</div>-->
+        <!--</section>-->
 
         <section>
             <h3>Convolution (Filtering) step #1: 16 32x32 images of filtered data</h3>
@@ -489,15 +515,15 @@ layer_defs = [
             </div>
         </section>
 
-        <section>
-            <h3>Translation Invariance</h3>
-            <div class="fragment">
-            <img src="udc-730-translation-invariance.png" height="500">
-            <p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning--ud730">
-                Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)
-            </a></small></p>
-                </div>
-        </section>
+        <!--<section>-->
+            <!--<h3>Translation Invariance</h3>-->
+            <!--<div class="fragment">-->
+            <!--<img src="udc-730-translation-invariance.png" height="500">-->
+            <!--<p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning&#45;&#45;ud730">-->
+                <!--Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)-->
+            <!--</a></small></p>-->
+                <!--</div>-->
+        <!--</section>-->
 
         <section>
             <h3>Pooling</h3>
@@ -509,7 +535,7 @@ layer_defs = [
             <div class="fragment">
                 <img src="pool16x16.png">
                 <p><a target="_blank" href="https://en.wikipedia.org/wiki/Convolutional_neural_network#Pooling_layer">
-                    pooling layers</a> in between provide translation invariance</p>
+                    pooling layers</a> in between provide translation invariance, i.e. it does not matter where in the image the object is</p>
             </div>
         </section>
 
@@ -526,7 +552,7 @@ layer_defs = [
 
         <section>
             <h3>Sample classification results</h3>
-            <div class="fragment">
+            <div>
                 <a target="_blank" href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html">
                     <img src="screenshot-cifar-example-predictions.png" height="400">
                 </a>
@@ -604,9 +630,9 @@ layer_defs = [
         <section>
             <h3>Wrap-Up</h3>
             <ul class="fragment">
-                <li>Deep Neural Networks are a game changer in Machine Learning and AI
-                <li>enabled by large Data Sets, Computing Power, and GPUs
-                <li>the browser makes Deep Learning even more accessible
+                <!--<li>Deep Neural Networks are a game changer in Machine Learning and AI-->
+                <!--<li>enabled by large Data Sets, Computing Power, and GPUs-->
+                <li>the browser makes Deep Learning more accessible
                 <li>all the fancy deep learning stuff works in the browser
                 <li>especially good for learning and education
                 <li>direct visualization and interactivity
