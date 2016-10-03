@@ -217,7 +217,7 @@
                 <li>creates a single output based on sum of many weighted inputs
                 <li>uses a <a target="_blank"
                               href="https://en.wikipedia.org/wiki/Sigmoid_function">
-                    sigmoid</a> activation function to create boolean like output
+                    sigmoid</a> activation function to create (slightly) non-linear behavior
             </ul>
             <div style="height: 500px">
                 <img src="perceptron.jpg">
@@ -303,6 +303,8 @@ function sigmoid(z) {
                 <ul class="fragment">
                     <li>each spot in a plane gets a prediction
                     <li>either blue or orange
+                    <li>result of the neural network is a classification
+                    <li>network is trained to give a good prediction
                 </ul>
             </div>
             <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
@@ -311,10 +313,6 @@ function sigmoid(z) {
                     <img src="tensorflow-weights.png" style="float: right">
                 </div>
             </a>
-            <ul class="fragment">
-                <li>result of the neural network is a classification
-                <li>network is trained to give a good prediction
-            </ul>
         </section>
 
         <section>
@@ -483,17 +481,18 @@ trainer = new convnetjs.Trainer(net);
                     <img src="screenshot_convnet/hidden_fc_3.png">
                 </a>
             </div>
-
         </section>
 
         <section>
             <h3>Successful transformation</h3>
             <img height="500px" src="screenshot_convnet/hidden_linear_separation.png">
+            <p>Uses deep network with more than one hidden layer</p>
         </section>
 
         <section data-transition="none">
             <h3>Successful transformation</h3>
             <img height="500px" src="screenshot_convnet/hidden_linear_separation2.png">
+            <p>Uses deep network with more than one hidden layer</p>
         </section>
 
         <section>
