@@ -145,44 +145,44 @@
 
         <!--</section>-->
 
-        <section data-transition="zoom">
-            <h2>What is machine learning?</h2>
-            <h3 class="fragment"><a href="https://en.wikipedia.org/wiki/Machine_learning" target="_blank">
-                science of getting computers to act without being explicitly programmed</a></h3>
-        </section>
+        <!--<section data-transition="zoom">-->
+            <!--<h2>What is machine learning?</h2>-->
+            <!--<h3 class="fragment"><a href="https://en.wikipedia.org/wiki/Machine_learning" target="_blank">-->
+                <!--science of getting computers to act without being explicitly programmed</a></h3>-->
+        <!--</section>-->
 
-        <section>
-            <h3>Applications of machine learning?</h3>
-            <a  class="fragment" style="float: right" href="http://m.pulsenews.co.kr/view.php?sc=30800019&year=2016&no=292907" target="_blank">
-                <img src="lecun-twitter.png" height="190">
-            </a>
-            <a  class="fragment" style="float: left" href="http://techcrunch.com/2016/04/20/ducking-awesome-self-driving-cars" target="_blank">
-                <img src="rubber-duckies.gif"  height="200">
-            </a>
-            <!--<a  class="fragment" style="float: right" href="http://gitxiv.com/posts/tiXMXrgKAxibaB2Ws/asynchronous-methods-for-deep-reinforcement-learning" target="_blank">-->
-            <!--<img src="space-invaders.gif" height="150">-->
+        <!--<section>-->
+            <!--<h3>Applications of machine learning?</h3>-->
+            <!--<a  class="fragment" style="float: right" href="http://m.pulsenews.co.kr/view.php?sc=30800019&year=2016&no=292907" target="_blank">-->
+                <!--<img src="lecun-twitter.png" height="190">-->
             <!--</a>-->
-            <div style="float: right" class="fragment">
-                <a href="http://news.mit.edu/2016/teaching-machines-to-predict-the-future-0621" target="_blank">
-                    <img src="predict-future.jpg" height="200">
-                </a>
-            </div>
-            <a class="fragment" style="float: right"
-               href="https://news.developer.nvidia.com/automatic-image-colorization-of-grayscale-images/"
-               target="_blank">
-                <img src="Automatic-Colorization-examples-2.png" height="180">
-            </a>
+            <!--<a  class="fragment" style="float: left" href="http://techcrunch.com/2016/04/20/ducking-awesome-self-driving-cars" target="_blank">-->
+                <!--<img src="rubber-duckies.gif"  height="200">-->
+            <!--</a>-->
+            <!--&lt;!&ndash;<a  class="fragment" style="float: right" href="http://gitxiv.com/posts/tiXMXrgKAxibaB2Ws/asynchronous-methods-for-deep-reinforcement-learning" target="_blank">&ndash;&gt;-->
+            <!--&lt;!&ndash;<img src="space-invaders.gif" height="150">&ndash;&gt;-->
+            <!--&lt;!&ndash;</a>&ndash;&gt;-->
+            <!--<div style="float: right" class="fragment">-->
+                <!--<a href="http://news.mit.edu/2016/teaching-machines-to-predict-the-future-0621" target="_blank">-->
+                    <!--<img src="predict-future.jpg" height="200">-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<a class="fragment" style="float: right"-->
+               <!--href="https://news.developer.nvidia.com/automatic-image-colorization-of-grayscale-images/"-->
+               <!--target="_blank">-->
+                <!--<img src="Automatic-Colorization-examples-2.png" height="180">-->
+            <!--</a>-->
 
-            <!--<a  class="fragment" style="float: left" href="https://matthewearl.github.io/2016/05/06/cnn-anpr" target="_blank">-->
-            <!--<img src="window-scan.gif" height="150">-->
+            <!--&lt;!&ndash;<a  class="fragment" style="float: left" href="https://matthewearl.github.io/2016/05/06/cnn-anpr" target="_blank">&ndash;&gt;-->
+            <!--&lt;!&ndash;<img src="window-scan.gif" height="150">&ndash;&gt;-->
+            <!--&lt;!&ndash;</a>&ndash;&gt;-->
+            <!--<a  class="fragment" style="float: left" href="http://www.theregister.co.uk/2016/08/22/samsung_m1_core" target="_blank">-->
+                <!--<img src="samsung_m1_branch.jpg" height="150">-->
             <!--</a>-->
-            <a  class="fragment" style="float: left" href="http://www.theregister.co.uk/2016/08/22/samsung_m1_core" target="_blank">
-                <img src="samsung_m1_branch.jpg" height="150">
-            </a>
-            <a  class="fragment" href="https://deepmind.com/alpha-go" target="_blank">
-                <img src="alphago-logo.png" height="80">
-            </a>
-        </section>
+            <!--<a  class="fragment" href="https://deepmind.com/alpha-go" target="_blank">-->
+                <!--<img src="alphago-logo.png" height="80">-->
+            <!--</a>-->
+        <!--</section>-->
 
         <section>
             <h3>Why JavaScript for Machine Learning?</h3>
@@ -240,6 +240,7 @@ function perceptron(x1, x2) {
 }
             </code></pre>
 <pre><code data-trim class="line-numbers fragment" data-fragment-index="3">
+# activation function
 function sigmoid(z) {
     return 1 / (1 + Math.exp(z * -1));
 }
