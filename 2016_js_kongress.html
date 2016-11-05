@@ -113,6 +113,12 @@
             </a></small></p>
         </section>
 
+        <section data-transition="zoom">
+            <h3>Machine learning has become mainstream</h3>
+            <img src="ML-is-everywhere.png" height="530px">
+            <p>An add from BART train, Bay Area</p>
+        </section>
+
 
         <!--<section data-transition="zoom">-->
             <!--<h2>What is machine learning?</h2>-->
@@ -366,12 +372,14 @@ function sigmoid(z) {
             <ul>
                 <li class="fragment">theoretically: <span class="fragment"><a href="https://en.wikipedia.org/wiki/Universal_approximation_theorem" target="_blank">
                     a single hidden layer can approximate any continuous function</a></span>
-                <li class="fragment">however, in practice: <span class="fragment"><a href="https://en.wikipedia.org/wiki/Deep_learning#Deep_neural_network_architectures" target="_blank">
-                having multiple layers has benefits on <em>training</em> a network</a></span>
+                <li class="fragment">however: <span class="fragment">
+                we do not know how to effectively train such a (large) single layer</span>
+                <li class="fragment">in practice: <span class="fragment"><a href="https://en.wikipedia.org/wiki/Deep_learning#Deep_neural_network_architectures" target="_blank">
+                having multiple (smaller) layers allows for effectively <em>training</em> a network</a></span>
             </ul>
         </section>
 
-        <section data-transition="none">
+            <section data-transition="none">
             <h3>Deep Neural Networks: More than one hidden layer
             </h3>
             <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
@@ -644,6 +652,17 @@ beagle (score = 0.00645)
     if (window.location.hostname.indexOf('localhost') === -1) {
         $('.fragment').removeClass('fragment');
     }
+</script>
+<script>
+    Reveal.addEventListener( 'ready', function( event ) {
+        if (window.location.hostname.indexOf('localhost') !== -1) {
+            // only applies to presentation version
+            Reveal.configure({ controls: false });
+        } else {
+            // only applies to public version
+            $('.fragment').removeClass('fragment');
+        }
+    } );
 </script>
 
 <script>
