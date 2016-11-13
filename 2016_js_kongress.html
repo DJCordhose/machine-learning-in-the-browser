@@ -379,7 +379,7 @@ function sigmoid(z) {
             </ul>
         </section>
 
-            <section data-transition="none">
+            <section>
             <h3>Deep Neural Networks: More than one hidden layer
             </h3>
             <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
@@ -393,8 +393,13 @@ function sigmoid(z) {
             </ul>
         </section>
 
+        <section>
+            <h3>Google Inception NN architecture to classify images </h3>
+            <img src="inception.png" height="480px">
+            <p><small><a href="https://arxiv.org/abs/1409.4842" target="_blank">Going Deeper with Convolutions</a></small></p>
+        </section>
 
-        <section data-transition="none">
+        <section>
             <h3>Networks can learn</h3>
             <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
                 <div>
@@ -448,10 +453,11 @@ function sigmoid(z) {
         </section>
 
         <section>
-            <h3>Main Challenge: <em class="fragment">What is the best configuration for a given problem?</em></h3>
-            <h3 class="fragment">That is: <em class="fragment">How many layers, how many neurons, which activation function?</em></h3>
-            <h3 class="fragment">Solution: <em class="fragment">Try it out!</em></h3>
-            <h3 class="fragment">Or: <em class="fragment">Trust the experts, use a pre-trained network!</em></h3>
+            <h3>Main Challenge: <em>What is the best configuration for a given problem?</em></h3>
+            <p class="fragment">That means what architecture: <em>How many layers, how many neurons, which activation function?</em></p>
+            <h3 class="fragment">Solution: <em>Try it out ...</em></h3>
+            <p class="fragment">... using searches over a set of hyper-parameters (might be expensive)</p>
+            <p class="fragment">Or: <em>use a pre-trained network</em> (by people who have done that job for you already)</p>
         </section>
 
         <section>
@@ -486,7 +492,14 @@ function sigmoid(z) {
         </section>
 
         <section>
-            <h3>More #2: Convolutional Networks</h3>
+            <h3>More #2: RNN learning to recognize hand written digits (MNIST)</h3>
+            <p>RNNs can also have feedback loops</p>
+            <img class="fragment" src="generative-rnn-training-movie.gif" height="400px">
+            <p><small><a href="https://edwin-de-jong.github.io/blog/isl/incremental-sequence-learning.html" target="_blank">https://edwin-de-jong.github.io/blog/isl/incremental-sequence-learning.html</a></small></p>
+        </section>
+
+        <section>
+            <h3>More #3: Convolutional Networks</h3>
             <div>
                 <ul class="fragment">
                     <li>special networks to to process images
@@ -499,7 +512,7 @@ function sigmoid(z) {
             <!--<p><small><a target="_blank" href="https://openai.com/blog/generative-models/">-->
                 <!--https://openai.com/blog/generative-models/-->
             <!--</a></small></p>-->
-            <img src="udacity-ud730-convolutional-pyramid.png" style="height: 400px">
+            <img src="udacity-ud730-convolutional-pyramid.png" style="height: 380px">
             <p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning--ud730">
             Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)
             </a></small></p>
@@ -554,12 +567,13 @@ beagle (score = 0.00645)
         </section>
 
         <section>
+            <h3>It even found out about my secret ...</h3>
             <img src="twitter-wig.png">
             <p><small><a target="_blank" href="https://twitter.com/DJCordhose/status/786875982527467520">https://twitter.com/DJCordhose/status/786875982527467520</a></small></p>
         </section>
 
         <section>
-            <h3>On the other hand</h3>
+            <h3>... on the other hand</h3>
             <img src="olli-beauty.jpg">
             <p><small><a target="_blank" href="https://cloud.google.com/vision">https://cloud.google.com/vision</a></small></p>
         </section>
