@@ -237,6 +237,7 @@ function sigmoid(z) {
             <h3>Right, that is surprisingly simple</h3>
             <h4 class="fragment">Code for training is a little bit more complex (but only a little bit)</h4>
         </section>
+
         <section>
             <h3>Visualizing what a neuron can do</h3>
             <ul class="fragment">
@@ -256,9 +257,24 @@ function sigmoid(z) {
         </section>
 
         <section>
+            <h3>XOR - What a neuron can NOT do</h3>
+            <div>
+
+                <a target="_blank"
+                   href="code/graph-and-perceptron.html?xor">
+                <img src="xor.jpg" height="400">
+                </a>
+                <p><small><a target="_blank" href="http://www.theprojectspot.com/tutorial-post/introduction-to-artificial-neural-networks-part-1/7">
+                    http://www.theprojectspot.com/tutorial-post/introduction-to-artificial-neural-networks-part-1/7
+                </a></small></p>
+                <p>Because it would require two lines for separation</p>
+            </div>
+        </section>
+
+        <section>
             <h3>A single neuron is not very powerful</h3>
             <h4 class="fragment">but becomes much more powerful when organized in a network</h4>
-            <h4 class="fragment">output of one neuron is input of others</h4>
+            <!--<h4 class="fragment">output of one neuron is input of others</h4>-->
         </section>
 
         <section>
@@ -300,7 +316,7 @@ function sigmoid(z) {
                     <img src="screenshot_tensorflow/1-neuron.png">
                 </div>
             </a>
-            <p>quick guess, how many would we need?</p>
+            <p class="fragment">quick guess, just how many neurons would we need?</p>
         </section>
 
         <!--<section>-->
@@ -364,50 +380,8 @@ function sigmoid(z) {
             <ul class="fragment">
                 <li>each neuron in each hidden layer gets exactly the same input
                 <li>no connection between neurons in same layer
-                <li>this is called feed forward networks (there are others)
+                <li>this is called fully connected feed forward network (there are others)
             </ul>
-        </section>
-
-        <!--<section>-->
-            <!--<h3>Deep Learning</h3>-->
-            <!--<div class="fragment">-->
-                <!--<img src="deep-learning.png" height="500">-->
-                <!--<p><small><a target="_blank" href="https://drive.google.com/file/d/0BxKBnD5y2M8NdFB4U1BtU1V1ejA/view">-->
-                    <!--Deep Learning: Course by Yann LeCun at Collège de France 2016-->
-                <!--</a></small></p>-->
-            <!--</div>-->
-        <!--</section>-->
-
-        <section>
-            <h3>Deep Neural Networks?</h3>
-            <ul>
-                <li class="fragment">theoretically: <span class="fragment"><a href="https://en.wikipedia.org/wiki/Universal_approximation_theorem" target="_blank">
-                    a single hidden layer can approximate any continuous function</a></span>
-                <li class="fragment">however: <span class="fragment">
-                we do not know how to effectively train such a (large) single layer</span>
-                <li class="fragment">in practice: <span class="fragment"><a href="https://en.wikipedia.org/wiki/Deep_learning#Deep_neural_network_architectures" target="_blank">
-                having multiple (smaller) layers allows for effectively <em>training</em> a network</a></span>
-            </ul>
-        </section>
-
-            <section>
-            <h3>Deep Neural Networks: More than one hidden layer
-            </h3>
-            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
-                <div>
-                    <img src="screenshot_tensorflow/deep.png">
-                </div>
-            </a>
-            <ul class="fragment">
-                <li>there are (reasonable) networks with more than 100 layers
-                <li>each neuron in one layer feeds all neurons in the next layer
-            </ul>
-        </section>
-
-        <section>
-            <h3>Google Inception NN architecture to classify images </h3>
-            <img src="inception.png" height="480px">
-            <p><small><a href="https://arxiv.org/abs/1409.4842" target="_blank">Going Deeper with Convolutions</a></small></p>
         </section>
 
         <section>
@@ -439,10 +413,46 @@ function sigmoid(z) {
             <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
             <div>
                 <img src="tensorflow-classification.png" style="float: left; height: 300px">
-                <img src="tensorflow-loss.png" style="float: right">
+                <img src="tensorflow-loss.png" style="float: right" class="fragment">
                 <img src="tensorflow-weights.png" style="float: right">
             </div>
             </a>
+        </section>
+
+        <!--<section>-->
+        <!--<h3>Deep Learning</h3>-->
+        <!--<div class="fragment">-->
+        <!--<img src="deep-learning.png" height="500">-->
+        <!--<p><small><a target="_blank" href="https://drive.google.com/file/d/0BxKBnD5y2M8NdFB4U1BtU1V1ejA/view">-->
+        <!--Deep Learning: Course by Yann LeCun at Collège de France 2016-->
+        <!--</a></small></p>-->
+        <!--</div>-->
+        <!--</section>-->
+
+        <section>
+            <h3>Deep Neural Networks?</h3>
+            <ul>
+                <li class="fragment">theoretically: <span class="fragment"><a href="https://en.wikipedia.org/wiki/Universal_approximation_theorem" target="_blank">
+                    a single hidden layer can approximate any continuous function</a></span>
+                <li class="fragment">however: <span class="fragment">
+                we do not know how to effectively train such a (large) single layer</span>
+                <li class="fragment">in practice: <span class="fragment"><a href="https://en.wikipedia.org/wiki/Deep_learning#Deep_neural_network_architectures" target="_blank">
+                having multiple (smaller) layers allows for effectively <em>training</em> a network</a></span>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Deep Neural Networks: More than one hidden layer
+            </h3>
+            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
+                <div>
+                    <img src="screenshot_tensorflow/deep.png">
+                </div>
+            </a>
+            <ul class="fragment">
+                <li>there are (reasonable) networks with more than 100 layers
+                <li>each neuron in one layer feeds all neurons in the next layer
+            </ul>
         </section>
 
         <section>
@@ -475,47 +485,47 @@ function sigmoid(z) {
             <h1>What else?</h1>
         </section>
 
-        <section>
-            <h3>More #1: Reinforcement Learning</h3>
-            <div>
-                <ul class="fragment">
-                    <li>network learns by playing
-                    <li>sometimes against itself
-                    <li>directly from raw input
-                    <li>world class Go player defeated
-                    <li>achieves superhuman performance in many atari games
-                    <li>possible via deep neural networks
-                </ul>
-            </div>
-            <div style="float: left; width: 400px">
-                <img src="lee-sedol.JPG">
-                <p style="clear: both"><small><a target="_blank" href="https://deepmind.com/blog">
-                    https://deepmind.com/blog
-                </a></small></p>
-            </div>
-            <div style="float: right; width: 500px">
-                <img src="pong.png">
-                <p><small><a target="_blank" href="http://karpathy.github.io/2016/05/31/rl/">
-                    Andrej Karpathy: Pong from Pixels
-                </a></small></p>
-            </div>
+        <!--<section>-->
+            <!--<h3>Reinforcement Learning</h3>-->
+            <!--<div>-->
+                <!--<ul class="fragment">-->
+                    <!--<li>network learns by playing-->
+                    <!--<li>sometimes against itself-->
+                    <!--<li>directly from raw input-->
+                    <!--<li>world class Go player defeated-->
+                    <!--<li>achieves superhuman performance in many atari games-->
+                    <!--<li>possible via deep neural networks-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!--<div style="float: left; width: 400px">-->
+                <!--<img src="lee-sedol.JPG">-->
+                <!--<p style="clear: both"><small><a target="_blank" href="https://deepmind.com/blog">-->
+                    <!--https://deepmind.com/blog-->
+                <!--</a></small></p>-->
+            <!--</div>-->
+            <!--<div style="float: right; width: 500px">-->
+                <!--<img src="pong.png">-->
+                <!--<p><small><a target="_blank" href="http://karpathy.github.io/2016/05/31/rl/">-->
+                    <!--Andrej Karpathy: Pong from Pixels-->
+                <!--</a></small></p>-->
+            <!--</div>-->
 
-        </section>
+        <!--</section>-->
+
+        <!--<section>-->
+            <!--<h3>More #2: RNN learning to recognize hand written digits (MNIST)</h3>-->
+            <!--<p>Recurrent Neural Network RNNs can also have feedback loops</p>-->
+            <!--<img class="fragment" src="generative-rnn-training-movie.gif" height="400px">-->
+            <!--<p><small><a href="https://edwin-de-jong.github.io/blog/isl/incremental-sequence-learning.html" target="_blank">https://edwin-de-jong.github.io/blog/isl/incremental-sequence-learning.html</a></small></p>-->
+        <!--</section>-->
 
         <section>
-            <h3>More #2: RNN learning to recognize hand written digits (MNIST)</h3>
-            <p>RNNs can also have feedback loops</p>
-            <img class="fragment" src="generative-rnn-training-movie.gif" height="400px">
-            <p><small><a href="https://edwin-de-jong.github.io/blog/isl/incremental-sequence-learning.html" target="_blank">https://edwin-de-jong.github.io/blog/isl/incremental-sequence-learning.html</a></small></p>
-        </section>
-
-        <section>
-            <h3>More #3: Convolutional Networks</h3>
+            <h3>Convolutional Networks</h3>
             <div>
                 <ul class="fragment">
                     <li>special networks to to process images
-                    <li>each layer turns input into a number of filtered outputs
-                    <li>special layers provide location invariance
+                    <li>some layers turn input into a number of filtered outputs
+                    <li>other layers provide location invariance
                     <li>each layer adds semantic information
                 </ul>
             </div>
@@ -523,7 +533,7 @@ function sigmoid(z) {
             <!--<p><small><a target="_blank" href="https://openai.com/blog/generative-models/">-->
                 <!--https://openai.com/blog/generative-models/-->
             <!--</a></small></p>-->
-            <img src="udacity-ud730-convolutional-pyramid.png" style="height: 380px">
+            <img src="udacity-ud730-convolutional-pyramid.png" style="height: 350px">
             <p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning--ud730">
             Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)
             </a></small></p>
@@ -578,16 +588,23 @@ beagle (score = 0.00645)
         </section>
 
         <section>
+            <h3>Google Inception Convolutional Network architecture to classify images </h3>
+            <img src="inception.png" height="480px">
+            <p><small><a href="https://arxiv.org/abs/1409.4842" target="_blank">Going Deeper with Convolutions</a></small></p>
+        </section>
+
+
+        <section>
             <h3>It even found out about my secret ...</h3>
             <img src="twitter-wig.png">
             <p><small><a target="_blank" href="https://twitter.com/DJCordhose/status/786875982527467520">https://twitter.com/DJCordhose/status/786875982527467520</a></small></p>
         </section>
 
-        <section>
-            <h3>... on the other hand</h3>
-            <img src="olli-beauty.jpg">
-            <p><small><a target="_blank" href="https://cloud.google.com/vision">https://cloud.google.com/vision</a></small></p>
-        </section>
+        <!--<section>-->
+            <!--<h3>... on the other hand</h3>-->
+            <!--<img src="olli-beauty.jpg">-->
+            <!--<p><small><a target="_blank" href="https://cloud.google.com/vision">https://cloud.google.com/vision</a></small></p>-->
+        <!--</section>-->
 
         <!--<section>-->
             <!--<img src="dog-vs-chicken-wing.jpg">-->
@@ -608,27 +625,31 @@ beagle (score = 0.00645)
             <!--</ul>-->
         <!--</section>-->
 
-        <section>
-            <h3>Afraid of the Singularity?</h3>
-            <p><small><a href="https://en.wikipedia.org/wiki/Technological_singularity" target="_blank">https://en.wikipedia.org/wiki/Technological_singularity</a></small></p>
-            <div class="fragment" style="position: relative; top: -20px">
-                <img src="Gg6wa3S.gif" height="500px">
-                <p style="position: relative; top: -20px">We might not quite be there, just yet...</p>
-            </div>
-        </section>
+        <!--<section>-->
+            <!--<h3>Afraid of the Singularity?</h3>-->
+            <!--<p><small><a href="https://en.wikipedia.org/wiki/Technological_singularity" target="_blank">https://en.wikipedia.org/wiki/Technological_singularity</a></small></p>-->
+            <!--<div class="fragment" style="position: relative; top: -20px">-->
+                <!--<img src="Gg6wa3S.gif" height="500px">-->
+                <!--<p style="position: relative; top: -20px">We might not quite be there, just yet...</p>-->
+            <!--</div>-->
+        <!--</section>-->
 
         <section>
             <h1>Thank you!</h1>
 
             <!--<h2>Questions / Discussion</h2>-->
-            <p>
+            <p><small>
                 <a href="http://zeigermann.eu">Oliver Zeigermann</a> / <a href="http://twitter.com/djcordhose">@DJCordhose</a>
-
+            </small>
             </p>
             <p><a href="http://bit.ly/ml-js-kongress">
                 http://bit.ly/ml-js-kongress
             </a></p>
 
+            <div style="position: relative; top: -20px">
+                <img src="Gg6wa3S.gif" height="400px">
+                <!--<p style="position: relative; top: -20px">We might not quite be there, just yet...</p>-->
+            </div>
         </section>
 
         <section>
