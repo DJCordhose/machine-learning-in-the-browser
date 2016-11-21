@@ -233,22 +233,22 @@ function sigmoid(z) {
                 </div>
             </div>
         </section>
-        <section>
-            <h3>Right, that is surprisingly simple</h3>
-            <h4 class="fragment">Code for training is a little bit more complex (but only a little bit)</h4>
-        </section>
+        <!--<section>-->
+            <!--<h3>Right, that is surprisingly simple</h3>-->
+            <!--<h4 class="fragment">Code for training is a little bit more complex (but only a little bit)</h4>-->
+        <!--</section>-->
 
         <section>
             <h3>Visualizing what a neuron can do</h3>
+            <p>can emulate most logic functions (NOT, AND, OR, NAND)
             <ul class="fragment">
                 <li>output separates plane into two regions using a line
                 <li>such regions are called <em>linearly separable</em>
-                <li>can emulate most logic functions (NOT, AND, OR, NAND)
                 <li>can be trained by adjusting weights of inputs based on error in output
             </ul>
             <div>
                 <a target="_blank"
-                   href="code/graph-and-perceptron.html"><img src="learning.png" height="300"></a>
+                   href="code/graph-and-perceptron.html"><img src="and.jpg" height="300"></a>
                 <p><small><a target="_blank"
                              href="code/graph-and-perceptron.html">percepton training visualization</a>
                     (initial version provided as a courtesy of <a href="https://twitter.com/jedborovik" target="_blank">
@@ -310,6 +310,15 @@ function sigmoid(z) {
         </section>
 
         <section>
+            <h2>Is classification at all relevant?</h2>
+            <h3 class="fragment">Should a car break or not?</h3>
+            <h3 class="fragment">Does that look like breast cancer or not?</h3>
+            <h3 class="fragment">Should this pixel of a b/w picture be blue?</h3>
+            <h3 class="fragment">Does this look like a fraud transaction?</h3>
+            <h3 class="fragment">Will the machine code branch here?</h3>
+        </section>
+
+        <section>
             <h3>Just a single neuron is not enough for that</h3>
             <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=1&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
                 <div>
@@ -350,16 +359,6 @@ function sigmoid(z) {
         </section>
 
         <section data-transition="none">
-            <h3>Each neuron creates a single line classification</h3>
-            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
-                <div>
-                    <img src="screenshot_tensorflow/classification.png">
-                </div>
-            </a>
-            <p>This is the linear classification of the lowest neuron</p>
-        </section>
-
-        <section data-transition="none">
             <h3>Output layer creates output (in our example using a single neuron)</h3>
             <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
                 <div>
@@ -367,6 +366,17 @@ function sigmoid(z) {
                 </div>
             </a>
             <p>again combining all weighted lines to determine two categories: blue or orange?</p>
+        </section>
+
+        <section data-transition="none">
+            <h3>Each neuron creates a single line classification</h3>
+            <p>Adding to the overall result combined by the output layer</p>
+            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
+                <div>
+                    <img src="screenshot_tensorflow/classification.png">
+                </div>
+            </a>
+            <p>This is the linear classification of the third neuron</p>
         </section>
 
         <section data-transition="none">
@@ -399,6 +409,15 @@ function sigmoid(z) {
         </section>
 
         <section>
+            <h3>Let's run it</h3>
+            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
+                <div>
+                    <img src="screenshot_tensorflow/overview.png">
+                </div>
+            </a>
+        </section>
+
+        <section>
             <h3>Training and Loss</h3>
             <div>
                 <ul class="fragment">
@@ -407,7 +426,6 @@ function sigmoid(z) {
                     <li>training data is used to train neural network
                     <li>both test and training data are used to check accuracy of prediction
                     <li>loss is to be minimized
-                    <li>overfitting: training loss low, test loss much higher (to be avoided)
                 </ul>
             </div>
             <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
@@ -418,6 +436,18 @@ function sigmoid(z) {
             </div>
             </a>
         </section>
+
+        <section>
+            <h3>Overfitting</h3>
+            <p>training loss low, test loss much higher</p>
+                <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=50&networkShape=8,8,8,8,8,8&seed=0.32942&showTestData=true&discretize=false&percTrainData=20&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=false&problem_hide=true&percTrainData_hide=false" target="_blank">
+                <div>
+                    <img src="screenshot_tensorflow/overfitting.png" height="450px">
+                </div>
+            </a>
+            <p>NN model is too specific to training values, not general enough</p>
+        </section>
+
 
         <!--<section>-->
         <!--<h3>Deep Learning</h3>-->
@@ -449,10 +479,17 @@ function sigmoid(z) {
                     <img src="screenshot_tensorflow/deep.png">
                 </div>
             </a>
-            <ul class="fragment">
-                <li>there are (reasonable) networks with more than 100 layers
-                <li>each neuron in one layer feeds all neurons in the next layer
-            </ul>
+            <p>each neuron in one layer feeds all neurons in the next layer</p>
+        </section>
+
+        <section>
+            <h3>I can get really messy</h3>
+            <a href="code/tensorflow/index.html#activation=tanh&regularization=L2&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.3&regularizationRate=0.001&noise=50&networkShape=8,8,8,8,8,8&seed=0.32942&showTestData=true&discretize=false&percTrainData=20&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=false&problem_hide=true&percTrainData_hide=false" target="_blank">
+                <div>
+                    <img src="screenshot_tensorflow/messy.png">
+                </div>
+            </a>
+            <p>there are (reasonable) networks with more than 100 layers</p>
         </section>
 
         <section>
@@ -470,7 +507,7 @@ function sigmoid(z) {
         </section>
 
         <section>
-            <h1>That's it more or less for feed forward networks</h1>
+            <h1>That's it more or less for fully connected feed forward networks</h1>
         </section>
 
         <section>
@@ -519,31 +556,35 @@ function sigmoid(z) {
             <!--<p><small><a href="https://edwin-de-jong.github.io/blog/isl/incremental-sequence-learning.html" target="_blank">https://edwin-de-jong.github.io/blog/isl/incremental-sequence-learning.html</a></small></p>-->
         <!--</section>-->
 
-        <section>
-            <h3>Convolutional Networks</h3>
-            <div>
-                <ul class="fragment">
-                    <li>special networks to to process images
-                    <li>some layers turn input into a number of filtered outputs
-                    <li>other layers provide location invariance
-                    <li>each layer adds semantic information
-                </ul>
-            </div>
-            <!--<img src="conv-network.svg">-->
-            <!--<p><small><a target="_blank" href="https://openai.com/blog/generative-models/">-->
-                <!--https://openai.com/blog/generative-models/-->
+        <!--<section>-->
+            <!--<h3>Convolutional Networks</h3>-->
+            <!--<p>special networks to process images</p>-->
+            <!--<div>-->
+                <!--<ul class="fragment">-->
+                    <!--<li>some layers turn input into a number of filtered outputs-->
+                    <!--<li>other layers provide location invariance-->
+                    <!--<li>each layer adds semantic information-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;<img src="conv-network.svg">&ndash;&gt;-->
+            <!--&lt;!&ndash;<p><small><a target="_blank" href="https://openai.com/blog/generative-models/">&ndash;&gt;-->
+                <!--&lt;!&ndash;https://openai.com/blog/generative-models/&ndash;&gt;-->
+            <!--&lt;!&ndash;</a></small></p>&ndash;&gt;-->
+            <!--<img src="udacity-ud730-convolutional-pyramid.png" style="height: 350px">-->
+            <!--<p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning&#45;&#45;ud730">-->
+            <!--Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)-->
             <!--</a></small></p>-->
-            <img src="udacity-ud730-convolutional-pyramid.png" style="height: 350px">
-            <p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning--ud730">
-            Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)
-            </a></small></p>
-        </section>
+        <!--</section>-->
 
         <section>
-            <h3>Intuition for Convolutional Networks</h3>
-            <img src="dogs.jpg">
-            <p class="fragment">can be turned into something like this by convolutional networks</p>
-            <img class="fragment" src="vgg_filter_05_crop.jpg">
+            <h3>Convolutional Networks</h3>
+            <p>special networks to process images</p>
+            <div class="fragment">
+                <p>E.g. to recognize dogs (again a classification problem)</p>
+            <img src="dogs.jpg" height="150px">
+            <p class="fragment">using an internal representation like</p>
+            <img class="fragment" src="vgg_filter_05_crop.jpg" height="150px">
+            </div>
             <p><small><a target="_blank" href="https://auduno.github.io/2016/06/18/peeking-inside-convnets/">
                 https://auduno.github.io/2016/06/18/peeking-inside-convnets/
             </a></small></p>
@@ -635,7 +676,7 @@ beagle (score = 0.00645)
         <!--</section>-->
 
         <section>
-            <h1>Thank you!</h1>
+            <h2>Thank you!</h2>
 
             <!--<h2>Questions / Discussion</h2>-->
             <p><small>
@@ -648,7 +689,9 @@ beagle (score = 0.00645)
 
             <div style="position: relative; top: -20px">
                 <img src="Gg6wa3S.gif" height="400px">
-                <!--<p style="position: relative; top: -20px">We might not quite be there, just yet...</p>-->
+                <br>
+                <a href="https://en.wikipedia.org/wiki/Technological_singularity" target="_blank">
+                    No need to be Afraid of the Singularity</a>
             </div>
         </section>
 
