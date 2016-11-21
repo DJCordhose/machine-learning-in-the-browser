@@ -113,11 +113,11 @@
             </a></small></p>
         </section>
 
-        <section data-transition="zoom">
-            <h3>Machine learning has become mainstream</h3>
-            <img src="ML-is-everywhere.png" height="530px">
-            <p>An add from BART train, Bay Area</p>
-        </section>
+        <!--<section data-transition="zoom">-->
+            <!--<h3>Machine learning has become mainstream</h3>-->
+            <!--<img src="ML-is-everywhere.png" height="530px">-->
+            <!--<p>An add from BART train, Bay Area</p>-->
+        <!--</section>-->
 
 
         <!--<section data-transition="zoom">-->
@@ -311,6 +311,7 @@ function sigmoid(z) {
 
         <section>
             <h2>Is classification at all relevant?</h2>
+            <p>Why would I care how to tell blue from organge spots?</p>
             <h3 class="fragment">Should a car break or not?</h3>
             <h3 class="fragment">Does that look like breast cancer or not?</h3>
             <h3 class="fragment">Should this pixel of a b/w picture be blue?</h3>
@@ -368,31 +369,31 @@ function sigmoid(z) {
             <p>again combining all weighted lines to determine two categories: blue or orange?</p>
         </section>
 
-        <section data-transition="none">
-            <h3>Each neuron creates a single line classification</h3>
-            <p>Adding to the overall result combined by the output layer</p>
-            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
-                <div>
-                    <img src="screenshot_tensorflow/classification.png">
-                </div>
-            </a>
-            <p>This is the linear classification of the third neuron</p>
-        </section>
+        <!--<section data-transition="none">-->
+            <!--<h3>Each neuron creates a single line classification</h3>-->
+            <!--<p>Adding to the overall result combined by the output layer</p>-->
+            <!--<a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">-->
+                <!--<div>-->
+                    <!--<img src="screenshot_tensorflow/classification.png">-->
+                <!--</div>-->
+            <!--</a>-->
+            <!--<p>This is the linear classification of the third neuron</p>-->
+        <!--</section>-->
 
-        <section data-transition="none">
-            <h3>Data flows forward in one direction, there are no cycles
-            </h3>
-            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
-                <div>
-                    <img src="screenshot_tensorflow/direction.png">
-                </div>
-            </a>
-            <ul class="fragment">
-                <li>each neuron in each hidden layer gets exactly the same input
-                <li>no connection between neurons in same layer
-                <li>this is called fully connected feed forward network (there are others)
-            </ul>
-        </section>
+        <!--<section data-transition="none">-->
+            <!--<h3>Data flows forward in one direction, there are no cycles-->
+            <!--</h3>-->
+            <!--<a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">-->
+                <!--<div>-->
+                    <!--<img src="screenshot_tensorflow/direction.png">-->
+                <!--</div>-->
+            <!--</a>-->
+            <!--<ul class="fragment">-->
+                <!--<li>each neuron in each hidden layer gets exactly the same input-->
+                <!--<li>no connection between neurons in same layer-->
+                <!--<li>this is called fully connected feed forward network (there are others)-->
+            <!--</ul>-->
+        <!--</section>-->
 
         <section>
             <h3>Networks can learn</h3>
@@ -401,10 +402,11 @@ function sigmoid(z) {
                     <img src="screenshot_tensorflow/backpropagation.png">
                 </div>
             </a>
-            <ul class="fragment">
+            <ul>
                 <li>you provide samples and the corresponding right answers
                 <li>errors between right answer and prediction are called loss
                 <li>they are propagated back to adjust weights of connections
+                <li>mathematically an optimisation (often Stochastic Gradient Descent)
             </ul>
         </section>
 
@@ -482,32 +484,32 @@ function sigmoid(z) {
             <p>each neuron in one layer feeds all neurons in the next layer</p>
         </section>
 
-        <section>
-            <h3>I can get really messy</h3>
-            <a href="code/tensorflow/index.html#activation=tanh&regularization=L2&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.3&regularizationRate=0.001&noise=50&networkShape=8,8,8,8,8,8&seed=0.32942&showTestData=true&discretize=false&percTrainData=20&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=false&problem_hide=true&percTrainData_hide=false" target="_blank">
-                <div>
-                    <img src="screenshot_tensorflow/messy.png">
-                </div>
-            </a>
-            <p>there are (reasonable) networks with more than 100 layers</p>
-        </section>
+        <!--<section>-->
+            <!--<h3>I can get really messy</h3>-->
+            <!--<a href="code/tensorflow/index.html#activation=tanh&regularization=L2&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.3&regularizationRate=0.001&noise=50&networkShape=8,8,8,8,8,8&seed=0.32942&showTestData=true&discretize=false&percTrainData=20&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=false&problem_hide=true&percTrainData_hide=false" target="_blank">-->
+                <!--<div>-->
+                    <!--<img src="screenshot_tensorflow/messy.png">-->
+                <!--</div>-->
+            <!--</a>-->
+            <!--<p>there are (reasonable) networks with more than 100 layers</p>-->
+        <!--</section>-->
+
+        <!--<section>-->
+            <!--<h2>Tensorflow Playground Internals</h2>-->
+            <!--<ul class="fragment">-->
+                <!--<li>Written ins <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a>-->
+                <!--<li>Visualizations done with <a href="https://d3js.org/" target="_blank">D3.js</a>-->
+                <!--<li>Everything implemented from scratch-->
+                <!--<li>No performance optimizations, no GPU support-->
+                <!--<li>Easy to understand-->
+                <!--<li>NN simulation fairly similar to code from scratch as shown before-->
+                <!--<li>Core more general for as many dimensions as you want-->
+            <!--</ul>-->
+            <!--&lt;!&ndash;<p class="fragment">Only loosely related to <a  target="_blank" href="https://www.tensorflow.org/">TensorFlow</a></p>&ndash;&gt;-->
+        <!--</section>-->
 
         <section>
-            <h2>Tensorflow Playground Internals</h2>
-            <ul class="fragment">
-                <li>Written ins <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a>
-                <li>Visualizations done with <a href="https://d3js.org/" target="_blank">D3.js</a>
-                <li>Everything implemented from scratch
-                <li>No performance optimizations, no GPU support
-                <li>Easy to understand
-                <li>NN simulation fairly similar to code from scratch as shown before
-                <li>Core more general for as many dimensions as you want
-            </ul>
-            <p class="fragment">Only loosely related to <a  target="_blank" href="https://www.tensorflow.org/">TensorFlow</a></p>
-        </section>
-
-        <section>
-            <h1>That's it more or less for fully connected feed forward networks</h1>
+            <h2>That's it more or less for fully connected feed forward networks</h2>
         </section>
 
         <section>
@@ -518,9 +520,9 @@ function sigmoid(z) {
             <p class="fragment">Or: <em>use a pre-trained network</em> (by people who have done that job for you already)</p>
         </section>
 
-        <section>
-            <h1>What else?</h1>
-        </section>
+        <!--<section>-->
+            <!--<h1>What else?</h1>-->
+        <!--</section>-->
 
         <!--<section>-->
             <!--<h3>Reinforcement Learning</h3>-->
@@ -577,18 +579,32 @@ function sigmoid(z) {
         <!--</section>-->
 
         <section>
-            <h3>Convolutional Networks</h3>
-            <p>special networks to process images</p>
+            <h2>Convolutional Networks</h2>
+            <h3>special networks to process images</h3>
+            <h3>using different kinds of specialized layers</h3>
+            <h3>often used with pre-trained models</h3>
+        </section>
+
+
+        <section>
+            <h3>Google Inception Convolutional Network architecture to classify images </h3>
+            <img src="inception.png" height="480px">
+            <p><small><a href="https://arxiv.org/abs/1409.4842" target="_blank">Going Deeper with Convolutions</a></small></p>
+        </section>
+
+        <section>
+            <h3>Intuition for Convolutional Networks</h3>
             <div class="fragment">
                 <p>E.g. to recognize dogs (again a classification problem)</p>
-            <img src="dogs.jpg" height="150px">
-            <p class="fragment">using an internal representation like</p>
-            <img class="fragment" src="vgg_filter_05_crop.jpg" height="150px">
+                <img src="dogs.jpg">
+                <p class="fragment">using an internal representation like</p>
+                <img class="fragment" src="vgg_filter_05_crop.jpg">
             </div>
             <p><small><a target="_blank" href="https://auduno.github.io/2016/06/18/peeking-inside-convnets/">
                 https://auduno.github.io/2016/06/18/peeking-inside-convnets/
             </a></small></p>
         </section>
+
 
         <section>
             <h3>Sometimes it is not that easy...</h3>
@@ -609,7 +625,7 @@ function sigmoid(z) {
         </section>
         <section>
             <h3>TensorFlow finds the Chihuahua!</h3>
-            <p class="fragment"><a target="_blank" href="https://www.tensorflow.org/">TensorFlow</a>
+            <p><a target="_blank" href="https://www.tensorflow.org/">TensorFlow</a>
                 is the full version of the Playground
             </p>
             <img src="dog-vs-muffin-dog1.jpg">
@@ -621,19 +637,12 @@ Pekinese, Pekingese, Peke (score = 0.00751)
 toy terrier (score = 0.00716)
 beagle (score = 0.00645)
                 </code></pre>
+                <p>Using the pre-trained
+                    <a target="_blank" href="https://www.tensorflow.org/versions/r0.11/tutorials/image_recognition/index.html">
+                        Inception
+                    </a>  model</p>
             </div>
-            <p class="fragment">Using the pre-trained
-                <a target="_blank" href="https://www.tensorflow.org/versions/r0.11/tutorials/image_recognition/index.html">
-                    Inception
-                </a>  model</p>
         </section>
-
-        <section>
-            <h3>Google Inception Convolutional Network architecture to classify images </h3>
-            <img src="inception.png" height="480px">
-            <p><small><a href="https://arxiv.org/abs/1409.4842" target="_blank">Going Deeper with Convolutions</a></small></p>
-        </section>
-
 
         <section>
             <h3>It even found out about my secret ...</h3>
@@ -691,56 +700,56 @@ beagle (score = 0.00645)
                 <img src="Gg6wa3S.gif" height="400px">
                 <br>
                 <a href="https://en.wikipedia.org/wiki/Technological_singularity" target="_blank">
-                    No need to be Afraid of the Singularity</a>
+                    No need to be afraid of the Singularity</a>
             </div>
         </section>
 
-        <section>
-            <h3>Resources</h3>
-            <ul>
-                <li><a target="_blank" href="http://playground.tensorflow.org/">Tensorflow Playground in the Browser</a>
-                <li>
-                    <a target="_blank"
-                       href="http://cs.stanford.edu/people/karpathy/convnetjs/">
-                        ConvNetJS - Deep Learning in your browser
-                    </a>
-                <li>
-                    <a target="_blank"
-                       href="https://cloud.google.com/blog/big-data/2016/07/understanding-neural-networks-with-tensorflow-playground">
-                        Understanding neural networks with TensorFlow Playground
-                    </a>
-                <li>
-                    <a target="_blank"
-                       href="http://colah.github.io/posts/2014-03-NN-Manifolds-Topology/">
-                        Neural Networks, Manifolds, and Topology
-                    </a>
-                <li>
-                    <a target="_blank"
-                       href="https://cs231n.github.io/assets/conv-demo/index.html">
-                        Animated explanation of Convolutional Networks
-                    </a>
-                <li>
-                    <a target="_blank"
-                       href="http://colah.github.io/posts/2015-01-Visualizing-Representations/">
-                        Visualizing Representations: Deep Learning and Human Beings
-                    </a>
-                <li>
-                    <a target="_blank"
-                       href="http://brohrer.github.io/how_convolutional_neural_networks_work.html">
-                        How do Convolutional Neural Networks work?
-                    </a>
+        <!--<section>-->
+            <!--<h3>Resources</h3>-->
+            <!--<ul>-->
+                <!--<li><a target="_blank" href="http://playground.tensorflow.org/">Tensorflow Playground in the Browser</a>-->
                 <!--<li>-->
                     <!--<a target="_blank"-->
-                       <!--href="https://github.com/karpathy/tsnejs">-->
-                        <!--Clustering using t-SNE in the Browser-->
+                       <!--href="http://cs.stanford.edu/people/karpathy/convnetjs/">-->
+                        <!--ConvNetJS - Deep Learning in your browser-->
                     <!--</a>-->
-                <li>
-                    <a target="_blank"
-                       href="https://aiexperiments.withgoogle.com/what-neural-nets-see">
-                        What Neural Networks See (Google AI Experiment)
-                    </a>
-            </ul>
-        </section>
+                <!--<li>-->
+                    <!--<a target="_blank"-->
+                       <!--href="https://cloud.google.com/blog/big-data/2016/07/understanding-neural-networks-with-tensorflow-playground">-->
+                        <!--Understanding neural networks with TensorFlow Playground-->
+                    <!--</a>-->
+                <!--<li>-->
+                    <!--<a target="_blank"-->
+                       <!--href="http://colah.github.io/posts/2014-03-NN-Manifolds-Topology/">-->
+                        <!--Neural Networks, Manifolds, and Topology-->
+                    <!--</a>-->
+                <!--<li>-->
+                    <!--<a target="_blank"-->
+                       <!--href="https://cs231n.github.io/assets/conv-demo/index.html">-->
+                        <!--Animated explanation of Convolutional Networks-->
+                    <!--</a>-->
+                <!--<li>-->
+                    <!--<a target="_blank"-->
+                       <!--href="http://colah.github.io/posts/2015-01-Visualizing-Representations/">-->
+                        <!--Visualizing Representations: Deep Learning and Human Beings-->
+                    <!--</a>-->
+                <!--<li>-->
+                    <!--<a target="_blank"-->
+                       <!--href="http://brohrer.github.io/how_convolutional_neural_networks_work.html">-->
+                        <!--How do Convolutional Neural Networks work?-->
+                    <!--</a>-->
+                <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a target="_blank"&ndash;&gt;-->
+                       <!--&lt;!&ndash;href="https://github.com/karpathy/tsnejs">&ndash;&gt;-->
+                        <!--&lt;!&ndash;Clustering using t-SNE in the Browser&ndash;&gt;-->
+                    <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                <!--<li>-->
+                    <!--<a target="_blank"-->
+                       <!--href="https://aiexperiments.withgoogle.com/what-neural-nets-see">-->
+                        <!--What Neural Networks See (Google AI Experiment)-->
+                    <!--</a>-->
+            <!--</ul>-->
+        <!--</section>-->
 
     </div>
 
