@@ -258,6 +258,7 @@ function sigmoid(z) {
         <section>
             <h3>A single neuron is not very powerful</h3>
             <h4 class="fragment">but becomes much more powerful when organized in a network</h4>
+            <h4 class="fragment">output of one neuron is input of others</h4>
         </section>
 
         <section>
@@ -265,10 +266,10 @@ function sigmoid(z) {
             <p><a target="_blank" href="https://en.wikipedia.org/wiki/Feedforward_neural_network">
                 https://en.wikipedia.org/wiki/Feedforward_neural_network</a>
             </p>
-
-            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
+            <p>Arraging many Neurons in layers</p>
+            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=1&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
                 <div>
-                    <img src="screenshot_tensorflow/overview.png">
+                    <img src="screenshot_tensorflow/1-neuron.png">
                 </div>
             </a>
             <p>Using the <a href="http://playground.tensorflow.org/" target="_blank">Tensorflow Playground</a></p>
@@ -293,14 +294,24 @@ function sigmoid(z) {
         </section>
 
         <section>
-            <h3>Neurons can be arranged in layers</h3>
-            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
+            <h3>Just a single neuron is not enough for that</h3>
+            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=1&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
                 <div>
-                    <img src="screenshot_tensorflow/layers.png">
+                    <img src="screenshot_tensorflow/1-neuron.png">
                 </div>
             </a>
-            <p>one layer of 3 neurons</p>
+            <p>quick guess, how many would we need?</p>
         </section>
+
+        <!--<section>-->
+            <!--<h3>Neurons can be arranged in layers</h3>-->
+            <!--<a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">-->
+                <!--<div>-->
+                    <!--<img src="screenshot_tensorflow/layers.png">-->
+                <!--</div>-->
+            <!--</a>-->
+            <!--<p>one layer of 3 neurons</p>-->
+        <!--</section>-->
 
         <section data-transition="none">
             <h3>First layers takes inputs</h3>
@@ -333,13 +344,13 @@ function sigmoid(z) {
         </section>
 
         <section data-transition="none">
-            <h3>Output layer creates output (often softmax for classification)</h3>
+            <h3>Output layer creates output (in our example using a single neuron)</h3>
             <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
                 <div>
                     <img src="screenshot_tensorflow/output.png">
                 </div>
             </a>
-            <p>combining all lines to determine two categories: blue or orange?</p>
+            <p>again combining all weighted lines to determine two categories: blue or orange?</p>
         </section>
 
         <section data-transition="none">
@@ -711,7 +722,7 @@ beagle (score = 0.00645)
         history: true,
         center: true,
 
-        transition: 'convex', // none/fade/slide/convex/concave/zoom
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
 
         // Optional reveal.js plugins
         dependencies: [

@@ -5,6 +5,11 @@
 </head>
 <body>
 <div id="container"></div>
+<div>
+    <p>Accuracy at iteration <span id="iter"></span>: <span id="accuracy"></span></p>
+    <p>y=mx+b</p>
+    <p>m: <span id="m"></span>, b: <span id="b"></span></p>
+</div>
 <script>
     var data = [{
         input: [0, 0],
@@ -21,13 +26,21 @@
     }];
 
     // Initial parameters.
-    var a = 3, b = -4, c = 2;
+
+    // better for a demo
+    var w0 = 3,
+        w1 = -4,
+        w2 = 2;
+
+//    var w0 = Math.random() - 0.5,
+//        w1 = Math.random() - 0.5,
+//        w2 = Math.random() - 0.5;
 
     var stepSize = 1;
 
     var z;
-    function and(x, y) {
-        z = a + b * x + c * y;
+    function nn(x, y) {
+        z = w0 + w1 * x + w2 * y;
         return sigmoid(z);
     }
 
@@ -35,9 +48,9 @@
     function iterate() {
         // Change to 750 when stepSize = 0.1
         if (iter > 1000) {
-            console.log('a', a);
-            console.log('b', b);
-            console.log('c', c);
+            console.log('w0', w0);
+            console.log('w1', w1);
+            console.log('w2', w2);
             return;
         }
         iter++;
@@ -51,23 +64,42 @@
         var output = data[i].output;
 
         // h for hypothesis
-        var h = and(x, y);
+        var h = nn(x, y);
 
         var error = h - output;
 
-        a -= error * 1 * sigmoidGradient(z) * stepSize;
-        b -= error * x * sigmoidGradient(z) * stepSize;
-        c -= error * y * sigmoidGradient(z) * stepSize;
+        w0 -= error * 1 * sigmoidGradient(z) * stepSize;
+        w1 -= error * x * sigmoidGradient(z) * stepSize;
+        w2 -= error * y * sigmoidGradient(z) * stepSize;
 
-        if (iter % 25 === 0) console.log('accuracy at iter %s: %s', iter, trainingAccuracy());
+
+        var accuracy = trainingAccuracy();
+        logAccuracy(iter, accuracy);
+//        logWeights(w0, w1, w2);
         draw();
 
-
-        setTimeout(iterate, 0);
+        if (accuracy < 1 || iter < 500) {
+            setTimeout(iterate, 0);
+        }
     }
 
     iterate();
 
+    function logAccuracy(iter, accuracy) {
+        document.getElementById('accuracy').innerText = accuracy;
+        document.getElementById('iter').innerText = iter;
+    }
+
+//    function logWeights(w0, w1, w2) {
+//        document.getElementById('w0').innerText = w0;
+//        document.getElementById('w1').innerText = w1;
+//        document.getElementById('w2').innerText = w2;
+//    }
+//
+    function logWeights(m, b) {
+        document.getElementById('m').innerText = m;
+        document.getElementById('b').innerText = b;
+    }
 
     function trainingAccuracy() {
         var correct = 0;
@@ -78,7 +110,7 @@
 
             var output = data[i].output;
 
-            var h = and(x, y) > 0.5 ? 1 : 0;
+            var h = nn(x, y) > 0.5 ? 1 : 0;
             if (h === output) correct++;
         }
         return correct / data.length;
@@ -105,10 +137,17 @@
 
         function yFn(x) {
             // original function resolved for y
-            // 0 = a + b*x + c*y
-            var result = (-a - (b * x)) / c;
-            if (c < 0) result *= -1;
-            return result;
+            // 0 = w0 + w1*x + w2*y
+            // https://en.wikipedia.org/wiki/Linear_equation
+            var m = -1 * w1 / w2;
+            var b = -1 * w0 / w2;
+//            var y = (w0 + w1*x) / (-1 *  w2);
+            // y=mx+b
+            var y = m*x + b;
+            logWeights(m, b);
+            // XXX what for?
+            if (w2 < 0) y *= -1;
+            return y;
         }
 
         var decision = {
