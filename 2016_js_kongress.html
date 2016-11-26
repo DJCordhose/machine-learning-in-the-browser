@@ -83,7 +83,7 @@
     <!--In this talk I will show you how Deep Neural Networks work – leaving out most of the math. -->
     <!--I will also introduce a JavaScript framework that easily lets you experiment with Machine Learning.-->
 
-    <!--15:00 - 15:30, 25 Minutes-->
+    <!--11:00 - 11:30, 25 Minutes-->
     <!--http://js-kongress.de/schedule/-->
     <!--http://js-kongress.de/sessions/machine-learning-in-the-browser-with-deep-neural-networks/-->
 
@@ -295,10 +295,11 @@ function sigmoid(z) {
             <h3>Introducing our classification example</h3>
             <div>
                 <ul class="fragment">
-                    <li>each spot in a plane gets a prediction
-                    <li>either blue or orange
-                    <li>result of the neural network is a classification
-                    <li>network is trained to give a good prediction
+                    <li>dots are placed on a plane with a certain pattern
+                    <li>two different kinds (either blue or orange)
+                    <li>network shall learn that pattern
+                    <li>uses a set of known dots for training
+                    <li>then make predictions for dots it has not seen before
                 </ul>
             </div>
             <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
@@ -319,15 +320,15 @@ function sigmoid(z) {
             <h3 class="fragment">Will the machine code branch here?</h3>
         </section>
 
-        <section>
-            <h3>Just a single neuron is not enough for that</h3>
-            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=1&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
-                <div>
-                    <img src="screenshot_tensorflow/1-neuron.png">
-                </div>
-            </a>
-            <p class="fragment">quick guess, just how many neurons would we need?</p>
-        </section>
+        <!--<section>-->
+            <!--<h3>Just a single neuron is not enough for that</h3>-->
+            <!--<a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=1&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">-->
+                <!--<div>-->
+                    <!--<img src="screenshot_tensorflow/1-neuron.png">-->
+                <!--</div>-->
+            <!--</a>-->
+            <!--<p class="fragment">quick guess, just how many neurons would we need?</p>-->
+        <!--</section>-->
 
         <!--<section>-->
             <!--<h3>Neurons can be arranged in layers</h3>-->
@@ -780,8 +781,10 @@ beagle (score = 0.00645)
             Reveal.configure({ controls: false });
         } else {
             // only applies to public version
-            $('.fragment').removeClass('fragment');
+//            $('.fragment').removeClass('fragment');
         }
+        // applies to all versions
+        $('.fragment').removeClass('fragment');
     } );
 </script>
 
