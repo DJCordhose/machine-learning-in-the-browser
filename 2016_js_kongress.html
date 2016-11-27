@@ -106,8 +106,12 @@
 
         <section data-transition="zoom">
             <h3>What is machine learning?</h3>
-            <img src="ml.jpg" height="550px">
-            <p><small><a target="_blank"
+            <p style="position: relative; top: -10px">
+                <!--<p>-->
+                <a href="https://en.wikipedia.org/wiki/Machine_learning" target="_blank">
+                Science of getting computers to act without being explicitly programmed</a></p>
+            <img style="position: relative; top: -20px" src="ml.jpg" height="500px">
+            <p style="position: relative; top: -50px"><small><a target="_blank"
                          href="https://twitter.com/DJCordhose/status/785108341823594496">
                 https://twitter.com/DJCordhose/status/785108341823594496
             </a></small></p>
@@ -223,8 +227,8 @@
                     mathematical model of a biological neuron</a>
                 <li>creates a single output based on sum of many weighted inputs
                 <li>uses a <a target="_blank"
-                              href="https://en.wikipedia.org/wiki/Sigmoid_function">
-                    sigmoid</a> activation function to create (slightly) non-linear behavior
+                              href="https://en.wikipedia.org/wiki/Activation_function">
+                activation function </a> to create (a slightly) non-linear component
             </ul>
             <div style="height: 500px">
                 <img src="perceptron.jpg">
@@ -243,12 +247,12 @@ let w0 = 3, w1 = -4, w2 = 2;
             <pre><code data-trim class="line-numbers fragment" data-fragment-index="1">
 function perceptron(x1, x2) {
     const sum = w0 + w1 * x1 + w2 * x2;
-    return sigmoid(sum);
+    return activation(sum);
 }
             </code></pre>
-<pre><code data-trim class="line-numbers fragment" data-fragment-index="3">
-# activation function
-function sigmoid(z) {
+<pre><code data-trim class="line-numbers javascript fragment" data-fragment-index="3">
+function activation(z) {
+    // in this case a sigmoid function (alt.: tanh, linear, relu)
     return 1 / (1 + Math.exp(z * -1));
 }
             </code></pre>
@@ -392,7 +396,8 @@ function sigmoid(z) {
         </section>
 
         <section data-transition="none">
-            <h3>Output layer creates output (in our example using a single neuron)</h3>
+            <h3>Output layer creates output</h3>
+            <p>in our example using a single neuron, tanh activation</p>
             <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
                 <div>
                     <img src="screenshot_tensorflow/output.png">
