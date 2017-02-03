@@ -5,5 +5,7 @@
     <option name="id" value="1470298080795" />
     <option name="name" value="default" />
   </component>
-  <component name="ProjectRootManager" version="2" assert-keyword="false" jdk-15="false" />
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
 </project>
