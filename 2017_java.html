@@ -1,0 +1,1076 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Deep Neural Network</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="reveal.js/css/reveal.css">
+    <!--<link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">-->
+    <link rel="stylesheet" href="reveal.js/css/theme/night.css" id="theme">
+    <!--<link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">-->
+    <!--<link rel="stylesheet" href="reveal.js/css/theme/night.css" id="theme">-->
+    <!--<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">-->
+
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+    <style>
+        pre code {
+            /*display: block;*/
+            /*padding: 0.5em;*/
+            /*background: #FFFFFF !important;*/
+            /*color: #000000 !important;*/
+            font-size: larger !important;
+        }
+
+        .right-img {
+            margin-left: 10px !important;
+            float: right;
+            /*height: 500px;*/
+        }
+        .left-img {
+            margin-left: 10px !important;
+            float: left;
+            /*height: 500px;*/
+        }
+        .todo:before {
+            content: 'TODO: ';
+        }
+        .todo {
+            color: red !important;
+        }
+        code span.line-number {
+            color: lightcoral;
+        }
+
+    </style>
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+    <div class="slides">
+
+        <section>
+            <h2>Machine Learning with Deep Neural Networks</h2>
+            <h3>using Java</h3>
+                <p><a href="http://zeigermann.eu">Oliver Zeigermann</a> / <a href="http://twitter.com/djcordhose">@DJCordhose</a>
+                </p>
+            </p>
+        </section>
+
+        <!--<section class="todo">-->
+<!--<pre>-->
+<!--</pre>-->
+        <!--</section>-->
+
+        <section>
+            <h2>What is machine learning?</h2>
+            <h3 class="fragment"><a href="https://en.wikipedia.org/wiki/Machine_learning" target="_blank">
+                science of getting computers to act without being explicitly programmed</a></h3>
+        </section>
+
+        <section data-transition="zoom">
+            <h2>Motivation: How does data processing work?</h2>
+            <div class="fragment">
+                <img src="img/processing.jpg" >
+            </div>
+        </section>
+
+        <section>
+            <h2>Creating the 'model' with Classic Coding</h2>
+            <div class="fragment">
+                <img src="img/coding.jpg" >
+            </div>
+        </section>
+
+        <section>
+            <h2>Creating the 'model' with <em>Supervised</em> Machine Learning</h2>
+            <div class="fragment">
+                <img src="img/ml.jpg" >
+                <p><small>Unsupervised learning works without training and human supervision</small></p>
+            </div>
+
+        </section>
+
+        <section data-transition="zoom">
+            <h3>Applications of machine learning?</h3>
+            <a  class="fragment" style="float: right" href="http://m.pulsenews.co.kr/view.php?sc=30800019&year=2016&no=292907" target="_blank">
+                <img src="lecun-twitter.png" height="190">
+            </a>
+            <a  class="fragment" href="http://gitxiv.com/posts/tiXMXrgKAxibaB2Ws/asynchronous-methods-for-deep-reinforcement-learning" target="_blank">
+                <img src="space-invaders.gif" height="120">
+            </a>
+            <a  class="fragment" style="float: left" href="http://techcrunch.com/2016/04/20/ducking-awesome-self-driving-cars" target="_blank">
+                <img src="rubber-duckies.gif"  height="200">
+            </a>
+            <div style="float: right" class="fragment">
+                <a href="http://news.mit.edu/2016/teaching-machines-to-predict-the-future-0621" target="_blank">
+                    <img src="predict-future.jpg" height="200">
+                </a>
+            </div>
+            <a class="fragment" style="float: right"
+               href="https://news.developer.nvidia.com/automatic-image-colorization-of-grayscale-images/"
+               target="_blank">
+                <img src="Automatic-Colorization-examples-2.png" height="180">
+            </a>
+            <a class="fragment" style="float: left"
+               href="https://twitter.com/tensorflow/status/824405131743678464"
+               target="_blank">
+                <img src="skin-cancer-detection.png" height="300">
+            </a>
+
+            <!--<a  class="fragment" style="float: left" href="https://matthewearl.github.io/2016/05/06/cnn-anpr" target="_blank">-->
+            <!--<img src="window-scan.gif" height="150">-->
+            <!--</a>-->
+            <a  class="fragment" style="float: left" href="http://www.theregister.co.uk/2016/08/22/samsung_m1_core" target="_blank">
+                <img src="samsung_m1_branch.jpg" height="150">
+            </a>
+            <a  class="fragment" href="https://deepmind.com/alpha-go" target="_blank">
+                <img src="alphago-logo.png" height="70">
+            </a>
+        </section>
+
+        <section>
+            <h3>Machine learning has become mainstream</h3>
+            <img src="ML-is-everywhere.png" height="530px">
+            <p>An add from BART train, Bay Area</p>
+        </section>
+
+        <section>
+            <h3>Main application of Supervised Learning: Classification</h3>
+            <div class="fragment" style="height: 500px;">
+                <img src="img/classification.jpg">
+                <p><small>Regression is the other: inferring a continuous function from given data points</small></p>
+            </div>
+        </section>
+
+        <section>
+            <h3>Is classification at all relevant?</h3>
+            <h4 class="fragment">Should a car break or not?</h4>
+            <h4 class="fragment">Does that look like breast cancer or not?</h4>
+            <h4 class="fragment">Should this pixel of a b/w picture be blue?</h4>
+            <h4 class="fragment">Does this look like a fraud transaction?</h4>
+            <h4 class="fragment">Will the machine code branch here?</h4>
+        </section>
+
+        <section>
+            <h2>Deep Neural Networks</h2>
+            <p>Class of machine learning strategies</p>
+            <p>Mostly used for </p>
+            <ul>
+                <li>supervised learning
+                <li>classification
+            </ul>
+            <p>Based on the idea of simulating brain functions</p>
+        </section>
+
+        <!--only for school-->
+        <section>
+            <h3>Can Machines really think?</h3>
+            <ul>
+                <li class="fragment"data-fragment-index="1"><strong>Weak AI</strong> hypothesis: it is sufficient to simulate thinking
+                    <ul>
+                        <li class="fragment">like in: birds do real <em>flying</em>, planes only simulate flying
+                        <li class="fragment">if something can not be differentiated from real thinking is the only objective for AI anyway (<strong>Turing test</strong>)
+                    </ul>
+                </li>
+                <li class="fragment" data-fragment-index="2"><strong>Strong AI</strong> hypothesis: machines are only intelligent if they do the real thing
+                    <ul>
+                        <li class="fragment">is the machine really <em>conscious</em> like a human?
+                        <li class="fragment">poses the philosophically much more interesting questions
+                    </ul>
+                </li>
+            </ul>
+            <p class="fragment">Turing said: if you ever experience an intelligent machine,
+                such a distinction would not make more sense than asking if the other people do real thinking either</p>
+        </section>
+
+        <section>
+            <h3>Why Java for Machine Learning?</h3>
+            <ul>
+                <li class="fragment">Python and R are predominant
+                    <ul>
+                        <li>Have a large and mature set of libs
+                        <li>Are reasonably fast
+                        <li>Using binding to C/C++ or Fortran
+                    </ul>
+                </li>
+                <li class="fragment">Java has benefits, though
+                    <ul>
+                        <li>might be the language you are most comfortable with
+                        <li>might be the only language around (Production Systems often run Java)
+                        <li>Java is strong with Distributed Work (e.g. using Spark)
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Machine Learning vs Artificial Intelligence</h3>
+            <div class="fragment" style="height: 500px">
+                <img src="Deep_Learning_NVIDIA.png">
+                <p><small>NVIDIA Blog:
+                    <a href="https://blogs.nvidia.com/blog/2016/07/29/whats-difference-artificial-intelligence-machine-learning-deep-learning-ai/">
+                        What’s the Difference Between Artificial Intelligence, Machine Learning, and Deep Learning?
+                    </a></small></p>
+            </div>
+        </section>
+
+        <section>
+            <h3>The perceptron - where it all begins</h3>
+            <ul class="fragment">
+                <li><a target="_blank"
+                       href="https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/Neuron/index.html">
+                    mathematical model of a biological neuron</a>
+                <li>creates a single output based on sum of many weighted inputs
+                <li>uses a <a target="_blank"
+                              href="https://en.wikipedia.org/wiki/Activation_function">
+                activation function </a> to create (a slightly) non-linear component
+            </ul>
+            <div style="height: 500px">
+                <img src="perceptron.jpg">
+                <p><small><a target="_blank" href="http://www.theprojectspot.com/tutorial-post/introduction-to-artificial-neural-networks-part-1/7">
+                    http://www.theprojectspot.com/tutorial-post/introduction-to-artificial-neural-networks-part-1/7
+                </a></small></p>
+            </div>
+        </section>
+
+        <section>
+            <h3>Implementing it in pure Java</h3>
+            <pre><code data-trim class="line-numbers fragment" data-fragment-index="2">
+// Initial weights
+double w0 = 3, w1 = -4, w2 = 2;
+            </code></pre>
+            <pre><code data-trim class="line-numbers fragment" data-fragment-index="1">
+perceptron(double x1, double x2) {
+    double sum = w0 + w1 * x1 + w2 * x2;
+    return activation(sum);
+}
+            </code></pre>
+<pre><code data-trim class="line-numbers javascript fragment" data-fragment-index="3">
+activation(double z) {
+    // in this case a sigmoid function (alt.: tanh, linear, relu)
+    return 1 / (1 + Math.exp(z * -1));
+}
+            </code></pre>
+            <br>
+            <div>
+                <div>
+                    <a href="https://en.wikipedia.org/wiki/Sigmoid_function" target="_blank">
+                        <img src="sigmoid.png" class="fragment" style="clear: both;float: right; height: 250px; background-color: white">
+                    </a>
+                </div>
+                <div style="float: left; height: 250px">
+                    <img src="perceptron.jpg" >
+                </div>
+            </div>
+        </section>
+        <!--<section>-->
+            <!--<h3>Right, that is surprisingly simple</h3>-->
+            <!--<h4 class="fragment">Code for training is a little bit more complex (but only a little bit)</h4>-->
+        <!--</section>-->
+
+        <section>
+            <h3>Visualizing what a neuron can do</h3>
+            <p>can emulate most logic functions (NOT, AND, OR, NAND)
+            <ul class="fragment">
+                <li>output separates plane into two regions using a line
+                <li>such regions are called <em>linearly separable</em>
+                <li>can be trained by adjusting weights of inputs based on error in output
+            </ul>
+            <div>
+                <a target="_blank"
+                   href="code/graph-and-perceptron.html"><img src="and.jpg" height="300"></a>
+                <p><small><a target="_blank"
+                             href="code/graph-and-perceptron.html">percepton training visualization</a>
+                    (initial version provided as a courtesy of <a href="https://twitter.com/jedborovik" target="_blank">
+                        Jed Borovik</a>)</small></p>
+            </div>
+        </section>
+
+        <section>
+            <h3>XOR - What a neuron can NOT do</h3>
+            <div>
+                <a target="_blank"
+                   href="code/graph-and-perceptron.html?xor">
+                <img src="xor.jpg" height="400">
+                </a>
+                <p><small><a target="_blank" href="http://www.theprojectspot.com/tutorial-post/introduction-to-artificial-neural-networks-part-1/7">
+                    http://www.theprojectspot.com/tutorial-post/introduction-to-artificial-neural-networks-part-1/7
+                </a></small></p>
+                <p>Because it would require two lines for separation</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>A single neuron is not very powerful</h3>
+            <h4 class="fragment">but becomes much more powerful when organized in a network</h4>
+            <!--<h4 class="fragment">output of one neuron is input of others</h4>-->
+        </section>
+
+        <section>
+            <h3>Introducing Feedforward Neural Networks</h3>
+            <p><a target="_blank" href="https://en.wikipedia.org/wiki/Feedforward_neural_network">
+                https://en.wikipedia.org/wiki/Feedforward_neural_network</a>
+            </p>
+            <p>Arraging many Neurons in layers</p>
+            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=1&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
+                <div>
+                    <img src="screenshot_tensorflow/1-neuron.png">
+                </div>
+            </a>
+            <p>Using the <a href="http://playground.tensorflow.org/" target="_blank">Tensorflow Playground</a></p>
+        </section>
+
+        <section>
+            <h3>Introducing our classification example</h3>
+            <div>
+                <ul class="fragment">
+                    <li>dots are placed on a plane with a certain pattern
+                    <li>two different kinds (either blue or orange)
+                    <li>network shall learn that pattern
+                    <li>uses a set of known dots for training
+                    <li>then make predictions for dots it has not seen before
+                </ul>
+            </div>
+            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
+                <div>
+                    <img src="tensorflow-classification.png" style="float: left; height: 300px">
+                    <img src="tensorflow-weights.png" style="float: right">
+                </div>
+            </a>
+        </section>
+
+        <!--<section>-->
+            <!--<h3>Just a single neuron is not enough for that</h3>-->
+            <!--<a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=1&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">-->
+                <!--<div>-->
+                    <!--<img src="screenshot_tensorflow/1-neuron.png">-->
+                <!--</div>-->
+            <!--</a>-->
+            <!--<p class="fragment">quick guess, just how many neurons would we need?</p>-->
+        <!--</section>-->
+
+        <!--<section>-->
+            <!--<h3>Neurons can be arranged in layers</h3>-->
+            <!--<a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">-->
+                <!--<div>-->
+                    <!--<img src="screenshot_tensorflow/layers.png">-->
+                <!--</div>-->
+            <!--</a>-->
+            <!--<p>one layer of 3 neurons</p>-->
+        <!--</section>-->
+
+        <section data-transition="none">
+            <h3>First layers takes inputs</h3>
+            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
+                <div>
+                    <img src="screenshot_tensorflow/input.png">
+                </div>
+            </a>
+            <p>x and y coordinate of a spot in our example</p>
+        </section>
+
+        <section data-transition="none">
+            <h3>Middle layer(s) called hidden layer(s)</h3>
+            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
+                <div>
+                    <img src="screenshot_tensorflow/layers.png">
+                </div>
+            </a>
+            <p>Just a single layer containing 3 neurons</p>
+        </section>
+
+        <section data-transition="none">
+            <h3>Output layer creates output</h3>
+            <p>in our example using a single neuron, tanh activation</p>
+            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
+                <div>
+                    <img src="screenshot_tensorflow/output.png">
+                </div>
+            </a>
+            <p>again combining all weighted lines to determine two categories: blue or orange?</p>
+        </section>
+
+        <section data-transition="none">
+            <h3>Each neuron creates a single line classification</h3>
+            <p>Adding to the overall result combined by the output layer</p>
+            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
+                <div>
+                    <img src="screenshot_tensorflow/classification.png">
+                </div>
+            </a>
+            <p>This is the linear classification of the third neuron</p>
+        </section>
+
+        <!--<section data-transition="none">-->
+            <!--<h3>Data flows forward in one direction, there are no cycles-->
+            <!--</h3>-->
+            <!--<a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">-->
+                <!--<div>-->
+                    <!--<img src="screenshot_tensorflow/direction.png">-->
+                <!--</div>-->
+            <!--</a>-->
+            <!--<ul class="fragment">-->
+                <!--<li>each neuron in each hidden layer gets exactly the same input-->
+                <!--<li>no connection between neurons in same layer-->
+                <!--<li>this is called fully connected feed forward network (there are others)-->
+            <!--</ul>-->
+        <!--</section>-->
+
+        <section>
+            <h3>Networks can learn</h3>
+            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
+                <div>
+                    <img src="screenshot_tensorflow/backpropagation.png">
+                </div>
+            </a>
+            <ul>
+                <li>you provide samples and the corresponding right answers
+                <li>errors between right answer and prediction are called loss
+                <li>they are propagated back to adjust weights of connections
+                <li>mathematically an optimisation (often Stochastic Gradient Descent)
+            </ul>
+        </section>
+
+        <section>
+            <h3>Let's run it</h3>
+            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
+                <div>
+                    <img src="screenshot_tensorflow/overview.png">
+                </div>
+            </a>
+        </section>
+
+        <section>
+            <h3>Exercise: Configure a minimal neural network</h3>
+            <p>Needs to make a decent classification for our example</p>
+            <p>Can you explain why it works?</p>
+        </section>
+
+        <section>
+            <h2>Machine Learning in Java</h2>
+            <ul>
+                <li><strong>dl4j</strong>: Deep Learning for Java: <a href="https://deeplearning4j.org/" target="_blank">https://deeplearning4j.org/</a>
+                <li><strong>nd4j</strong>: Fast, Numerical Computing for Java (Numpy for the JVM): <a href="http://nd4j.org/" target="_blank">http://nd4j.org/</a>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Our classification example: MNIST</h2>
+            <img src="mnist_render.png" height="300" style="float: left">
+            <ul>
+                <li>images of handwritten digits
+                <li>set of image exists for training
+                <li>used to recognize postal codes
+                <li>classification problem
+            </ul>
+            <br style="clear: both">
+            <p><small><a target="_blank" href="http://yann.lecun.com/exdb/mnist/">http://yann.lecun.com/exdb/mnist/</a></small></p>
+            <p><small><a target="_blank" href="https://deeplearning4j.org/mnist-for-beginners">https://deeplearning4j.org/mnist-for-beginners</a></small></p>
+
+        </section>
+
+        <section>
+            <h2>Configuring input layer</h2>
+            <pre><code data-trim class="line-numbers">
+layer(0 /* index */, new DenseLayer.Builder()
+    .nIn(numRows * numColumns) // 28 * 28 pixels per digit, 0/1
+    .nOut(1000) // dimension of next layer
+    .activation(Activation.RELU)
+    .build())
+            </code></pre>
+
+        </section>
+
+        <section>
+            <h2>Configuring hidden layer</h2>
+            <pre><code data-trim class="line-numbers">
+layer(1, new OutputLayer.Builder(LossFunction.NEGATIVELOGLIKELIHOOD) //create hidden layer
+        .nIn(1000)
+        .nOut(outputNum)
+        .activation(Activation.SOFTMAX)
+        .build())
+            </code></pre>
+
+        </section>
+
+        <section>
+            <h3>Training and Loss</h3>
+            <div>
+                <ul class="fragment">
+                    <li>data is separated into training and test data
+                    <li>in image below: training: white border, test: black border
+                    <li>training data is used to train neural network
+                    <li>both test and training data are used to check accuracy of prediction
+                    <li>loss is to be minimized
+                </ul>
+            </div>
+            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
+            <div>
+                <img src="tensorflow-classification.png" style="float: left; height: 300px">
+                <img src="tensorflow-loss.png" style="float: right" class="fragment">
+                <img src="tensorflow-weights.png" style="float: right">
+            </div>
+            </a>
+        </section>
+
+        <section>
+            <h2>Training</h2>
+            <pre><code data-trim class="line-numbers">
+DataSetIterator mnistTrain =
+                new MnistDataSetIterator(batchSize, true);
+for( int i=0; i &lt; numEpochs; i++ ){
+    model.fit(mnistTrain);
+}
+            </code></pre>
+
+        </section>
+
+        <section>
+            <h2>Evaluation</h2>
+            <pre><code data-trim class="line-numbers" >
+DataSetIterator mnistTest =
+                new MnistDataSetIterator(batchSize, false);
+
+//create an evaluation object with 10 possible classes
+Evaluation eval = new Evaluation(outputNum);
+
+while(mnistTest.hasNext()){
+    DataSet next = mnistTest.next();
+     //get the prediction of model
+    INDArray output = model.output(next.getFeatureMatrix());
+    //check the prediction against the knwon output
+    eval.eval(next.getLabels(), output);
+}
+
+log.info(eval.stats());
+            </code></pre>
+
+        </section>
+        <section>
+            <h3>Scores</h3>
+            <pre>
+==========================Scores========================================
+ Accuracy:        0.9654
+ Precision:       0.9653
+ Recall:          0.9651
+ F1 Score:        0.9652
+========================================================================
+            </pre>
+<ul>
+    <li><strong>Accuracy</strong> - The percentage of MNIST images that were correctly identified by our model.
+    <li><strong>Precision</strong> - The number of true positives divided by the number of true positives and false positives.
+    <li><strong>Recall</strong> - The number of true positives divided by the number of true positives and the number of false negatives.
+    <li><strong>F1 Score</strong> - Weighted average of precision and recall.
+</ul>
+            <p><small>Accuracy measures the model over all.</small>
+<br>
+                <small>Precision, recall and F1 measure a model’s relevance. For example, it would be dangerous to predict that cancer will not reoccur (i.e. a false negative) as the person would not seek further treatment. Because of this, it would be wise to choose a model that avoids false negatives (i.e. a higher precision, recall and F1) even if the overall accuracy lower.</small></p>
+
+
+            <p><small><a target="_blank" href="https://deeplearning4j.org/mnist-for-beginners#evaluating">https://deeplearning4j.org/mnist-for-beginners#evaluating</a></small></p>
+        </section>
+
+        <section>
+            <h2>How does it work with real examples?</h2>
+            <div class="fragment">
+                <img src="digits/2.jpg">
+                <img src="digits/3.jpg">
+                <img src="digits/7.jpg">
+            </div>
+<pre class="fragment">
+2.jpg
+[0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00] <- ff1
+   ^     ^     ^     ^     ^     ^     ^     ^     ^     ^
+   0     1     2     3     4     5     6     7     8     9
+
+3.jpg
+[0.00, 0.00, 0.00, 1.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00] <- ff1
+   ^     ^     ^     ^     ^     ^     ^     ^     ^     ^
+   0     1     2     3     4     5     6     7     8     9
+
+7.jpg
+[0.00, 0.00, 0.06, 0.94, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00] <- ff1
+   ^     ^     ^     ^     ^     ^     ^     ^     ^     ^
+   0     1     2     3     4     5     6     7     8     9
+</pre>
+
+        </section>
+
+        <section>
+            <h2>7 does not look good</h2>
+            <h3>Can we do any better?</h3>
+        </section>
+        <!--<section>-->
+            <!--<h3>Overfitting</h3>-->
+            <!--<p>training loss low, test loss much higher</p>-->
+                <!--<a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=50&networkShape=8,8,8,8,8,8&seed=0.32942&showTestData=true&discretize=false&percTrainData=20&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=false&problem_hide=true&percTrainData_hide=false" target="_blank">-->
+                <!--<div>-->
+                    <!--<img src="screenshot_tensorflow/overfitting.png" height="450px">-->
+                <!--</div>-->
+            <!--</a>-->
+            <!--<p>NN model is too specific to training values, not general enough</p>-->
+        <!--</section>-->
+
+        <section>
+        <h3>Deep Learning</h3>
+        <div class="fragment">
+        <img src="deep-learning.png" height="500">
+        <p><small><a target="_blank" href="https://drive.google.com/file/d/0BxKBnD5y2M8NdFB4U1BtU1V1ejA/view">
+        Deep Learning: Course by Yann LeCun at Collège de France 2016
+        </a></small></p>
+        </div>
+        </section>
+
+        <section>
+            <h3>Deep Neural Networks?</h3>
+            <ul>
+                <li class="fragment">theoretically: <span class="fragment"><a href="https://en.wikipedia.org/wiki/Universal_approximation_theorem" target="_blank">
+                    a single hidden layer can approximate any continuous function</a></span>
+                <li class="fragment">however: <span class="fragment">
+                we do not know how to effectively train such a (large) single layer</span>
+                <li class="fragment">in practice: <span class="fragment"><a href="https://en.wikipedia.org/wiki/Deep_learning#Deep_neural_network_architectures" target="_blank">
+                having multiple (smaller) layers allows for effectively <em>training</em> a network</a></span>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Deep Neural Networks: More than one hidden layer
+            </h3>
+            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
+                <div>
+                    <img src="screenshot_tensorflow/deep.png">
+                </div>
+            </a>
+            <p>each neuron in one layer feeds all neurons in the next layer</p>
+        </section>
+
+        <section>
+            <h2>Adding a second hidden layer</h2>
+            <pre><code data-trim class="line-numbers">
+.layer(0, new DenseLayer.Builder().nIn(28 * 28).nOut(500).build())
+.layer(1, new DenseLayer.Builder().nIn(500).nOut(100).build())
+.layer(2, new OutputLayer.Builder(LossFunctions.
+                                    LossFunction.NEGATIVELOGLIKELIHOOD)
+        .activation(Activation.SOFTMAX).nIn(100).nOut(10).build())
+            </code></pre>
+
+        </section>
+        <section>
+            <h3>Scores for 2 hidden Layers</h3>
+            <pre>
+==========================Scores========================================
+ Accuracy:        0.9815
+ Precision:       0.9816
+ Recall:          0.9813
+ F1 Score:        0.9814
+========================================================================
+            </pre>
+        </section>
+
+        <!--<section>-->
+            <!--<h3>I can get really messy</h3>-->
+            <!--<a href="code/tensorflow/index.html#activation=tanh&regularization=L2&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.3&regularizationRate=0.001&noise=50&networkShape=8,8,8,8,8,8&seed=0.32942&showTestData=true&discretize=false&percTrainData=20&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=false&problem_hide=true&percTrainData_hide=false" target="_blank">-->
+                <!--<div>-->
+                    <!--<img src="screenshot_tensorflow/messy.png">-->
+                <!--</div>-->
+            <!--</a>-->
+            <!--<p>there are (reasonable) networks with more than 100 layers</p>-->
+        <!--</section>-->
+
+        <!--<section>-->
+            <!--<h2>Tensorflow Playground Internals</h2>-->
+            <!--<ul class="fragment">-->
+                <!--<li>Written ins <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a>-->
+                <!--<li>Visualizations done with <a href="https://d3js.org/" target="_blank">D3.js</a>-->
+                <!--<li>Everything implemented from scratch-->
+                <!--<li>No performance optimizations, no GPU support-->
+                <!--<li>Easy to understand-->
+                <!--<li>NN simulation fairly similar to code from scratch as shown before-->
+                <!--<li>Core more general for as many dimensions as you want-->
+            <!--</ul>-->
+            <!--&lt;!&ndash;<p class="fragment">Only loosely related to <a  target="_blank" href="https://www.tensorflow.org/">TensorFlow</a></p>&ndash;&gt;-->
+        <!--</section>-->
+
+        <!--<section>-->
+            <!--<h2>That's it more or less for fully connected feed forward networks</h2>-->
+        <!--</section>-->
+
+
+        <section>
+            <h3>Main Challenge: <em>What is the best configuration for a given problem?</em></h3>
+            <p class="fragment">That means what architecture: <em>How many layers, how many neurons, which activation function?</em></p>
+            <h3 class="fragment">Solution: <em>Try it out ...</em></h3>
+            <p class="fragment">... using searches over a set of hyper-parameters (might be expensive)</p>
+            <p class="fragment">Or: <em>use a pre-trained network</em> (by people who have done that job for you already)</p>
+        </section>
+
+        <!--<section>-->
+            <!--<h1>What else?</h1>-->
+        <!--</section>-->
+
+        <!--<section>-->
+            <!--<h3>Reinforcement Learning</h3>-->
+            <!--<div>-->
+                <!--<ul class="fragment">-->
+                    <!--<li>network learns by playing-->
+                    <!--<li>sometimes against itself-->
+                    <!--<li>directly from raw input-->
+                    <!--<li>world class Go player defeated-->
+                    <!--<li>achieves superhuman performance in many atari games-->
+                    <!--<li>possible via deep neural networks-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!--<div style="float: left; width: 400px">-->
+                <!--<img src="lee-sedol.JPG">-->
+                <!--<p style="clear: both"><small><a target="_blank" href="https://deepmind.com/blog">-->
+                    <!--https://deepmind.com/blog-->
+                <!--</a></small></p>-->
+            <!--</div>-->
+            <!--<div style="float: right; width: 500px">-->
+                <!--<img src="pong.png">-->
+                <!--<p><small><a target="_blank" href="http://karpathy.github.io/2016/05/31/rl/">-->
+                    <!--Andrej Karpathy: Pong from Pixels-->
+                <!--</a></small></p>-->
+            <!--</div>-->
+
+        <!--</section>-->
+
+        <!--<section>-->
+            <!--<h3>More #2: RNN learning to recognize hand written digits (MNIST)</h3>-->
+            <!--<p>Recurrent Neural Network RNNs can also have feedback loops</p>-->
+            <!--<img class="fragment" src="generative-rnn-training-movie.gif" height="400px">-->
+            <!--<p><small><a href="https://edwin-de-jong.github.io/blog/isl/incremental-sequence-learning.html" target="_blank">https://edwin-de-jong.github.io/blog/isl/incremental-sequence-learning.html</a></small></p>-->
+        <!--</section>-->
+
+        <section>
+            <h2>Convolutional Networks (CNN)</h2>
+            <h3>special networks to process images</h3>
+            <h3>using different kinds of specialized layers</h3>
+            <h3>often used with pre-trained models</h3>
+        </section>
+
+        <section>
+            <h3>Google Inception Convolutional Network architecture to classify images </h3>
+            <img src="inception.png" height="480px">
+            <p><small><a href="https://arxiv.org/abs/1409.4842" target="_blank">Going Deeper with Convolutions</a></small></p>
+        </section>
+
+        <section>
+            <h3>Convolutional Networks</h3>
+            <p>turning shallow, but large data into deep semantic information</p>
+            <div>
+                <ul class="fragment">
+                    <li>some layers turn input into a number of filtered outputs
+                    <li>other layers provide location invariance
+                    <li>each layer adds semantic information
+                </ul>
+            </div>
+            <!--<img src="conv-network.svg">-->
+            <!--<p><small><a target="_blank" href="https://openai.com/blog/generative-models/">-->
+            <!--https://openai.com/blog/generative-models/-->
+            <!--</a></small></p>-->
+            <img src="udacity-ud730-convolutional-pyramid.png" style="height: 350px">
+            <p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning--ud730">
+                Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)
+            </a></small></p>
+        </section>
+
+        <section>
+        <h3>Convolutions</h3>
+        <div class="fragment">
+        <img src="udc-730-convolutions.png" height="500">
+        <p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning--ud730">
+        Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)
+        </a></small></p>
+        </div>
+        </section>
+
+        <section>
+        <h3>Translation Invariance</h3>
+        <div class="fragment">
+        <img src="udc-730-translation-invariance.png" height="500">
+        <p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning--ud730">
+        Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)
+        </a></small></p>
+        </div>
+        </section>
+
+
+        <section>
+            <h3>Intuition for Convolutional Networks</h3>
+            <div class="fragment">
+                <p>E.g. to recognize dogs (again a classification problem)</p>
+                <img src="dogs.jpg">
+                <p class="fragment">using an internal representation like</p>
+                <img class="fragment" src="vgg_filter_05_crop.jpg">
+            </div>
+            <p><small><a target="_blank" href="https://auduno.github.io/2016/06/18/peeking-inside-convnets/">
+                https://auduno.github.io/2016/06/18/peeking-inside-convnets/
+            </a></small></p>
+        </section>
+
+        <section>
+            <h3>Scores for Convolutional Network</h3>
+            <pre>
+==========================Scores========================================
+ Accuracy:        0.9894
+ Precision:       0.9894
+ Recall:          0.9893
+ F1 Score:        0.9893
+========================================================================
+            </pre>
+        </section>
+
+        <section>
+            <h3>Sometimes it is not that easy...</h3>
+            <!--<div class="fragment" style="float: left; width: 450px">-->
+                <img src="dog-vs-muffin.jpg">
+                <p>Dog vs Muffin</p>
+                <p><small><a target="_blank" href="https://twitter.com/mikko/status/751454988631740416?s=03">
+                    https://twitter.com/mikko/status/751454988631740416?s=03
+                </a></small></p>
+            <!--</div>-->
+            <!--<div class="fragment" style="float: right; width: 450px">-->
+                <!--<img src="dog-vs-bread.jpg">-->
+                <!--<p>Dog vs Bread</p>-->
+                <!--<p><small><a target="_blank" href="https://twitter.com/julioauto/status/751456091930701824">-->
+                    <!--https://twitter.com/julioauto/status/751456091930701824-->
+                <!--</a></small></p>-->
+            <!--</div>-->
+        </section>
+        <section>
+            <h3>TensorFlow finds the Chihuahua!</h3>
+            <p><a target="_blank" href="https://www.tensorflow.org/">TensorFlow</a>
+                is the full version of the Playground
+            </p>
+            <img src="dog-vs-muffin-dog1.jpg">
+            <div class="fragment">
+                <pre><code data-trim>
+Chihuahua (score = 0.68340)
+Pomeranian (score = 0.02451)
+Pekinese, Pekingese, Peke (score = 0.00751)
+toy terrier (score = 0.00716)
+beagle (score = 0.00645)
+                </code></pre>
+                <p>Using the pre-trained
+                    <a target="_blank" href="https://www.tensorflow.org/versions/r0.11/tutorials/image_recognition/index.html">
+                        Inception
+                    </a>  model</p>
+            </div>
+        </section>
+
+        <!--<section>-->
+            <!--<h3>It even found out about my secret ...</h3>-->
+            <!--<img src="twitter-wig.png">-->
+            <!--<p><small><a target="_blank" href="https://twitter.com/DJCordhose/status/786875982527467520">https://twitter.com/DJCordhose/status/786875982527467520</a></small></p>-->
+        <!--</section>-->
+
+        <!--<section>-->
+            <!--<h3>... on the other hand</h3>-->
+            <!--<img src="olli-beauty.jpg">-->
+            <!--<p><small><a target="_blank" href="https://cloud.google.com/vision">https://cloud.google.com/vision</a></small></p>-->
+        <!--</section>-->
+
+        <section>
+            <h3>Exercise: Try out CNN based Image Services</h3>
+            <ul>
+                <li>Google: <a target="_blank" href="https://cloud.google.com/vision">https://cloud.google.com/vision</a>
+                <li>Microsoft: <a target="_blank" href="https://www.microsoft.com/cognitive-services/en-us/computer-vision-api">https://www.microsoft.com/cognitive-services/en-us/computer-vision-api</a>
+            </ul>
+            <p>Upload pictures to both of them and see how they are doing</p>
+            <p><strong><em>Caution</em></strong>: No need to create an account or register to try any of them</p>
+            <h4>Question: Do you think it is coincidence the two big search engine providers have such powerful models for image recognition?</h4>
+        </section>
+
+        <section>
+            <img src="dog-vs-chicken-wing.jpg" height="500px">
+        </section>
+
+        <section>
+            <img src="dog-vs-bagle.jpg" height="500px">
+        </section>
+
+        <!--<section>-->
+            <!--<h3>Wrap-Up</h3>-->
+            <!--<ul class="fragment">-->
+                <!--<li>Deep Neural Networks are a game changer in Machine Learning and AI-->
+                <!--<li>enabled by large Data Sets, Computing Power, and GPUs-->
+                <!--<li>the browser even makes Deep Learning more accessible-->
+                <!--<li>all the fancy deep learning stuff works in the browser-->
+                <!--<li>especially good for learning and education-->
+                <!--<li>direct visualization and interactivity-->
+                <!--<li>Tensorflow Playground makes this especially easy to try out-->
+            <!--</ul>-->
+        <!--</section>-->
+
+        <section>
+            <h2>Thank you!</h2>
+
+            <!--<h2>Questions / Discussion</h2>-->
+            <p><small>
+                <a href="http://zeigermann.eu">Oliver Zeigermann</a> / <a href="http://twitter.com/djcordhose">@DJCordhose</a>
+            </small>
+            </p>
+            <!--<p><a href="http://bit.ly/ml-js-kongress">-->
+                <!--http://bit.ly/ml-js-kongress-->
+            <!--</a></p>-->
+
+            <div style="position: relative; top: -20px">
+                <img src="Gg6wa3S.gif" height="400px">
+                <br>
+                <a href="https://en.wikipedia.org/wiki/Technological_singularity" target="_blank">
+                    No need to be afraid of the Singularity</a>
+            </div>
+        </section>
+
+        <!--<section>-->
+            <!--<h3>Resources</h3>-->
+            <!--<ul>-->
+                <!--<li><a target="_blank" href="http://playground.tensorflow.org/">Tensorflow Playground in the Browser</a>-->
+                <!--<li>-->
+                    <!--<a target="_blank"-->
+                       <!--href="http://cs.stanford.edu/people/karpathy/convnetjs/">-->
+                        <!--ConvNetJS - Deep Learning in your browser-->
+                    <!--</a>-->
+                <!--<li>-->
+                    <!--<a target="_blank"-->
+                       <!--href="https://cloud.google.com/blog/big-data/2016/07/understanding-neural-networks-with-tensorflow-playground">-->
+                        <!--Understanding neural networks with TensorFlow Playground-->
+                    <!--</a>-->
+                <!--<li>-->
+                    <!--<a target="_blank"-->
+                       <!--href="http://colah.github.io/posts/2014-03-NN-Manifolds-Topology/">-->
+                        <!--Neural Networks, Manifolds, and Topology-->
+                    <!--</a>-->
+                <!--<li>-->
+                    <!--<a target="_blank"-->
+                       <!--href="https://cs231n.github.io/assets/conv-demo/index.html">-->
+                        <!--Animated explanation of Convolutional Networks-->
+                    <!--</a>-->
+                <!--<li>-->
+                    <!--<a target="_blank"-->
+                       <!--href="http://colah.github.io/posts/2015-01-Visualizing-Representations/">-->
+                        <!--Visualizing Representations: Deep Learning and Human Beings-->
+                    <!--</a>-->
+                <!--<li>-->
+                    <!--<a target="_blank"-->
+                       <!--href="http://brohrer.github.io/how_convolutional_neural_networks_work.html">-->
+                        <!--How do Convolutional Neural Networks work?-->
+                    <!--</a>-->
+                <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a target="_blank"&ndash;&gt;-->
+                       <!--&lt;!&ndash;href="https://github.com/karpathy/tsnejs">&ndash;&gt;-->
+                        <!--&lt;!&ndash;Clustering using t-SNE in the Browser&ndash;&gt;-->
+                    <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                <!--<li>-->
+                    <!--<a target="_blank"-->
+                       <!--href="https://aiexperiments.withgoogle.com/what-neural-nets-see">-->
+                        <!--What Neural Networks See (Google AI Experiment)-->
+                    <!--</a>-->
+            <!--</ul>-->
+        <!--</section>-->
+
+    </div>
+
+</div>
+
+<script src="reveal.js/lib/js/head.min.js"></script>
+<script src="reveal.js/js/reveal.js"></script>
+<script src="lib/jquery-2.2.4.js"></script>
+
+<script>
+    //    $('section').attr('data-background-image', "backgrounds/dark-saddle.jpg")
+//    $('section').attr('data-background-image', "backgrounds/dark-blue.jpg")
+    $('section').attr('data-background-image', "backgrounds/dark-blur.jpg")
+    //$('section').attr('data-background-image', "backgrounds/dark-case.jpg")
+    //$('section').attr('data-background-image', "backgrounds/dark-grid.jpg")
+    //    $('section').attr('data-background-image', "backgrounds/dark-fish.jpg")
+</script>
+<script>
+    Reveal.addEventListener( 'ready', function( event ) {
+        if (window.location.hostname.indexOf('localhost') !== -1) {
+            // only applies to presentation version
+            Reveal.configure({ controls: false });
+        } else {
+            // only applies to public version
+            $('.fragment').removeClass('fragment');
+        }
+        // applies to all versions
+//        $('.fragment').removeClass('fragment');
+    } );
+</script>
+
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+            {
+                src: 'reveal.js/lib/js/classList.js', condition: function () {
+                return !document.body.classList;
+            }
+            },
+            {
+                src: 'reveal.js/plugin/markdown/marked.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'reveal.js/plugin/markdown/markdown.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'reveal.js/plugin/highlight/highlight.js', async: true, condition: function () {
+                return !!document.querySelector('pre code');
+            }, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            },
+            {src: 'reveal.js/plugin/zoom-js/zoom.js', async: true},
+            {src: 'reveal.js/plugin/notes/notes.js', async: true},
+            // https://github.com/mikemiles86/reveal-line-numbers
+            {src: 'lib/js/line-numbers.js'}
+        ]
+    });
+
+</script>
+
+</body>
+</html>
