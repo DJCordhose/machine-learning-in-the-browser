@@ -515,7 +515,7 @@ layer(0 /* index */, new DenseLayer.Builder()
         <section>
             <h2>Configuring hidden layer</h2>
             <pre><code data-trim class="line-numbers">
-layer(1, new OutputLayer.Builder(LossFunction.NEGATIVELOGLIKELIHOOD) //create hidden layer
+layer(1, new OutputLayer.Builder()
         .nIn(1000)
         .nOut(outputNum)
         .activation(Activation.SOFTMAX)
@@ -684,8 +684,7 @@ log.info(eval.stats());
             <pre><code data-trim class="line-numbers">
 .layer(0, new DenseLayer.Builder().nIn(28 * 28).nOut(500).build())
 .layer(1, new DenseLayer.Builder().nIn(500).nOut(100).build())
-.layer(2, new OutputLayer.Builder(LossFunctions.
-                                    LossFunction.NEGATIVELOGLIKELIHOOD)
+.layer(2, new OutputLayer.Builder()
         .activation(Activation.SOFTMAX).nIn(100).nOut(10).build())
             </code></pre>
 
@@ -727,7 +726,7 @@ log.info(eval.stats());
    ^     ^     ^     ^     ^     ^     ^     ^     ^     ^
    0     1     2     3     4     5     6     7     8     9
 </pre>
-<p>A little bit better on the 7, but still gets it wrong</p>
+<p class="fragment">A little bit better on the 7, but still gets it wrong</p>
         </section>
         <!--<section>-->
             <!--<h3>I can get really messy</h3>-->
@@ -886,7 +885,7 @@ log.info(eval.stats());
             <h2>Down Sampling Layer</h2>
             <pre><code data-trim class="line-numbers">
 .layer(1, new SubsamplingLayer.Builder(SubsamplingLayer.PoolingType.MAX)
-    .kernelSize(2, 2) // effectively
+    .kernelSize(2, 2)
     .stride(2, 2)
     .build())
             </code></pre>
@@ -906,7 +905,7 @@ log.info(eval.stats());
             <pre><code data-trim class="line-numbers">
 .layer(4, new DenseLayer.Builder().activation(Activation.RELU)
     .nOut(500).build())
-.layer(5, new OutputLayer.Builder(LossFunctions.LossFunction.NEGATIVELOGLIKELIHOOD)
+.layer(5, new OutputLayer.Builder()
     .nOut(10)
     .activation(Activation.SOFTMAX)
     .build())
@@ -927,7 +926,7 @@ log.info(eval.stats());
         </section>
 
         <section>
-            <h2>How does it compare to the other versions with real examples?</h2>
+            <h3>How does it compare to the other versions with real examples?</h3>
             <div class="fragment">
                 <img src="digits/2.jpg">
                 <img src="digits/3.jpg">
@@ -952,7 +951,7 @@ log.info(eval.stats());
    ^     ^     ^     ^     ^     ^     ^     ^     ^     ^
    0     1     2     3     4     5     6     7     8     9
 </pre>
-<p>Very sure on the 7 - and right</p>
+<p class="fragment">Very sure on the 7 - and right</p>
         </section>
         <section>
             <h3>Sometimes it is not that easy...</h3>
