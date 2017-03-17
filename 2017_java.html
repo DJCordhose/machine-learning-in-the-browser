@@ -525,92 +525,102 @@ layer(1, new OutputLayer.Builder()
         </section>
 
         <section>
-            <h3>Training and Loss</h3>
-            <div>
-                <ul class="fragment">
-                    <li>data is separated into training and test data
-                    <li>in image below: training: white border, test: black border
-                    <li>training data is used to train neural network
-                    <li>both test and training data are used to check accuracy of prediction
-                    <li>loss is to be minimized
-                </ul>
-            </div>
-            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
-            <div>
-                <img src="tensorflow-classification.png" style="float: left; height: 300px">
-                <img src="tensorflow-loss.png" style="float: right" class="fragment">
-                <img src="tensorflow-weights.png" style="float: right">
-            </div>
-            </a>
+            <h1>Demo</h1>
         </section>
 
-        <section>
-            <h3>Overfitting</h3>
-            <p>training loss low, test loss much higher</p>
-            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=50&networkShape=8,8,8,8,8,8&seed=0.32942&showTestData=true&discretize=false&percTrainData=20&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=false&problem_hide=true&percTrainData_hide=false" target="_blank">
-                <div>
-                    <img src="screenshot_tensorflow/overfitting.png" height="450px">
-                </div>
-            </a>
-            <p>NN model is too specific to training values, not general enough</p>
-        </section>
+        <!--<section>-->
+            <!--<h3>Training and Loss</h3>-->
+            <!--<div>-->
+                <!--<ul class="fragment">-->
+                    <!--<li>data is separated into training and test data-->
+                    <!--<li>in image below: training: white border, test: black border-->
+                    <!--<li>training data is used to train neural network-->
+                    <!--<li>both test and training data are used to check accuracy of prediction-->
+                    <!--<li>loss is to be minimized-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!--<a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">-->
+                <!--<div>-->
+                    <!--<img src="tensorflow-classification.png" style="float: left; height: 300px">-->
+                    <!--<img src="tensorflow-loss.png" style="float: right" class="fragment">-->
+                    <!--<img src="tensorflow-weights.png" style="float: right">-->
+                <!--</div>-->
+            <!--</a>-->
+        <!--</section>-->
 
-        <section>
-            <h2>Training</h2>
-            <pre><code data-trim class="line-numbers">
-DataSetIterator mnistTrain =
-                new MnistDataSetIterator(batchSize, true);
-for( int i=0; i &lt; numEpochs; i++ ){
-    model.fit(mnistTrain);
-}
-            </code></pre>
+        <!--<section>-->
+            <!--<h3>Overfitting</h3>-->
+            <!--<p>training loss low, test loss much higher</p>-->
+            <!--<a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=50&networkShape=8,8,8,8,8,8&seed=0.32942&showTestData=true&discretize=false&percTrainData=20&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=false&problem_hide=true&percTrainData_hide=false" target="_blank">-->
+                <!--<div>-->
+                    <!--<img src="screenshot_tensorflow/overfitting.png" height="450px">-->
+                <!--</div>-->
+            <!--</a>-->
+            <!--<p>NN model is too specific to training values, not general enough</p>-->
+        <!--</section>-->
 
-        </section>
+        <!--<section>-->
+            <!--<h2>Training</h2>-->
+            <!--<pre><code data-trim class="line-numbers">-->
+<!--DataSetIterator mnistTrain =-->
+                <!--new MnistDataSetIterator(batchSize, true);-->
+<!--for( int i=0; i &lt; numEpochs; i++ ){-->
+    <!--model.fit(mnistTrain);-->
+<!--}-->
+            <!--</code></pre>-->
 
-        <section>
-            <h2>Evaluation</h2>
-            <pre><code data-trim class="line-numbers" >
-DataSetIterator mnistTest =
-                new MnistDataSetIterator(batchSize, false);
+        <!--</section>-->
 
-//create an evaluation object with 10 possible classes
-Evaluation eval = new Evaluation(outputNum);
+        <!--<section>-->
+            <!--<h2>Evaluation</h2>-->
+            <!--<pre><code data-trim class="line-numbers" >-->
+<!--DataSetIterator mnistTest =-->
+                <!--new MnistDataSetIterator(batchSize, false);-->
 
-while(mnistTest.hasNext()){
-    DataSet next = mnistTest.next();
-     //get the prediction of model
-    INDArray output = model.output(next.getFeatureMatrix());
-    //check the prediction against the knwon output
-    eval.eval(next.getLabels(), output);
-}
+<!--//create an evaluation object with 10 possible classes-->
+<!--Evaluation eval = new Evaluation(outputNum);-->
 
-log.info(eval.stats());
-            </code></pre>
+<!--while(mnistTest.hasNext()){-->
+    <!--DataSet next = mnistTest.next();-->
+     <!--//get the prediction of model-->
+    <!--INDArray output = model.output(next.getFeatureMatrix());-->
+    <!--//check the prediction against the knwon output-->
+    <!--eval.eval(next.getLabels(), output);-->
+<!--}-->
 
-        </section>
+<!--log.info(eval.stats());-->
+            <!--</code></pre>-->
+
+        <!--</section>-->
         <section>
             <h3>Scores</h3>
+            <!--<pre>-->
+<!--==========================Scores========================================-->
+ <!--Accuracy:        0.9654-->
+ <!--Precision:       0.9653-->
+ <!--Recall:          0.9651-->
+ <!--F1 Score:        0.9652-->
+<!--========================================================================-->
+            <!--</pre>-->
             <pre>
 ==========================Scores========================================
  Accuracy:        0.9654
- Precision:       0.9653
- Recall:          0.9651
- F1 Score:        0.9652
 ========================================================================
             </pre>
-<ul>
-    <li><strong>Accuracy</strong> - The percentage of MNIST images that were correctly identified by our model.
-    <li><strong>Precision</strong> - The number of true positives divided by the number of true positives and false positives.
-    <li><strong>Recall</strong> - The number of true positives divided by the number of true positives and the number of false negatives.
-    <li><strong>F1 Score</strong> - Weighted average of precision and recall.
-</ul>
-            <p><small>Accuracy measures the model over all.</small>
-<br>
-                <small>Precision, recall and F1 measure a model’s relevance. For example, it would be dangerous to predict that cancer will not reoccur (i.e. a false negative) as the person would not seek further treatment. Because of this, it would be wise to choose a model that avoids false negatives (i.e. a higher precision, recall and F1) even if the overall accuracy lower.</small></p>
+<!--<ul>-->
+    <!--<li><strong>Accuracy</strong> - The percentage of MNIST images that were correctly identified by our model.-->
+    <!--<li><strong>Precision</strong> - The number of true positives divided by the number of true positives and false positives.-->
+    <!--<li><strong>Recall</strong> - The number of true positives divided by the number of true positives and the number of false negatives.-->
+    <!--<li><strong>F1 Score</strong> - Weighted average of precision and recall.-->
+<!--</ul>-->
+            <p>Accuracy measures the model over all.</p>
+<!--<br>-->
+                <!--Precision, recall and F1 measure a model’s relevance. For example, it would be dangerous to predict that cancer will not reoccur (i.e. a false negative) as the person would not seek further treatment. Because of this, it would be wise to choose a model that avoids false negatives (i.e. a higher precision, recall and F1) even if the overall accuracy lower</p>-->
 
 
             <p><small><a target="_blank" href="https://deeplearning4j.org/mnist-for-beginners#evaluating">https://deeplearning4j.org/mnist-for-beginners#evaluating</a></small></p>
         </section>
+
 
         <section>
             <h2>How does it work with real examples?</h2>
@@ -656,28 +666,28 @@ log.info(eval.stats());
         </div>
         </section>
 
-        <section>
-            <h3>Deep Neural Networks?</h3>
-            <ul>
-                <li class="fragment">theoretically: <span class="fragment"><a href="https://en.wikipedia.org/wiki/Universal_approximation_theorem" target="_blank">
-                    a single hidden layer can approximate any continuous function</a></span>
-                <li class="fragment">however: <span class="fragment">
-                we do not know how to effectively train such a (large) single layer</span>
-                <li class="fragment">in practice: <span class="fragment"><a href="https://en.wikipedia.org/wiki/Deep_learning#Deep_neural_network_architectures" target="_blank">
-                having multiple (smaller) layers allows for effectively <em>training</em> a network</a></span>
-            </ul>
-        </section>
+        <!--<section>-->
+            <!--<h3>Deep Neural Networks?</h3>-->
+            <!--<ul>-->
+                <!--<li class="fragment">theoretically: <span class="fragment"><a href="https://en.wikipedia.org/wiki/Universal_approximation_theorem" target="_blank">-->
+                    <!--a single hidden layer can approximate any continuous function</a></span>-->
+                <!--<li class="fragment">however: <span class="fragment">-->
+                <!--we do not know how to effectively train such a (large) single layer</span>-->
+                <!--<li class="fragment">in practice: <span class="fragment"><a href="https://en.wikipedia.org/wiki/Deep_learning#Deep_neural_network_architectures" target="_blank">-->
+                <!--having multiple (smaller) layers allows for effectively <em>training</em> a network</a></span>-->
+            <!--</ul>-->
+        <!--</section>-->
 
-        <section>
-            <h3>Deep Neural Networks: More than one hidden layer
-            </h3>
-            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
-                <div>
-                    <img src="screenshot_tensorflow/deep.png">
-                </div>
-            </a>
-            <p>each neuron in one layer feeds all neurons in the next layer</p>
-        </section>
+        <!--<section>-->
+            <!--<h3>Deep Neural Networks: More than one hidden layer-->
+            <!--</h3>-->
+            <!--<a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">-->
+                <!--<div>-->
+                    <!--<img src="screenshot_tensorflow/deep.png">-->
+                <!--</div>-->
+            <!--</a>-->
+            <!--<p>each neuron in one layer feeds all neurons in the next layer</p>-->
+        <!--</section>-->
 
         <section>
             <h2>Adding a second hidden layer</h2>
@@ -695,12 +705,21 @@ log.info(eval.stats());
             <pre>
 ==========================Scores========================================
  Accuracy:        0.9815
- Precision:       0.9816
- Recall:          0.9813
- F1 Score:        0.9814
 ========================================================================
             </pre>
+            <!--<pre>-->
+<!--==========================Scores========================================-->
+ <!--Accuracy:        0.9815-->
+ <!--Precision:       0.9816-->
+ <!--Recall:          0.9813-->
+ <!--F1 Score:        0.9814-->
+<!--========================================================================-->
+            <!--</pre>-->
             <p>Quite a bit better than the version with 1 hidden layer</p>
+        </section>
+
+        <section>
+            <h1>Demo</h1>
         </section>
 
         <section>
@@ -836,15 +855,15 @@ log.info(eval.stats());
             </a></small></p>
         </section>
 
-        <section>
-        <h3>Convolutions</h3>
-        <div class="fragment">
-        <img src="udc-730-convolutions.png" height="500">
-        <p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning--ud730">
-        Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)
-        </a></small></p>
-        </div>
-        </section>
+        <!--<section>-->
+        <!--<h3>Convolutions</h3>-->
+        <!--<div class="fragment">-->
+        <!--<img src="udc-730-convolutions.png" height="500">-->
+        <!--<p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning&#45;&#45;ud730">-->
+        <!--Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)-->
+        <!--</a></small></p>-->
+        <!--</div>-->
+        <!--</section>-->
 
         <!--<section>-->
         <!--<h3>Translation Invariance</h3>-->
@@ -915,12 +934,17 @@ log.info(eval.stats());
 
         <section>
             <h3>Scores for Convolutional Network</h3>
+            <!--<pre>-->
+<!--==========================Scores========================================-->
+ <!--Accuracy:        0.9894-->
+ <!--Precision:       0.9894-->
+ <!--Recall:          0.9893-->
+ <!--F1 Score:        0.9893-->
+<!--========================================================================-->
+            <!--</pre>-->
             <pre>
 ==========================Scores========================================
  Accuracy:        0.9894
- Precision:       0.9894
- Recall:          0.9893
- F1 Score:        0.9893
 ========================================================================
             </pre>
         </section>
