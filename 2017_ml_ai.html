@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Machine Learning and AI</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="reveal.js/css/reveal.css">
+    <!--<link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">-->
+    <link rel="stylesheet" href="reveal.js/css/theme/night.css" id="theme">
+    <!--<link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">-->
+    <!--<link rel="stylesheet" href="reveal.js/css/theme/night.css" id="theme">-->
+    <!--<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">-->
+
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+    <style>
+        pre code {
+            /*display: block;*/
+            /*padding: 0.5em;*/
+            /*background: #FFFFFF !important;*/
+            /*color: #000000 !important;*/
+            font-size: larger !important;
+        }
+
+        .right-img {
+            margin-left: 10px !important;
+            float: right;
+            /*height: 500px;*/
+        }
+        .left-img {
+            margin-left: 10px !important;
+            float: left;
+            /*height: 500px;*/
+        }
+        .todo:before {
+            content: 'TODO: ';
+        }
+        .todo {
+            color: red !important;
+        }
+        code span.line-number {
+            color: lightcoral;
+        }
+
+    </style>
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+    <div class="slides">
+
+        <section>
+            <h2>Machine Learning and AI</h2>
+                <p><a href="http://zeigermann.eu">Oliver Zeigermann</a> / <a href="http://twitter.com/djcordhose">@DJCordhose</a>
+                </p>
+
+        </section>
+
+        <section>
+            <h2>What is machine learning?</h2>
+            <h3 class="fragment"><a href="https://en.wikipedia.org/wiki/Machine_learning" target="_blank">
+                science of getting computers to act without being explicitly programmed</a></h3>
+        </section>
+
+        <section data-transition="zoom">
+            <h2>Motivation: How does data processing work?</h2>
+            <div class="fragment">
+                <img src="img/processing.jpg" >
+            </div>
+        </section>
+
+        <section>
+            <h2>Creating the 'model' with Classic Coding</h2>
+            <div class="fragment">
+                <img src="img/coding.jpg" >
+            </div>
+        </section>
+
+        <section>
+            <h2>Creating the 'model' with <em>Supervised</em> Machine Learning</h2>
+            <div class="fragment">
+                <img src="img/ml.jpg" >
+                <p><small>Unsupervised learning works without training and human supervision</small></p>
+            </div>
+
+        </section>
+
+        <section data-transition="zoom">
+            <h3>Applications of machine learning?</h3>
+            <a  class="fragment" style="float: right" href="http://m.pulsenews.co.kr/view.php?sc=30800019&year=2016&no=292907" target="_blank">
+                <img src="lecun-twitter.png" height="190">
+            </a>
+            <a  class="fragment" href="http://gitxiv.com/posts/tiXMXrgKAxibaB2Ws/asynchronous-methods-for-deep-reinforcement-learning" target="_blank">
+                <img src="space-invaders.gif" height="120">
+            </a>
+            <a  class="fragment" style="float: left" href="http://techcrunch.com/2016/04/20/ducking-awesome-self-driving-cars" target="_blank">
+                <img src="rubber-duckies.gif"  height="200">
+            </a>
+            <div style="float: right" class="fragment">
+                <a href="http://news.mit.edu/2016/teaching-machines-to-predict-the-future-0621" target="_blank">
+                    <img src="predict-future.jpg" height="200">
+                </a>
+            </div>
+            <a class="fragment" style="float: right"
+               href="https://news.developer.nvidia.com/automatic-image-colorization-of-grayscale-images/"
+               target="_blank">
+                <img src="Automatic-Colorization-examples-2.png" height="180">
+            </a>
+            <a class="fragment" style="float: left"
+               href="https://twitter.com/tensorflow/status/824405131743678464"
+               target="_blank">
+                <img src="skin-cancer-detection.png" height="300">
+            </a>
+
+            <!--<a  class="fragment" style="float: left" href="https://matthewearl.github.io/2016/05/06/cnn-anpr" target="_blank">-->
+            <!--<img src="window-scan.gif" height="150">-->
+            <!--</a>-->
+            <a  class="fragment" style="float: left" href="http://www.theregister.co.uk/2016/08/22/samsung_m1_core" target="_blank">
+                <img src="samsung_m1_branch.jpg" height="150">
+            </a>
+            <a  class="fragment" href="https://deepmind.com/alpha-go" target="_blank">
+                <img src="alphago-logo.png" height="70">
+            </a>
+        </section>
+
+        <section>
+            <h3>Machine learning has become mainstream</h3>
+            <img src="ML-is-everywhere.png" height="530px">
+            <p>An add from BART train, Bay Area</p>
+        </section>
+
+        <section>
+            <h3>Main application of Supervised Learning: Classification</h3>
+            <div class="fragment" style="height: 500px;">
+                <img src="img/classification.jpg">
+                <p><small>Regression is the other: inferring a continuous function from given data points</small></p>
+            </div>
+        </section>
+
+        <section>
+            <h3>Is classification at all relevant?</h3>
+            <h4 class="fragment">Should a car break or not?</h4>
+            <h4 class="fragment">Does that look like breast cancer or not?</h4>
+            <h4 class="fragment">Should this pixel of a b/w picture be blue?</h4>
+            <h4 class="fragment">Does this look like a fraud transaction?</h4>
+            <h4 class="fragment">Will the machine code branch here?</h4>
+        </section>
+
+        <section>
+            <h3>Machine Learning vs Artificial Intelligence</h3>
+            <div class="fragment" style="height: 500px">
+                <img src="Deep_Learning_NVIDIA.png">
+                <p><small>NVIDIA Blog:
+                    <a href="https://blogs.nvidia.com/blog/2016/07/29/whats-difference-artificial-intelligence-machine-learning-deep-learning-ai/">
+                        What’s the Difference Between Artificial Intelligence, Machine Learning, and Deep Learning?
+                    </a></small></p>
+            </div>
+        </section>
+
+        <!--only for school-->
+        <section>
+            <h3>Can Machines really think?</h3>
+            <ul>
+                <li class="fragment"data-fragment-index="1"><strong>Weak AI</strong> hypothesis: it is sufficient to simulate thinking
+                    <ul>
+                        <li class="fragment">like in: birds do real <em>flying</em>, planes only simulate flying
+                        <li class="fragment">if something can not be differentiated from real thinking is the only objective for AI anyway (<strong>Turing test</strong>)
+                    </ul>
+                </li>
+                <li class="fragment" data-fragment-index="2"><strong>Strong AI</strong> hypothesis: machines are only intelligent if they do the real thing
+                    <ul>
+                        <li class="fragment">is the machine really <em>conscious</em> like a human?
+                        <li class="fragment">poses the philosophically much more interesting questions
+                    </ul>
+                </li>
+            </ul>
+            <p class="fragment">Turing said: if you ever experience an intelligent machine,
+                such a distinction would not make more sense than asking if the other people do real thinking either</p>
+        </section>
+
+        <section>
+            <h2>Artificial Neural Networks</h2>
+            <p>Class of machine learning strategies</p>
+            <p>Mostly used for </p>
+            <ul>
+                <li>supervised learning
+                <li>classification
+            </ul>
+            <p>Based on the idea of simulating brain functions</p>
+        </section>
+
+        <section>
+            <h2>Illustrating Neural Networks</h2>
+            <a href="code/tensorflow/index.html#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=1&seed=0.19505&showTestData=true&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&batchSize_hide=true&dataset_hide=true&noise_hide=true&problem_hide=true&percTrainData_hide=false" target="_blank">
+                <div>
+                    <img src="screenshot_tensorflow/1-neuron.png">
+                </div>
+            </a>
+            <h3>Using the <a href="http://playground.tensorflow.org/" target="_blank">Tensorflow Playground</a></h3>
+        </section>
+
+        <section>
+            <h3>Deep Learning</h3>
+            <div class="fragment">
+                <img src="deep-learning.png" height="500">
+                <p><small><a target="_blank" href="https://drive.google.com/file/d/0BxKBnD5y2M8NdFB4U1BtU1V1ejA/view">
+                    Deep Learning: Course by Yann LeCun at Collège de France 2016
+                </a></small></p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Classification example: MNIST</h2>
+            <img src="mnist_render.png" height="300" style="float: left">
+            <ul>
+                <li>images of handwritten digits
+                <li>set of image exists for training
+                <li>used to recognize postal codes
+                <li>classification problem
+            </ul>
+            <br style="clear: both">
+            <p><small><a target="_blank" href="http://yann.lecun.com/exdb/mnist/">http://yann.lecun.com/exdb/mnist/</a></small></p>
+            <p><small><a target="_blank" href="https://deeplearning4j.org/mnist-for-beginners">https://deeplearning4j.org/mnist-for-beginners</a></small></p>
+
+        </section>
+
+        <section>
+            <h2>Convolutional Networks (CNN)</h2>
+            <h3>special networks to process images</h3>
+            <h3>using different kinds of specialized layers</h3>
+            <h3>often used with pre-trained models</h3>
+        </section>
+
+        <section>
+            <h3>Convolutional Networks</h3>
+            <p>turning shallow, but large data into deep semantic information</p>
+            <div>
+                <ul class="fragment">
+                    <li>some layers turn input into a number of filtered outputs
+                    <li>other layers down sample images (giving them a lower resoluation)
+                    <li>each layer adds semantic information
+                </ul>
+            </div>
+            <!--<img src="conv-network.svg">-->
+            <!--<p><small><a target="_blank" href="https://openai.com/blog/generative-models/">-->
+            <!--https://openai.com/blog/generative-models/-->
+            <!--</a></small></p>-->
+            <img src="udacity-ud730-convolutional-pyramid.png" style="height: 350px">
+            <p><small><a target="_blank" href="https://www.udacity.com/course/deep-learning--ud730">
+                Udacity Course 730, Deep Learning (L3 Convolutional Neural Networks > Convolutional Networks)
+            </a></small></p>
+        </section>
+
+        <section>
+            <h3>Layout of a typical CNN</h3>
+            <a target="_blank" href="http://cs231n.github.io/convolutional-networks/">
+                <img src="convnet-layoyt.jpeg">
+            </a>
+            <a target="_blank" href="http://cs231n.github.io/convolutional-networks/">http://cs231n.github.io/convolutional-networks/</a>
+        </section>
+
+        <section>
+            <h3>Intuition for Convolutional Networks</h3>
+            <div class="fragment">
+                <p>E.g. to recognize dogs (again a classification problem)</p>
+                <img src="dogs.jpg">
+                <p class="fragment">using an internal representation like</p>
+                <img class="fragment" src="vgg_filter_05_crop.jpg">
+            </div>
+            <p><small><a target="_blank" href="https://auduno.github.io/2016/06/18/peeking-inside-convnets/">
+                https://auduno.github.io/2016/06/18/peeking-inside-convnets/
+            </a></small></p>
+        </section>
+
+        <section>
+            <h1>Demo: Limits of all pattern recognition</h1>
+            <h2>The great ugly writing competition</h2>
+
+        </section>
+        <section>
+            <h3>Main Challenge: <em>What is the best configuration for a given problem?</em></h3>
+            <p class="fragment">That means what architecture: <em>How many layers, how many neurons, which activation function?</em></p>
+            <h3 class="fragment">Solution: <em>Try it out ...</em></h3>
+            <p class="fragment">... using searches over a set of hyper-parameters (might be expensive)</p>
+            <p class="fragment">Or: <em>use a pre-trained network</em> (by people who have done that job for you already)</p>
+        </section>
+
+        <section>
+            <h3>Google Inception Convolutional Network architecture to classify images </h3>
+            <img src="inception.png" height="480px">
+            <p><small><a href="https://arxiv.org/abs/1409.4842" target="_blank">Going Deeper with Convolutions</a></small></p>
+        </section>
+
+        <section>
+            <h3>Sometimes it is not that easy...</h3>
+            <!--<div class="fragment" style="float: left; width: 450px">-->
+                <img src="dog-vs-muffin.jpg">
+                <p>Dog vs Muffin</p>
+                <p><small><a target="_blank" href="https://twitter.com/mikko/status/751454988631740416?s=03">
+                    https://twitter.com/mikko/status/751454988631740416?s=03
+                </a></small></p>
+        </section>
+        <section>
+            <h3>TensorFlow finds the Chihuahua!</h3>
+            <p><a target="_blank" href="https://www.tensorflow.org/">TensorFlow</a>
+                is the full version of the Playground
+            </p>
+            <img src="dog-vs-muffin-dog1.jpg">
+            <div class="fragment">
+                <pre><code data-trim>
+Chihuahua (score = 0.68340)
+Pomeranian (score = 0.02451)
+Pekinese, Pekingese, Peke (score = 0.00751)
+toy terrier (score = 0.00716)
+beagle (score = 0.00645)
+                </code></pre>
+                <p>Using the pre-trained
+                    <a target="_blank" href="https://www.tensorflow.org/versions/r0.11/tutorials/image_recognition/index.html">
+                        Inception
+                    </a>  model</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>It even found out about my secret ...</h3>
+            <img src="twitter-wig.png">
+            <p><small><a target="_blank" href="https://twitter.com/DJCordhose/status/786875982527467520">https://twitter.com/DJCordhose/status/786875982527467520</a></small></p>
+        </section>
+
+        <section>
+            <h3>... on the other hand</h3>
+            <img src="olli-beauty.jpg">
+            <p><small><a target="_blank" href="https://cloud.google.com/vision">https://cloud.google.com/vision</a></small></p>
+        </section>
+
+        <section>
+            <h3>Try out CNN based Image Services</h3>
+            <ul>
+                <li>Google: <a target="_blank" href="https://cloud.google.com/vision">https://cloud.google.com/vision</a>
+                <li>Microsoft: <a target="_blank" href="https://www.microsoft.com/cognitive-services/en-us/computer-vision-api">https://www.microsoft.com/cognitive-services/en-us/computer-vision-api</a>
+            </ul>
+            <p>Upload pictures to both of them and see how they are doing</p>
+            <p><strong><em>Caution</em></strong>: No need to create an account or register to try any of them</p>
+            <h4>Question: Do you think it is coincidence the two big search engine providers have such powerful models for image recognition?</h4>
+        </section>
+
+        <section>
+            <img src="dog-vs-chicken-wing.jpg" height="500px">
+        </section>
+
+        <section>
+            <img src="dog-vs-bagle.jpg" height="500px">
+        </section>
+
+        <section>
+            <img src="dog-vs-bread.jpg" height="500px">
+        </section>
+
+        <section>
+            <h2>Thank you!</h2>
+
+            <!--<h2>Questions / Discussion</h2>-->
+            <p><small>
+                <a href="http://zeigermann.eu">Oliver Zeigermann</a> / <a href="http://twitter.com/djcordhose">@DJCordhose</a>
+            </small>
+            </p>
+
+            <div style="position: relative; top: -20px">
+                <img src="Gg6wa3S.gif" height="400px">
+                <br>
+                <a href="https://en.wikipedia.org/wiki/Technological_singularity" target="_blank">
+                    No need to be afraid of the Singularity</a>
+            </div>
+        </section>
+
+        <!--<section>-->
+            <!--<h3>Resources</h3>-->
+            <!--<ul>-->
+                <!--<li><a target="_blank" href="http://playground.tensorflow.org/">Tensorflow Playground in the Browser</a>-->
+                <!--<li>-->
+                    <!--<a target="_blank"-->
+                       <!--href="http://cs.stanford.edu/people/karpathy/convnetjs/">-->
+                        <!--ConvNetJS - Deep Learning in your browser-->
+                    <!--</a>-->
+                <!--<li>-->
+                    <!--<a target="_blank"-->
+                       <!--href="https://cloud.google.com/blog/big-data/2016/07/understanding-neural-networks-with-tensorflow-playground">-->
+                        <!--Understanding neural networks with TensorFlow Playground-->
+                    <!--</a>-->
+                <!--<li>-->
+                    <!--<a target="_blank"-->
+                       <!--href="http://colah.github.io/posts/2014-03-NN-Manifolds-Topology/">-->
+                        <!--Neural Networks, Manifolds, and Topology-->
+                    <!--</a>-->
+                <!--<li>-->
+                    <!--<a target="_blank"-->
+                       <!--href="https://cs231n.github.io/assets/conv-demo/index.html">-->
+                        <!--Animated explanation of Convolutional Networks-->
+                    <!--</a>-->
+                <!--<li>-->
+                    <!--<a target="_blank"-->
+                       <!--href="http://colah.github.io/posts/2015-01-Visualizing-Representations/">-->
+                        <!--Visualizing Representations: Deep Learning and Human Beings-->
+                    <!--</a>-->
+                <!--<li>-->
+                    <!--<a target="_blank"-->
+                       <!--href="http://brohrer.github.io/how_convolutional_neural_networks_work.html">-->
+                        <!--How do Convolutional Neural Networks work?-->
+                    <!--</a>-->
+                <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a target="_blank"&ndash;&gt;-->
+                       <!--&lt;!&ndash;href="https://github.com/karpathy/tsnejs">&ndash;&gt;-->
+                        <!--&lt;!&ndash;Clustering using t-SNE in the Browser&ndash;&gt;-->
+                    <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                <!--<li>-->
+                    <!--<a target="_blank"-->
+                       <!--href="https://aiexperiments.withgoogle.com/what-neural-nets-see">-->
+                        <!--What Neural Networks See (Google AI Experiment)-->
+                    <!--</a>-->
+            <!--</ul>-->
+        <!--</section>-->
+
+    </div>
+
+</div>
+
+<script src="reveal.js/lib/js/head.min.js"></script>
+<script src="reveal.js/js/reveal.js"></script>
+<script src="lib/jquery-2.2.4.js"></script>
+
+<script>
+    //    $('section').attr('data-background-image', "backgrounds/dark-saddle.jpg")
+//    $('section').attr('data-background-image', "backgrounds/dark-blue.jpg")
+    $('section').attr('data-background-image', "backgrounds/dark-blur.jpg")
+    //$('section').attr('data-background-image', "backgrounds/dark-case.jpg")
+    //$('section').attr('data-background-image', "backgrounds/dark-grid.jpg")
+    //    $('section').attr('data-background-image', "backgrounds/dark-fish.jpg")
+</script>
+<script>
+    Reveal.addEventListener( 'ready', function( event ) {
+        if (window.location.hostname.indexOf('localhost') !== -1) {
+            // only applies to presentation version
+            Reveal.configure({ controls: false });
+        } else {
+            // only applies to public version
+            $('.fragment').removeClass('fragment');
+        }
+        // applies to all versions
+//        $('.fragment').removeClass('fragment');
+    } );
+</script>
+
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+            {
+                src: 'reveal.js/lib/js/classList.js', condition: function () {
+                return !document.body.classList;
+            }
+            },
+            {
+                src: 'reveal.js/plugin/markdown/marked.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'reveal.js/plugin/markdown/markdown.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'reveal.js/plugin/highlight/highlight.js', async: true, condition: function () {
+                return !!document.querySelector('pre code');
+            }, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            },
+            {src: 'reveal.js/plugin/zoom-js/zoom.js', async: true},
+            {src: 'reveal.js/plugin/notes/notes.js', async: true},
+            // https://github.com/mikemiles86/reveal-line-numbers
+            {src: 'lib/js/line-numbers.js'}
+        ]
+    });
+
+</script>
+
+</body>
+</html>
