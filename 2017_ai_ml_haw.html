@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>AI</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="reveal.js/css/reveal.css">
+    <!--<link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">-->
+    <link rel="stylesheet" href="reveal.js/css/theme/night.css" id="theme">
+    <!--<link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">-->
+    <!--<link rel="stylesheet" href="reveal.js/css/theme/night.css" id="theme">-->
+    <!--<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">-->
+
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+    <style>
+        pre code {
+            /*display: block;*/
+            /*padding: 0.5em;*/
+            /*background: #FFFFFF !important;*/
+            /*color: #000000 !important;*/
+            font-size: larger !important;
+        }
+
+        .right-img {
+            margin-left: 10px !important;
+            float: right;
+            /*height: 500px;*/
+        }
+        .left-img {
+            margin-left: 10px !important;
+            float: left;
+            /*height: 500px;*/
+        }
+        .todo:before {
+            content: 'TODO: ';
+        }
+        .todo {
+            color: red !important;
+        }
+        code span.line-number {
+            color: lightcoral;
+        }
+
+    </style>
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+    <div class="slides">
+
+        <section>
+            <h1>Can Machines think intelligently?</h1>
+            <h2>And can they be conscious?</h2>
+                <p><a href="http://zeigermann.eu">Oliver Zeigermann</a> / <a href="http://twitter.com/djcordhose">@DJCordhose</a>
+                </p>
+
+        </section>
+
+        <section>
+            <h2>Olli</h2>
+<pre>
+- Studied Computer Science (with an emphasis on AI) and Philosophy in the 90s
+- Failed to become a (high school) teacher in the 2000s
+- now reiterates on AI and ML
+</pre>
+        </section>
+
+        <section>
+            <h2>Schedule</h2>
+<pre>
+Teil 1: Schwache KI
+- Digit Recognition zeigen
+- Captcha
+- Alles andere
+
+Teil 2: Starke KI
+-DeepDream
+
+</pre>
+        </section>
+
+        <section class="todo">
+<pre>
+- Watch TensorFlow Talks
+  - https://www.youtube.com/watch?v=9ziVGkt8Gg4&list=PLOU2XLYxmsIKC8eODk_RNCWv3fBcLvMMy (incl. Art)
+  - https://youtu.be/OzAdKMPgUt4
+- Deep Dream auf Azure
+- Captchas nachtrainieren
+</pre>
+        </section>
+
+        <section>
+            <h1>Part I: What is Intelligence?</h1>
+        </section>
+
+        <section>
+            <h2>Initial Exercise</h2>
+            <p>How would you defined if a machine can think intelligently?</p>
+            <p><small>
+                Example Definition:
+                A machine leading a court trial and coming to a fair judgement
+            </small></p>
+        </section>
+
+        <section>
+            <h3>Can Machines really think?</h3>
+            <ul>
+                <li class="fragment"data-fragment-index="1"><strong>Weak AI</strong> hypothesis: it is sufficient to simulate thinking
+                    <ul>
+                        <li class="fragment">like in: birds do real <em>flying</em>, planes only simulate flying
+                        <li class="fragment">if something can not be differentiated from real thinking is the only objective for AI anyway (<strong>Turing test</strong>)
+                    </ul>
+                </li>
+                <li class="fragment" data-fragment-index="2"><strong>Strong AI</strong> hypothesis: machines are only intelligent if they do the real thing
+                    <ul>
+                        <li class="fragment">is the machine really <em>conscious</em> like a human?
+                        <li class="fragment">poses the philosophically much more interesting questions
+                    </ul>
+                </li>
+            </ul>
+            <p class="fragment"><strong>Turing said: if you ever experience an intelligent machine,
+                such a distinction would not make more sense than asking if the other people do real thinking either</strong></p>
+        </section>
+
+        <section>
+            <h2>What does Yann LeCun - one of the fathers of modern AI - think about this?</h2>
+
+            <p>Prediction is the essence of intelligence.</p>
+            <p>Differentiation is the essence of learning.</p>
+
+            <a href="https://www.facebook.com/yann.lecun/posts/10154442711667143" target="_blank">
+                https://www.facebook.com/yann.lecun/posts/10154442711667143
+            </a>
+        </section>
+
+        <section>
+            <h1>Part II: Weak AI</h1>
+            <h2>Where to machines enter domains thought of as genuine to humans a few years ago?</h2>
+        </section>
+
+        <section>
+            <h3>Recognizing Digits</h3>
+<pre class="todo">
+- Show MNIST example from Java
+- Add Screenshot from Java Talk
+</pre>
+        </section>
+
+        <section>
+            <h4>Machine Understands and Reacts Like a Human</h4>
+            <img src="ai/gmail-understands-and-reacts-like-a-human.png" height="600px">
+        </section>
+
+        <section>
+            <h3>Playing Go</h3>
+            <a href="https://www.tastehit.com/blog/google-deepmind-alphago-how-it-works/" target="_blank">
+                https://www.tastehit.com/blog/google-deepmind-alphago-how-it-works/
+            </a>
+        </section>
+
+        <section>
+            <h3>Recognizing Scribbles</h3>
+            <a href="https://quickdraw.withgoogle.com/" target="_blank">https://quickdraw.withgoogle.com/</a>
+        </section>
+
+        <section class="todo">
+            <h3>Can an image Captcha tell a machine from a human?</h3>
+            Add Captchas here
+        </section>
+
+        <section>
+            <h1>Part III: Understanding Deep Neural Networks</h1>
+            <h2>Getting a bit more technical</h2>
+        </section>
+
+        <section class="todo">
+<pre>
+ - von 2017_schule klauen
+- tensorflow playground zeigen, dazu auch Aufgabe geben
+</pre>
+        </section>
+
+        <section>
+            <h1>Part IV: Strong AI</h1>
+        </section>
+
+        <section>
+            <h3>What do experts think where we are - 2015</h3>
+            <img src="ai/Intelligence2-1024x836.png" height="500px">
+            <p><small><a href="http://waitbutwhy.com/2015/01/artificial-intelligence-revolution-1.html" target="_blank">
+                http://waitbutwhy.com/2015/01/artificial-intelligence-revolution-1.html
+            </a><br><a href="http://waitbutwhy.com/2015/01/artificial-intelligence-revolution-2.html" target="_blank">
+                http://waitbutwhy.com/2015/01/artificial-intelligence-revolution-2.html
+            </a>
+            </small></p>
+
+        </section>
+
+        <section>
+            <h3>What do experts think where we are - 2016</h3>
+            <img src="ai/three-stages-of-ai-2016.jpg" height="500px">
+            <p><small><a href="https://twitter.com/amitpaka/status/783025757291356164" target="_blank">https://twitter.com/amitpaka/status/783025757291356164</a>
+            </small></p>
+        </section>
+
+        <section>
+            <h2>But will there ever be truly intelligent machines at all?</h2>
+        </section>
+
+        <section>
+            <h3>Do we still understand the machines we build?</h3>
+            <p><a target="_blank" href="https://backchannel.com/our-machines-now-have-knowledge-well-never-understand-857a479dcc0e">
+                https://backchannel.com/our-machines-now-have-knowledge-well-never-understand-857a479dcc0e
+            </a></p>
+            <p><a target="_blank" href="https://futurism.com/googles-new-ai-is-better-at-creating-ai-than-the-companys-engineers/">
+                https://futurism.com/googles-new-ai-is-better-at-creating-ai-than-the-companys-engineers/
+            </a></p>
+        </section>
+
+        <section>
+            <h3>Even stronger: Do we really still build those machines?</h3>
+            <p>Or rather are they build by the data (e.g. pictures) of the world we feed them?</p>
+            <p>Would we say, we have built our kids?</p>
+
+            <p><a href="https://twitter.com/fchollet/status/849076312853663744?s=09" target="_blank">https://twitter.com/fchollet/status/849076312853663744?s=09</a></p>
+            <p><em>The most remarkable thing about the brain is that it wasn't designed. As a result, how the brain works is largely an irrelevant question.</em></p>
+            <p><em>Essentially: it doesn't matter what the answer is, bc one can mechanically derive it once the question has been asked. What matters is the Q</em></p>
+        </section>
+
+        <section>
+            <h3>Can machines be creative?</h3>
+            <p>Can they create something genuinely new?</p>
+            <p><em>One of the strangest things about thinking is our ability to create new thoughts, beyond what we can experience, by combining known concepts. This is where cognition departs from mere pattern recognition and become an abstraction machine.</em></p>
+            <p><small><a href="https://twitter.com/fchollet/status/863494785734029312?s=03" target="_blank">
+                https://twitter.com/fchollet/status/863494785734029312?s=03
+            </a></small></p>
+<pre class="todo">
+- Color Names: https://twitter.com/tsullivanphoto/status/865753799729786881?s=03
+- Metal Band Names: https://twitter.com/JanelleCShane/status/861243170084007937?s=03
+- Creating Movies: https://twitter.com/dh7net/status/861334725750816768?s=03
+- Creating worlds: https://www.youtube.com/watch?v=SwRV5422uKI
+</pre>
+        </section>
+
+        <section class="todo">
+            <h3>Can machines create Art?</h3>
+<pre>
+- https://twitter.com/mtyka/status/866192961960202244?s=03
+- https://twitter.com/mtyka/status/866199274119241732
+</pre>
+        </section>
+
+        <section class="todo">
+            <h3>Can machines dream?</h3>
+            <pre>
+- https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/tutorials/deepdream
+- http://localhost:8888/notebooks/deepdream.ipynb
+</pre>
+        </section>
+
+        <section class="todo">
+            <h3>Can machines hallucinate?</h3>
+<pre>
+- https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/tutorials/deepdream
+- http://localhost:8888/notebooks/deepdream.ipynb
+- https://www.youtube.com/watch?v=lkpe5njSiJk
+</pre>
+        </section>
+
+        <section>
+            <h2>Can machines be conscious?</h2>
+            <p>What makes us conscious? <a target="_blank" href="https://theconversation.com/what-makes-us-conscious-50011">
+                https://theconversation.com/what-makes-us-conscious-50011
+            </a></p>
+            <p>Integrated Information Theory postulates physical system can give rise to consciousness if it is</p>
+            <ol>
+                <li>very rich in information (like brain and SSD)
+                <li>highly integrated (data is highly connected in complex ways)
+            </ol>
+            <p>Should be able to distinguish awake and anaesthetised brains
+                (<a target="_blank" href="http://journals.sagepub.com/doi/abs/10.1177/1550059413513723">http://journals.sagepub.com/doi/abs/10.1177/1550059413513723</a>)
+            </p>
+            <p>Might consciousness something not restricted to living things? <a target="_blank " href="https://www.scientificamerican.com/article/is-consciousness-universal/">
+                https://www.scientificamerican.com/article/is-consciousness-universal/
+            </a> </p>
+        </section>
+
+        <section>
+            <h2>Fishbowl Discussion</h2>
+            <h3>Are machines conscious?</h3>
+        </section>
+
+    </div>
+
+</div>
+
+<script src="reveal.js/lib/js/head.min.js"></script>
+<script src="reveal.js/js/reveal.js"></script>
+<script src="lib/jquery-2.2.4.js"></script>
+
+<script>
+    //    $('section').attr('data-background-image', "backgrounds/dark-saddle.jpg")
+//    $('section').attr('data-background-image', "backgrounds/dark-blue.jpg")
+    $('section').attr('data-background-image', "backgrounds/dark-blur.jpg")
+    //$('section').attr('data-background-image', "backgrounds/dark-case.jpg")
+    //$('section').attr('data-background-image', "backgrounds/dark-grid.jpg")
+    //    $('section').attr('data-background-image', "backgrounds/dark-fish.jpg")
+</script>
+<script>
+    Reveal.addEventListener( 'ready', function( event ) {
+        if (window.location.hostname.indexOf('localhost') !== -1) {
+            // only applies to presentation version
+            Reveal.configure({ controls: false });
+        } else {
+            // only applies to public version
+            $('.fragment').removeClass('fragment');
+        }
+        // applies to all versions
+//        $('.fragment').removeClass('fragment');
+    } );
+</script>
+
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+            {
+                src: 'reveal.js/lib/js/classList.js', condition: function () {
+                return !document.body.classList;
+            }
+            },
+            {
+                src: 'reveal.js/plugin/markdown/marked.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'reveal.js/plugin/markdown/markdown.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'reveal.js/plugin/highlight/highlight.js', async: true, condition: function () {
+                return !!document.querySelector('pre code');
+            }, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            },
+            {src: 'reveal.js/plugin/zoom-js/zoom.js', async: true},
+            {src: 'reveal.js/plugin/notes/notes.js', async: true},
+            // https://github.com/mikemiles86/reveal-line-numbers
+            {src: 'lib/js/line-numbers.js'}
+        ]
+    });
+
+</script>
+
+</body>
+</html>
