@@ -85,21 +85,51 @@
 
         </section>
 
+<!--
+Ablauf:
+- I - Intro: Einsiteg: Wie definiert man Intelligenz?
+  - Einsteigsübung: Eigene Definition finden
+- II Weak AI: Sind Maschinen Intelligent?
+  - Demo: Captchas erkennen - Maschinen eroberrn domänen, die vorher Menschen vorbehalten waren
+- III Strong AI 1: Können Maschinen kreativ sein?
+  - Demo: Deep Dream
+- III Strong AI 2: Können Maschinen Empathisch sein?
+  - Übung: Kurze Text dazu lesen
 
-        <section class="todo">
-<pre>
-- Watch TensorFlow Talks
-  - https://youtu.be/OzAdKMPgUt4
-- Deep Dream auf Azure bringen
-- Captchas nachtrainieren
+- IV Abschluss
+- Optional: Was ist der Unterschied zwischen Mensch und Tier?
+  - Übung: Twitter Kanal nach tierischen Eigenschaften durchforsten
+- Fishbowl: Gibt es einen grundsätzlichen Unterschied zwischen Maschinen, Tieren und Menschen?
+
+- https://www.technologyreview.com/s/607970/experts-predict-when-artificial-intelligence-will-exceed-human-performance/
+
+- Conscience
+    - https://twitter.com/aeonmag/status/866594620410667011?s=03
+    - https://twitter.com/introspection/status/866568109557153792?s=03
+
+Fun Stuff from Google IO Talks:
+- Animated Dreams: https://github.com/random-forests/tensorflow-workshop/blob/master/extras/deep_dream.ipynb
+- Music and Art using Machine Learning: https://magenta.tensorflow.org/
 - https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/index.html
 - https://codelabs.developers.google.com/codelabs/tensorflow-for-poets-2
 - https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android
   - https://ci.tensorflow.org/view/Nightly/job/nightly-android/
   - Show TF Stylize etc using Vysor
+
+Optional:
+- Deep Dream auf Azure bringen
+- Captchas nachtrainieren
+-->
+
+
+<!--
+        <section class="todo">
+<pre>
 </pre>
         </section>
+-->
 
+<!--
         <section>
             <h2>Olli</h2>
 <pre>
@@ -108,7 +138,9 @@
 - now reiterates on AI and ML
 </pre>
         </section>
+-->
 
+<!--
         <section>
             <h2>Schedule</h2>
 <pre>
@@ -122,17 +154,26 @@ Teil 2: Starke KI
 
 </pre>
         </section>
+-->
+
         <section>
             <h1>Part I: What is Intelligence?</h1>
         </section>
 
         <section>
             <h2>Initial Exercise</h2>
-            <p>How would you defined if a machine can think intelligently?</p>
+            <p>How would you define if a machine can think intelligently?</p>
             <p><small>
                 Example Definition:
                 A machine leading a court trial and coming to a fair judgement
             </small></p>
+            <p><strong>Discuss with your neighbor and come up with a definition of your own</strong></p>
+        </section>
+
+        <section>
+            <h2>Shared Reading</h2>
+            <p>Very brief history of Artificial Intelligence (AI)</p>
+            <a href="http://www.kdnuggets.com/2017/04/brief-history-artificial-intelligence.html" target="_blank">http://www.kdnuggets.com/2017/04/brief-history-artificial-intelligence.html</a>
         </section>
 
         <section>
@@ -155,6 +196,7 @@ Teil 2: Starke KI
                 such a distinction would not make more sense than asking if the other people do real thinking either</strong></p>
         </section>
 
+<!--
         <section>
             <h2>What does Yann LeCun - one of the fathers of modern AI - think about this?</h2>
 
@@ -165,18 +207,11 @@ Teil 2: Starke KI
                 https://www.facebook.com/yann.lecun/posts/10154442711667143
             </a>
         </section>
+-->
 
         <section>
             <h1>Part II: Weak AI</h1>
-            <h2>Where to machines enter domains thought of as genuine to humans a few years ago?</h2>
-        </section>
-
-        <section>
-            <h3>Recognizing Digits</h3>
-<pre class="todo">
-- Show MNIST example from Java
-- Add Screenshot from Java Talk
-</pre>
+            <h2>Where do machines enter domains thought of as genuine to humans a few years ago?</h2>
         </section>
 
         <section>
@@ -185,27 +220,156 @@ Teil 2: Starke KI
         </section>
 
         <section>
-            <h3>Playing Go</h3>
-            <a href="https://www.tastehit.com/blog/google-deepmind-alphago-how-it-works/" target="_blank">
-                https://www.tastehit.com/blog/google-deepmind-alphago-how-it-works/
-            </a>
-        </section>
-
-        <section>
             <h3>Recognizing Scribbles</h3>
             <a href="https://quickdraw.withgoogle.com/" target="_blank">https://quickdraw.withgoogle.com/</a>
         </section>
 
-        <section class="todo">
-            <h3>Can an image Captcha tell a machine from a human?</h3>
-            Add Captchas here
+        <section>
+            <h2>Can an image Captcha tell a machine from a human?</h2>
+        </section>
+
+                <section>
+            <h3>Can a machine tell the dog from the muffin?</h3>
+            <img src="dog-vs-muffin.jpg">
         </section>
 
         <section>
-            <h1>Part III: Understanding Deep Neural Networks</h1>
-            <h2>Getting a bit more technical</h2>
+            <h3>Using Googles Pre-Trained Inception Model</h3>
+            <img src="inception_v3_architecture.png" height="480px">
+            <p><small><a href="https://arxiv.org/abs/1409.4842" target="_blank">Going Deeper with Convolutions</a></small></p>
         </section>
 
+        <section>
+            <h3>Dog 1</h3>
+            <img src="captchas/dog-vs-muffin/dog1.jpg" height="300px">
+            <div class="fragment">
+                <pre><code data-trim>
+Chihuahua (score = 0.70387)
+Pomeranian (score = 0.02321)
+toy terrier (score = 0.00686)
+Pekinese, Pekingese, Peke (score = 0.00679)
+beagle (score = 0.00598)
+                </code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>Dog 2</h3>
+            <img src="captchas/dog-vs-muffin/dog2.jpg" height="300px">
+            <div class="fragment">
+                <pre><code data-trim>
+Chihuahua (score = 0.94613)
+fig (score = 0.00149)
+Mexican hairless (score = 0.00118)
+toy terrier (score = 0.00088)
+ski mask (score = 0.00084)
+                </code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>Muffin 1</h3>
+            <img src="captchas/dog-vs-muffin/muffin1.jpg" height="300px">
+            <div class="fragment">
+                <pre><code data-trim>
+vase (score = 0.05576)
+water jug (score = 0.03472)
+soap dispenser (score = 0.03104)
+hog, pig, grunter, squealer, Sus scrofa (score = 0.02650)
+Sealyham terrier, Sealyham (score = 0.02031)
+                </code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>Muffin 2</h3>
+            <img src="captchas/dog-vs-muffin/muffin2.jpg" height="300px">
+            <div class="fragment">
+                <pre><code data-trim>
+teddy, teddy bear (score = 0.25262)
+custard apple (score = 0.13425)
+spaghetti squash (score = 0.02526)
+earthstar (score = 0.02003)
+toyshop (score = 0.01996)
+                </code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h2>More Examples</h2>
+        </section>
+
+        <section>
+            <img src="dog-vs-bread.jpg" height="500px">
+        </section>
+
+        <section>
+            <img src="captchas/dog-vs-bread-term.png">
+        </section>
+
+        <section>
+            <img src="dog-vs-chicken-wing.jpg" height="500px">
+        </section>
+
+        <section>
+            <img src="captchas/dog-vs-wing-term.png">
+        </section>
+
+        <section>
+            <img src="dog-vs-bagle.jpg" height="500px">
+        </section>
+
+        <section>
+            <img src="captchas/dog-vs-bagel-term.png">
+        </section>
+
+        <section>
+            <img src="captchas/dog-vs-ice-cream/dog-vs-ice-cream.jpg" height="500px">
+        </section>
+
+        <section>
+            <img src="captchas/dog-vs-ice-cream-term.png">
+        </section>
+
+        <section>
+            <img src="captchas/sheepdog-vs-mop/sheepdog-vs-mop.jpg" height="500px">
+        </section>
+
+        <section>
+            <img src="captchas/sheepdog-vs-mop-term.png">
+        </section>
+
+        <section>
+            <h1>So?</h1>
+            <h2>No!</h2>
+            <h3>At least for our examples the Computer knows as well as the human what is a dog and what is not</h3>
+        </section>
+
+        <section>
+            <h3>Playing Go</h3>
+            <p>Until recently Go was believed to be completely in the human domain</p>
+
+            <p><a href="https://techcrunch.com/2017/05/27/googles-alphago-ai-is-retiring/" target="_blank">
+                https://techcrunch.com/2017/05/27/googles-alphago-ai-is-retiring/
+            </a></p>
+            <p><a href="https://www.tastehit.com/blog/google-deepmind-alphago-how-it-works/" target="_blank">
+                https://www.tastehit.com/blog/google-deepmind-alphago-how-it-works/
+            </a></p>
+            <p>Now, within a year, AlphaGo has reliably beaten any human being (including no. 1 and 2 in the world) and has retired already</p>
+        </section>
+
+        <section>
+            <h3>What does this mean for AI</h3>
+            <p><em>Zooming out, it is also still the case that AlphaGo is a narrow AI system that can play Go and that’s it. The ATARI-playing agents from DeepMind do not use the approach taken with AlphaGo. The Neural Turing Machine has little to do with AlphaGo. The Google datacenter improvements definitely do not use AlphaGo. The Google Search engine is not going to use AlphaGo. Therefore, AlphaGo does not generalize to any problem outside of Go, but the people and the underlying neural network components do, and do so much more effectively than in the days of old AI where each demonstration needed repositories of specialized, explicit code.</em></p>
+            <p><small><a href="https://medium.com/@karpathy/alphago-in-context-c47718cb95a5" target="_blank">https://medium.com/@karpathy/alphago-in-context-c47718cb95a5</a></small></p>
+        </section>
+
+        <section>
+            <h1>Part III: Strong AI</h1>
+            <h3>Can machines be creative and sentient?</h3>
+        </section>
+
+<!--
         <section>
             <h2>Feature Channels in DNNs</h2>
             <img src="ai/feature-channels-io17.png">
@@ -215,18 +379,9 @@ Teil 2: Starke KI
             </small></p>
 
         </section>
+-->
 
-        <section class="todo">
-<pre>
- - von 2017_schule klauen
-- tensorflow playground zeigen, dazu auch Aufgabe geben
-</pre>
-        </section>
-
-        <section>
-            <h1>Part IV: Strong AI</h1>
-        </section>
-
+<!--
         <section>
             <h3>What do experts think where we are - 2015</h3>
             <img src="ai/Intelligence2-1024x836.png" height="500px">
@@ -249,6 +404,7 @@ Teil 2: Starke KI
         <section>
             <h2>But will there ever be truly intelligent machines at all?</h2>
         </section>
+-->
 
         <section>
             <h3>Do we still understand the machines we build?</h3>
@@ -267,7 +423,7 @@ Teil 2: Starke KI
 
             <p><a href="https://twitter.com/fchollet/status/849076312853663744?s=09" target="_blank">https://twitter.com/fchollet/status/849076312853663744?s=09</a></p>
             <p><em>The most remarkable thing about the brain is that it wasn't designed. As a result, how the brain works is largely an irrelevant question.</em></p>
-            <p><em>Essentially: it doesn't matter what the answer is, bc one can mechanically derive it once the question has been asked. What matters is the Q</em></p>
+            <p><em>Essentially: it doesn't matter what the answer is, bc one can mechanically derive it once the question has been asked. What matters is the Qustion</em></p>
         </section>
 
         <section>
@@ -323,14 +479,45 @@ Teil 2: Starke KI
             <p>Should be able to distinguish awake and anaesthetised brains
                 (<a target="_blank" href="http://journals.sagepub.com/doi/abs/10.1177/1550059413513723">http://journals.sagepub.com/doi/abs/10.1177/1550059413513723</a>)
             </p>
-            <p>Might consciousness something not restricted to living things? <a target="_blank " href="https://www.scientificamerican.com/article/is-consciousness-universal/">
+            <p>Might consciousness be something not restricted to living things? <a target="_blank " href="https://www.scientificamerican.com/article/is-consciousness-universal/">
                 https://www.scientificamerican.com/article/is-consciousness-universal/
             </a> </p>
         </section>
 
         <section>
+            <h2>Exercise</h2>
+            <h3><em>Sentient</em> intelligence vs <em>non-sentient</em> intelligence</h3>
+            <p>Discuss this claim<p>
+            <p><strong>Our main conclusion is that it is <em>not</em> sentient intelligence we should fear but <em>non-sentient</em> intelligence.</strong></p>
+            <p>Sources</p>
+            <ul>
+                <li>Abstract of source of above quote <a target="_blank" href=https://arxiv.org/abs/1705.07996>
+                    Living Together: Mind and Machine Intelligence
+                </a>
+                <li>Abstract of <a target="_blank" href=https://link.springer.com/article/10.1007/s12369-014-0262-y>
+                    A Recipe for Empathy:
+                    Integrating the Mirror System, Insula, Somatosensory Cortex and Motherese
+                </a>
+                <li><a target="_blank" href=https://twitter.com/petitegeek/status/868406476074823680">https://twitter.com/petitegeek/status/868406476074823680</a>
+                <li><a href="https://twitter.com/MattFenech83/status/867698105285791746" target="_blank">https://twitter.com/MattFenech83/status/867698105285791746</a>
+                </ul>
+
+
+        </section>
+
+        <section>
+            <h1>Part IV: Wrapping Up</h1>
+        </section>
+
+        <section>
             <h3>Does this have a conscience?</h3>
             <img src="ai/does-a-squirrel-have-a-conscience.jpg" height="600px">
+        </section>
+
+        <section>
+            <h2>Optional</h2>
+            <h3>What is the difference between human and animal cognition?</h3>
+            <p>You can use <a target="_blank" href="https://twitter.com/animalcog">https://twitter.com/animalcog</a> as a survey of what animals are capable of</p>
         </section>
 
         <section>
