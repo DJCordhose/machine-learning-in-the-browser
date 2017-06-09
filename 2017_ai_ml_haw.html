@@ -75,6 +75,14 @@
 <div class="reveal">
     <div class="slides">
 
+        <section class="preparation">
+<pre>
+- Connect Pixel with Vysor
+- start Deep Dream Notebook for experiments:
+</pre>
+
+        </section>
+
         <section>
             <h1>Can Machines think?</h1>
             <h2>And can they be conscious?</h2>
@@ -103,10 +111,6 @@ Ablauf:
 
 - https://www.technologyreview.com/s/607970/experts-predict-when-artificial-intelligence-will-exceed-human-performance/
 
-- Conscience
-    - https://twitter.com/aeonmag/status/866594620410667011?s=03
-    - https://twitter.com/introspection/status/866568109557153792?s=03
-
 Fun Stuff from Google IO Talks:
 - Animated Dreams: https://github.com/random-forests/tensorflow-workshop/blob/master/extras/deep_dream.ipynb
 - Music and Art using Machine Learning: https://magenta.tensorflow.org/
@@ -116,18 +120,20 @@ Fun Stuff from Google IO Talks:
   - https://ci.tensorflow.org/view/Nightly/job/nightly-android/
   - Show TF Stylize etc using Vysor
 
+Pix2Pix
+- https://affinelayer.com/pixsrv/
+- http://fotogenerator.npocloud.nl/
+
 Optional:
 - Deep Dream auf Azure bringen
 - Captchas nachtrainieren
 -->
 
 
-<!--
-        <section class="todo">
-<pre>
-</pre>
-        </section>
--->
+        <!--<section class="todo">-->
+<!--<pre>-->
+<!--</pre>-->
+        <!--</section>-->
 
 <!--
         <section>
@@ -371,18 +377,6 @@ toyshop (score = 0.01996)
 
 <!--
         <section>
-            <h2>Feature Channels in DNNs</h2>
-            <img src="ai/feature-channels-io17.png">
-            <p><small>
-                <a target="_blank" href="https://www.youtube.com/watch?v=9ziVGkt8Gg4">Open Source TensorFlow Models (Google I/O '17)</a><br>
-                <a target="_blank" href="https://github.com/random-forests/tensorflow-workshop/blob/master/extras/deep_dream.ipynb">https://github.com/random-forests/tensorflow-workshop/blob/master/extras/deep_dream.ipynb</a>
-            </small></p>
-
-        </section>
--->
-
-<!--
-        <section>
             <h3>What do experts think where we are - 2015</h3>
             <img src="ai/Intelligence2-1024x836.png" height="500px">
             <p><small><a href="http://waitbutwhy.com/2015/01/artificial-intelligence-revolution-1.html" target="_blank">
@@ -423,7 +417,7 @@ toyshop (score = 0.01996)
 
             <p><a href="https://twitter.com/fchollet/status/849076312853663744?s=09" target="_blank">https://twitter.com/fchollet/status/849076312853663744?s=09</a></p>
             <p><em>The most remarkable thing about the brain is that it wasn't designed. As a result, how the brain works is largely an irrelevant question.</em></p>
-            <p><em>Essentially: it doesn't matter what the answer is, bc one can mechanically derive it once the question has been asked. What matters is the Qustion</em></p>
+            <p><em>Essentially: it doesn't matter what the answer is, because one can mechanically derive it once the question has been asked. What matters is the Question.</em></p>
         </section>
 
         <section>
@@ -433,37 +427,89 @@ toyshop (score = 0.01996)
             <p><small><a href="https://twitter.com/fchollet/status/863494785734029312?s=03" target="_blank">
                 https://twitter.com/fchollet/status/863494785734029312?s=03
             </a></small></p>
-<pre class="todo">
-- Color Names: https://twitter.com/tsullivanphoto/status/865753799729786881?s=03
-- Metal Band Names: https://twitter.com/JanelleCShane/status/861243170084007937?s=03
-- Creating Movies: https://twitter.com/dh7net/status/861334725750816768?s=03
-- Creating worlds: https://www.youtube.com/watch?v=SwRV5422uKI
-</pre>
         </section>
 
-        <section class="todo">
-            <h3>Can machines create Art?</h3>
-<pre>
-- https://twitter.com/mtyka/status/866192961960202244?s=03
-- https://twitter.com/mtyka/status/866199274119241732
-</pre>
+        <section data-markdown>
+            <script type="text/template">
+### What machines can come up with
+
+- Color Names: https://twitter.com/tsullivanphoto/status/865753799729786881
+- Metal Band Names: https://twitter.com/JanelleCShane/status/861243170084007937
+- Movies: https://twitter.com/dh7net/status/861334725750816768
+- worlds: https://www.youtube.com/watch?v=SwRV5422uKI
+	        </script>
         </section>
 
-        <section class="todo">
-            <h3>Can machines dream?</h3>
-            <pre>
-- https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/tutorials/deepdream
-- http://localhost:8888/notebooks/deepdream.ipynb
-</pre>
+        <section>
+            <h2>Can machines create Art?</h2>
         </section>
 
-        <section class="todo">
-            <h3>Can machines hallucinate?</h3>
-<pre>
+        <section>
+            <h3>Klimt or machine?</h3>
+            <img src="ai/ai-klimt.jpg" height="400px">
+            <p><small><a href="https://twitter.com/mtyka/status/866192961960202244" target="_blank">https://twitter.com/mtyka/status/866192961960202244</a>,
+                <a href="https://twitter.com/mtyka/status/866199274119241732" target="_blank">https://twitter.com/mtyka/status/866199274119241732</a>
+            </small></p>
+        </section>
+
+        <section>
+            <h3>Is a creative process just applying a certain style to reality?</h3>
+            <img src="ai/sigurd-original.jpg" height="400px" class="fragment">
+            <span class="fragment" style="position: relative; top: -205px; font-size: 60px"><strong>=></strong></span>
+            <img src="ai/sigurd-stylized.png" height="400px" class="fragment">
+        </section>
+
+        <section>
+            <h3>Demo Style Transfer</h3>
+            <img src="ai/tf-stylize.png" height="550px">
+        </section>
+
+        <section>
+            <h3>Simulating the brain with many layers of neurons</h3>
+            <p>Each layer getting a deeper abstraction from the raw visual input</p>
+            <img src="ai/feature-channels-io17.png" height="400px">
+            <p><small>
+                <a target="_blank" href="https://www.youtube.com/watch?v=9ziVGkt8Gg4">Open Source TensorFlow Models (Google I/O '17)</a><br>
+                <a target="_blank" href="https://github.com/random-forests/tensorflow-workshop/blob/master/extras/deep_dream.ipynb">https://github.com/random-forests/tensorflow-workshop/blob/master/extras/deep_dream.ipynb</a>
+            </small></p>
+
+        </section>
+
+        <section>
+            <h3>Exercise: Playing around with layered neurons</h3>
+            <a target="_blank" href="http://playground.tensorflow.org">
+            <div>
+            <img src="tensorflow-overview.png">
+            <p><small>http://playground.tensorflow.org</small></p>
+            </div>
+            </a>
+        </section>
+
+        <section>
+            <h2>Might dreaming or hallucinating just be partial brain shut down?</h2>
+        </section>
+
+        <section>
+            <h3>Partially activating layers leeds to dream like impressions</h3>
+            <p>
+            <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/deepdream/deepdream.ipynb" target="_blank">
+                https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/deepdream/deepdream.ipynb
+            </a>
+            </p>
+            <p>Sequences:
+                <a href="https://www.youtube.com/watch?v=lkpe5njSiJk" target="_blank">https://www.youtube.com/watch?v=lkpe5njSiJk</a></p>
+        </section>
+
+
+
+        <section data-markdown>
+            <script type="text/template">
+### Might dreaming or hallucinating just be partial brain shut down?
+
 - https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/tutorials/deepdream
 - http://localhost:8888/notebooks/deepdream.ipynb
 - https://www.youtube.com/watch?v=lkpe5njSiJk
-</pre>
+            </script>
         </section>
 
         <section>
@@ -482,6 +528,18 @@ toyshop (score = 0.01996)
             <p>Might consciousness be something not restricted to living things? <a target="_blank " href="https://www.scientificamerican.com/article/is-consciousness-universal/">
                 https://www.scientificamerican.com/article/is-consciousness-universal/
             </a> </p>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+### Is our consciousness linked to / identical to brain functions?
+
+- Facial recognition reduced to a few brain cells: http://www.cell.com/cell/fulltext/S0092-8674(17)30538-X
+  - Facial images can be linearly reconstructed using responses of ∼200 face cells
+  - early brain regions pre process images before that
+- Seeing Consciousness as a process of inference: https://aeon.co/essays/consciousness-is-not-a-thing-but-a-process-of-inference
+  - *The special trick of consciousness is being able to project action and time into a range of possible futures*
+            </script>
         </section>
 
         <section>
@@ -526,6 +584,7 @@ toyshop (score = 0.01996)
             <h3>Are animals conscious?</h3>
             <h3>Does it take a living thing to have consciousness?</h3>
             <h3>Are machines conscious?</h3>
+            <p><strong>Olli's position here: There is no fundamental difference between machine, animal, and human</strong></p>
         </section>
 
     </div>
@@ -555,6 +614,8 @@ toyshop (score = 0.01996)
         }
         // applies to all versions
 //        $('.fragment').removeClass('fragment');
+        $('a').attr('target', '_blank');
+
     } );
 </script>
 
