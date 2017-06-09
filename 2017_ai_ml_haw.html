@@ -75,12 +75,16 @@
 <div class="reveal">
     <div class="slides">
 
-        <section class="preparation">
-<pre>
-- Connect Pixel with Vysor
-- start Deep Dream Notebook for experiments:
-</pre>
+        <section data-markdown class="preparation">
+            <script type="text/template">
+# Preparation
 
+- Connect Pixel with Vysor
+- start Deep Dream Notebook for experiments, use google IO version:
+  - `cd /mnt/c/Users/olive/Development/ml/tensorflow-workshop/extras`
+  - `jupyter notebook --no-browser`
+  - `http://localhost:8888/notebooks/deep_dream.ipynb`
+            </script>
         </section>
 
         <section>
@@ -487,29 +491,26 @@ toyshop (score = 0.01996)
 
         <section>
             <h2>Might dreaming or hallucinating just be partial brain shut down?</h2>
-        </section>
-
-        <section>
-            <h3>Partially activating layers leeds to dream like impressions</h3>
             <p>
-            <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/deepdream/deepdream.ipynb" target="_blank">
-                https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/deepdream/deepdream.ipynb
-            </a>
+                <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/deepdream/deepdream.ipynb" target="_blank">
+                    https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/deepdream/deepdream.ipynb
+                </a>
             </p>
             <p>Sequences:
                 <a href="https://www.youtube.com/watch?v=lkpe5njSiJk" target="_blank">https://www.youtube.com/watch?v=lkpe5njSiJk</a></p>
         </section>
 
+        <section>
+            <h3>Partially activating layers leeds to dream like impressions</h3>
+            <img src="ai/dream-town.jpg" height="500px">
+        </section>
 
-
-        <section data-markdown>
-            <script type="text/template">
-### Might dreaming or hallucinating just be partial brain shut down?
-
-- https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/tutorials/deepdream
-- http://localhost:8888/notebooks/deepdream.ipynb
-- https://www.youtube.com/watch?v=lkpe5njSiJk
-            </script>
+        <section>
+            <h3>Partial application of layers applied to real images</h3>
+            <img src="ai/hallucination-original.jpg" height="250px" class="fragment">
+            <span class="fragment" style="position: relative; top: -105px; font-size: 60px"><strong>=></strong></span>
+            <img src="ai/hallucination-dogslugs.jpg" height="250px" class="fragment">
+            <p class="fragment">Is the machine hallucinating?</p>
         </section>
 
         <section>
@@ -596,6 +597,11 @@ toyshop (score = 0.01996)
 <script src="lib/jquery-2.2.4.js"></script>
 
 <script>
+    if (window.location.hostname.indexOf('localhost') !== -1) {
+    } else {
+        // only applies to public version
+        $('.preparation').remove();
+    }
     //    $('section').attr('data-background-image', "backgrounds/dark-saddle.jpg")
 //    $('section').attr('data-background-image', "backgrounds/dark-blue.jpg")
     $('section').attr('data-background-image', "backgrounds/dark-blur.jpg")
